@@ -9,15 +9,16 @@
         <script type="text/javascript" src="js/jquery.cycle.js"></script>
         <script type="text/javascript" src="js/carrosel.js"></script>
         <script type="text/javascript" src="js/util.js" ></script>
+        <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
             <link href="css/ie6.css" rel="stylesheet" type="text/css" />
         <![endif]-->
         <title>Perfetto Academia</title>
     </head>
-    <body>
+    <body>        
         <div id="topo">
             <img src="images/logo-perfetto.jpg" alt="Perfetto Academia" title="Perfetto Academia" />
-        </div>
+        </div>        
         <div id="bg-menu">
             <ul id="menu">
                 <li class="menu-right"></li>			
@@ -26,18 +27,24 @@
                 <li><a href="#">A PERFETTO</a></li>
                 <li><a href="#">MODALIDADES</a></li>
                 <li><a href="#">HORÁRIOS</a></li>
-                <li><a href="#">GALERIA</a></li>
+                <li><a href="#">GALERIA</a>
+                    <ul>
+                        <li><a href="#">VIDEOS</a></li>
+                        <li><a href="#">FOTOS</a></li>
+                    </ul>
+                </li>
                 <li><a style="border: 0;" href="#">CONTATO</a></li>			
             </ul>		
-        </div>
+        </div>       	
         <div id="wrap">
-            <div id="banner">
+             <div id="banner">
                 <ul>
                     <li><img src="images/banner/musculacao.jpg" alt="Musculação" /></li>
                     <li><img src="images/banner/muay-thai.jpg" alt="Musculação" /></li>				
                 </ul>	
                 <div class="pager"></div>			
-            </div>		
+            </div>
+            <div class="border-shadow"></div>
             <div id="bloco-destaque">
                 <h2>Video Destaque</h2>
                 <div class="video">
@@ -48,15 +55,78 @@
                         frameborder="0">
                     </iframe>
                 </div>
-                <div class="carrossel">
+                <p class="prev"><a href="#">prev</a></p>
+                <div class="carrossel">                    
                     <ul>
-                        <li><img src="images/carrossel/teste1.jpg" alt="" /></li>
-                        <li><img src="images/carrossel/teste2.jpg" alt="" /></li>
-                        <li><img src="images/carrossel/teste3.jpg" alt="" /></li>
-                        <li><img src="images/carrossel/teste3.jpg" alt="" /></li>
-                    </ul>
-                </div>
-            </div>		
+                        <li>
+                            <div class="thumb">
+                                <img src="images/carrossel/teste1.jpg" alt="" />                                
+                            </div>
+                            <div class="descricao">
+                                <h3>Video</h3>
+                                <p>Descrição Video ldsmfms sjke,m jmn ajsdsfj j sjfsd asfdg</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="thumb">
+                                <img src="images/carrossel/teste2.jpg" alt="" />
+                            </div>
+                            <div class="descricao">
+                                <h3>Video</h3>
+                                <p>Descrição Video ldsmfms sjke,m jmn ajsdsfj j sjfsd asfdg</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="thumb">
+                                <img src="images/carrossel/teste3.jpg" alt="" />
+                            </div>
+                            <div class="descricao">
+                                <h3>Video</h3>
+                                <p>Descrição Video ldsmfms sjke,m jmn ajsdsfj j sjfsd asfdg</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="thumb">
+                                <img src="images/carrossel/teste1.jpg" alt="" />
+                            </div>
+                            <div class="descricao">
+                                <h3>Video</h3>
+                                <p>Descrição Video ldsmfms sjke,m jmn ajsdsfj j sjfsd asfdg</p>
+                            </div>
+                        </li>                        
+                    </ul>                    
+                </div>                
+                <p class="next"><a href="#">next</a></p>
+            </div>
+            <div id="trainers">
+                <h2>Personal Trainers</h2>
+                <ul>
+                    <li>
+                        <img src="images/trainers/trainers1.jpg" alt="" />
+                        <p>Neno - Musculação</p>
+                    </li>
+                    <li>
+                        <img src="images/trainers/trainers2.jpg" alt="" />
+                        <p>Neno - Musculação</p>
+                    </li>
+                    <li>
+                        <img src="images/trainers/trainers3.jpg" alt="" />
+                        <p>Neno - Musculação</p>
+                    </li>
+                    <li>
+                        <img src="images/trainers/trainers4.jpg" alt="" />
+                        <p>Neno - Musculação</p>
+                    </li>
+                    <li>
+                        <img src="images/trainers/trainers3.jpg" alt="" />
+                        <p>Neno - Musculação</p>
+                    </li>
+                    <li>
+                        <img src="images/trainers/trainers4.jpg" alt="" />
+                        <p>Neno - Musculação</p>
+                    </li>
+                </ul>
+            </div>
             <div class="clear"></div>
             <div id="conteudo">
 
@@ -70,8 +140,9 @@
                         <li><a href="#">A Perfetto</a></li>
                         <li><a href="#">Modalidades</a></li>
                         <li><a href="#">Horários</a></li>
-                        <li><a href="#">Galeria</a></li>
-                        <li><a href="#">Contato</a></li>									
+                        <li><a href="#">Galeria de Videos</a></li>
+                        <li><a href="#">Galeria de Fotos</a></li>
+                        <li style="background: none;"><a href="#">Contato</a></li>									
                     </ul>
                 </div> 
             </div>
