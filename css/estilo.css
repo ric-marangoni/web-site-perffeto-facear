@@ -1,28 +1,45 @@
 *{margin: 0; padding: 0;}
 
 body{
-    background: #FFF url("../images/bg.gif");
+    background: url("http://static1.grsites.com/images/glossymetal.jpg");    
     text-align: center;
     font: 12px Arial, Verdana, Tahoma;
     color: #777;
+    overflow-x: hidden; 
 }
 
 h1{}
 
 h2{
     font-size: 20px;
-    color: #895025;
-    border-bottom: 4px solid #895025;
+    color: #333;
+    border-bottom: 3px solid #333;
     padding: 1px 0;
     margin: 5px 0;
     text-transform: uppercase;
 }
 
-#topo{
-    background: #FFF;
-    height: 198px;
+h3{
+    font-size: 14px;
+}
+
+#bg-topo{
+    background: url("http://static2.grsites.com/images/fadestrip2.png") repeat-x;    
+}
+
+#topo{    
+    background: #FFF url("../images/girl.jpg") no-repeat right top;    
+    height: 288px;
     width: 1000px;
     margin: 0 auto;
+    text-align: left;
+    position: relative;
+}
+
+#topo img{
+    position: absolute;
+    top: 30px;
+    left: 195px;
 }
 
 #bg-menu{
@@ -40,7 +57,9 @@ ul#menu{
 }
 
 ul#menu li{
-    float: left;	
+    float: left;
+    position: relative;
+    height: 40px;
 }
 
 ul#menu li.menu-left{
@@ -71,26 +90,51 @@ ul#menu li a:hover{
     color: #000;
 }
 
+ul#menu li ul{
+    list-style: none;
+    position: absolute;
+    top: 39px;
+    left: -1px;
+    display: none;
+}
+
+ul#menu li ul li{
+    float: none;    
+    z-index: 99;
+    background: #FFA833;
+    width: 141px;    
+}
+
+ul#menu li ul li a{
+    border: 0;
+    margin: 0;    
+    padding: 6px 0;
+    border-top: 1px solid #FFF;
+}
+
+ul#menu li:hover ul{
+    display: block;
+}
+
 #wrap{
     width: 1000px;
     background: #FFF;
     margin: 0 auto;	
-    text-align: left;	
-    padding-top: 10px;
+    text-align: left;    
 }
 
 #banner{
-    width: 500px;
-    height: 348px;
+    width: 1000px;
+    height: 250px;
     overflow: hidden;
     position: relative;
-    float: left;
+    margin: 0 auto;    
 }
 
 .pager{
     position: absolute;
     right: 10px;
-    top: 310px;
+    top: 215px;
     z-index: 99;
 }
 
@@ -117,12 +161,11 @@ ul#menu li a:hover{
 
 #bloco-destaque{
     float: left;
-    width: 470px;
+    width: 570px;
     height: 346px;
-    border: 1px solid #E5E5E5;
+    border-bottom: 1px dotted #CCC;
     margin: 0 0 0 9px;
-    padding: 0 5px;
-    background: url("../images/bg_box.png") repeat-x bottom center ;
+    position: relative;
 }
 
 #bloco-destaque .video{
@@ -131,77 +174,117 @@ ul#menu li a:hover{
 
 .carrossel{
     float: left;
-    margin-left: 10px;
-}
-
-.carousel-wrap{
-    width: 108px;
-    height: 210px !important;
+    margin-left: 15px;
+    margin-top: 36px;
+    height: 224px !important;    
 }
 
 .carrossel ul{
     list-style: none;        
     overflow: hidden;
 }
-.carrossel ul li{
-    display: block;    
-    height: 59px;
+.carrossel ul li{    
+    height: 80px;    
+}
+
+.carrossel ul li .thumb{
     background: #E4E4E4;
     border: 1px solid #9E9E9E;    
     padding: 1px;
-    width: 104px;    
+    display: block;
+    height: 59px;
     overflow: hidden;
-    position: relative;
+    width: 104px;
+    position: relative;    
+    float: left;
+    margin-right: 5px;
 }
 
-.carrossel ul li img{    
+.carrossel ul li .thumb img{    
     position: absolute;
     top: -15px;
+    
 }
 
-#sidebar-superior{
+.carrossel ul li .descricao{
     float: left;
-    width: 130px;
+    width: 99px;
+    border-bottom: 1px dotted #CCC;
+}
+
+.carrossel ul li .descricao p{
+    margin-top: 5px;
+    font-size: 11px;
+    
+    height: 41px;
+}
+
+#bloco-destaque .prev{
+    position: absolute;
+    top: 45px;
+    right: 110px;
+}
+
+#bloco-destaque .next{
+    position: absolute;
+    bottom: 15px;
+    right: 110px;
+}
+#trainers{
+    float: left;
+    width: 395px;
     height: 346px;
-    border: 1px solid #CCC;		
+    border-bottom: 1px dotted #CCC;
+    margin: 0 0 0 18px;    
+}
+
+#trainers ul{
+    list-style: none;
+}
+
+#trainers ul li{
+    display: block;
+    float: left;
+    margin: 10px 10px;
 }
 
 #conteudo{
-    height: 378px;
-    border: 1px solid #CCC;
+    height: 378px;    
     margin-top: 8px;
 }
 
 #rodape {
     text-align: left;	
     margin-top: 20px;
-    background: url("../images/bg_box.png") repeat-x bottom center ;
+    background: url("../images/bg-rodape.jpg") repeat-x scroll left top #F4F4F4;
     border-top: 2px solid #FFA833;
 }
 
 #rodape-centro {
     width: 1000px;
     margin: 0 auto;
-    padding: 25px 0 25px 0;
-    border-bottom: 4px solid #EFEFEF;
-    height: 50px;	
+    padding: 8px 0 24px 0;
+    border-bottom: 1px solid #E3E3E3;
+    height: 5px;	
 	
 }
 .copy-right {
     width: 1000px;
-    margin: 40px auto 0;
-    padding-bottom: 40px;	
+    margin: 10px auto 0;
+    padding-bottom: 20px;
+    color: #8C8C8C;
 }
 
 .rodape-autor {
     text-align: right;
     float: right;
+    color: #8C8C8C;
 }
 
 .institucional {    
     margin-right: 20px;
     padding: 5px 20px 4px 0;
-    text-align: center;
+    
 }
 
 .institucional ul {
@@ -209,27 +292,35 @@ ul#menu li a:hover{
 }
 
 .institucional ul li {
-    background: url("../images/seta.gif") no-repeat scroll 5px 50% transparent;
-    color: #8A8A8A;
+    background: url("../images/bg_line_rodape.gif") no-repeat scroll right center transparent;    
     font-size: 14px;
     margin-bottom: 5px;
     padding-left: 15px;
     display: inline;
-    text-transform: uppercase;
+    margin: 0 10px 0 0;
+    padding: 0 14px 0 0;
+    
 }
 
 .institucional ul li a {
-    color: #8A8A8A;
-    text-decoration: underline;
+    color: #8C8C8C;
+    font-family: Arial,'Trebuchet MS',sans-sarif;
+    font-size: 12px;
+    text-decoration: none;
+    text-shadow: 1x 1x 1x 1x #FFFFFF;
 }
 
 .institucional ul li a:hover {
-    text-decoration: none;
+    color: #676767;
 } 
 
-/*/////CLASSES GENÉRICAS//////*/
+/*/////CLASSES GENï¿½RICAS//////*/
 
 .clear{
     clear: both;
 }
 
+.border-shadow {
+    background: url("../images/bg-shadow.jpg") no-repeat top center;
+    height: 32px;
+}

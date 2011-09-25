@@ -16,10 +16,11 @@ jQuery(document).ready(
 
         jQuery('.carrossel').jCarouselLite({
             vertical: true,
-            visible: 3,
-            auto: 4000,
+            visible: 3,            
             speed: 700,
-            circular: true
+            circular: true,
+            btnPrev: '.prev',
+            btnNext: '.next'
         });   
    
 		jQuery("*[rel=tooltip]").hover(
