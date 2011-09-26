@@ -17,6 +17,10 @@ a:hover{
     text-decoration: underline;
 }
 
+img{
+    border: 0;
+}
+
 h1{}
 
 h2{
@@ -36,19 +40,12 @@ h3{
     background: url("http://static2.grsites.com/images/fadestrip2.png") repeat-x;    
 }
 
-#topo{    
-    background: #FFF url("../images/girl.jpg") no-repeat right top;    
+#topo{
     height: 288px;
     width: 1000px;
     margin: 0 auto;
     text-align: left;
     position: relative;
-}
-
-#topo img{
-    position: absolute;
-    top: 30px;
-    left: 195px;
 }
 
 #bg-menu{
@@ -228,29 +225,38 @@ ul#menu li:hover ul{
     height: 41px;   
 }
 
-#bloco-destaque .prev{
+#bloco-destaque .prev a{
     position: absolute;
-    bottom: 10px;
-    right: 40px;
+    bottom: 17px;
+    right: 60px;
     background: url("../images/seta-cima.png") no-repeat;
     display: block;
     text-indent: -9999px;
-    width: 76px;
-    height: 25px;
+    width: 54px;
+    height: 19px;
     cursor: pointer;
 }
 
-#bloco-destaque .next{
+#bloco-destaque .prev a:hover{
+    background: url("../images/seta-cima-hover.png") no-repeat;
+}
+
+#bloco-destaque .next a{
     position: absolute;
-    bottom: 10px;
-    right: -15px;
+    bottom: 17px;
+    right: 5px;
     background: url("../images/seta-baixo.png") no-repeat;
     display: block;
     text-indent: -9999px;
-    width: 76px;
-    height: 25px;
+    width: 54px;
+    height: 19px;
     cursor: pointer;
 }
+
+#bloco-destaque .next a:hover{
+    background: url("../images/seta-baixo-hover.png") no-repeat;
+}
+
 #trainers{
     float: left;
     width: 395px;
