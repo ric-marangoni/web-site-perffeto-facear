@@ -2,10 +2,13 @@ jQuery(document).ready(
 	function(){		
 	    		
 		var Banner = jQuery('#banner ul');
-		
-        jQuery('.descricao a').click(function(){
+		var primeiroVideo = jQuery('.descricao a').eq(0).attr('href');;        
+        
+        jQuery('.video').html(geraFrameTag(primeiroVideo));
+        
+        jQuery('.descricao a, .thumb a').click(function(){
             var link = jQuery(this).attr('href');
-            var tagVideo = "<iframe width=\"315\" height=\"300\" src=\""+link+"\" frameborder=\"0\"></iframe>";
+            var tagVideo = geraFrameTag(link);
             jQuery('.video').html(tagVideo);
             return false;
         });
@@ -46,3 +49,8 @@ jQuery(document).ready(
 		});			
 	}
 );
+    
+function geraFrameTag(link){
+    return "<iframe width=\"315\" height=\"300\" src=\""+link+"\" frameborder=\"0\"></iframe>";
+}
+    
