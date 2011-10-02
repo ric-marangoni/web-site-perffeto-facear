@@ -1,7 +1,7 @@
 *{margin: 0; padding: 0;}
 
 body{
-    background: url("http://static1.grsites.com/images/glossymetal.jpg");    
+    background: url("../images/bg-body.jpg");    
     text-align: center;
     font: 12px Arial, Verdana, Tahoma;
     color: #777;
@@ -28,7 +28,7 @@ h2{
     color: #333;
     border-bottom: 3px solid #333;
     padding: 1px 0;
-    margin: 5px 0;
+    margin-bottom: 5px;
     text-transform: uppercase;
 }
 
@@ -59,7 +59,7 @@ ul#menu{
     width: 1000px;
     margin: 0 auto;
     list-style: none;
-    font: 23px Arial, Verdana, Tahoma;
+    font: 18px Arial, Verdana, Tahoma;
 }
 
 ul#menu li{
@@ -89,7 +89,7 @@ ul#menu li a{
     display: block;
     padding: 0 20px;
     border-right: 1px solid #FFF;
-    margin-top: 6px;    
+    margin-top: 9px;    
 }
 
 ul#menu li a:hover{
@@ -108,7 +108,7 @@ ul#menu li ul li{
     float: none;    
     z-index: 99;
     background: #FFA833;
-    width: 141px;    
+    width: 118px;    
 }
 
 ul#menu li ul li a{
@@ -126,7 +126,8 @@ ul#menu li:hover ul{
     width: 1000px;
     background: #FFF;
     margin: 0 auto;	
-    text-align: left;    
+    text-align: left;
+    position: relative;
 }
 
 #banner{
@@ -141,7 +142,7 @@ ul#menu li:hover ul{
     position: absolute;
     right: 10px;
     top: 215px;
-    z-index: 99;
+    z-index: 99;    
 }
 
 .pager a{	
@@ -275,10 +276,101 @@ ul#menu li:hover ul{
     margin: 10px 10px;
 }
 
-#conteudo{
-    height: 378px;    
-    margin-top: 8px;
+#conteudo{    
+    padding: 10px;    
 }
+
+#home-modalidades{
+	/*background: url("../images/bg-box-modalidades.jpg") repeat-x top center;*/	
+	margin: 10px 8px 10px 10px;
+	width: 569px;
+	float: left;	
+}
+
+#home-modalidades ul{
+	list-style: none;
+}
+
+#home-modalidades ul li{
+	margin: 25px;	
+	float: left;
+	position: relative;
+}
+
+#home-modalidades ul li a{
+	
+	
+}
+
+#home-modalidades ul li div{	
+	position: absolute;
+	bottom: 2px;	
+	background: #333;
+	opacity: 0.8;
+	width: 204px;
+	padding: 10px;
+}
+
+#home-modalidades ul li div a{
+	color: #FFF;
+	font-weight: bold;   
+}
+
+#alunos-destaque{
+	float: left;
+	border-left: 1px dotted #CCC;
+	margin-top: 10px;	
+	width: 388px;	
+	padding-left: 10px;		
+}
+
+#alunos-destaque ul {
+	list-style: none;
+}
+
+#alunos-destaque ul  li{
+	float: left;
+	display: block;
+	margin: 10px;
+}
+
+
+/************************************************
+* PÁGINA DE CONTATO                             *
+*************************************************/
+
+#form-contato{
+    float: left;
+    width: 500px
+    
+}
+
+#form-contato input, #form-contato textarea{
+    background-color: #FFEACC;
+    box-shadow: 0 1px 1px #BBBBBB;
+    color: #492F70;
+    border-radius: 5px;
+    padding: 3px 5px;    
+}
+
+#mapa-contato{
+    float: left;
+    width: 425px;
+    margin-left: 20px;
+}
+
+#mapa-contato span, #form-contato span{
+    margin-top: 10px;
+    display: block;
+}
+
+/************************************************
+* FIM PÁGINA DE CONTATO                         *
+*************************************************/
+
+/************************************************
+* RODAPÉ                                        *
+*************************************************/
 
 #rodape {
     text-align: left;	
@@ -339,9 +431,15 @@ ul#menu li:hover ul{
 
 .institucional ul li a:hover {
     color: #676767;
-} 
+}
 
-/*/////CLASSES GEN�RICAS//////*/
+/************************************************
+* FIM RODAPÉ                                    *
+*************************************************/
+
+/************************************************
+* CLASSES GENÉRICAS                             *
+*************************************************/
 
 .clear{
     clear: both;

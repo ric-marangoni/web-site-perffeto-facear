@@ -13,6 +13,11 @@ jQuery(document).ready(
             return false;
         });
         
+        /*jQuery('#alunos-destaque .slider').slider({
+            orientation: 'vertical',            
+            animated: true
+        });*/
+        
 		if(Banner.length > 0){
 				Banner.cycle({
 				fx: 'fade',
