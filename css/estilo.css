@@ -475,7 +475,7 @@ ul#menu li:hover ul{
 }
 
 #form-contato .btn{
-    background: #FFA833;
+    background: #333;
     color: #FFF;
     border-radius: 5px;
     border: 0;
@@ -484,10 +484,18 @@ ul#menu li:hover ul{
     margin-top: 15px;
     font-weight: bold;
     cursor: pointer;
+    padding: 3px;
 }
 
 #form-contato .btn:hover{
-    background: #333;
+    background: #E5E5E5;
+    color: #333;
+    border: 1px solid #333;
+    padding: 2px;
+}
+
+#form-contato .btn:active{
+    border: 1px solid #333;
 }
 
 #mapa-contato{

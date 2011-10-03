@@ -86,8 +86,58 @@ jQuery(document).ready(
 
             event.preventDefault();//stop any default behaviour
         });
-
-
+        
+        jQuery('#formulario-contato .btn').click(function(e){
+            
+            var nome = jQuery('input[name="nome"]');
+            var email = jQuery('input[name="email"]');
+            var telefone = jQuery('input[name="telefone"]');
+            var assunto = jQuery('input[name="assunto"]');
+            var mensagem = jQuery('textarea[name="mensagem"]');
+            
+            
+            if(nome.val() == ""){                
+                tooltip(e, 'Por favor digite seu nome');
+                nome.focus();
+                return false;
+            }
+            
+            if(email.val() == ""){                
+                tooltip(e, 'Por favor digite seu email');
+                email.focus();
+                return false;
+            }
+            
+            if(telefone.val() == ""){                
+                tooltip(e, 'Por favor digite seu telefone');
+                telefone.focus();
+                return false;
+            }
+            
+            if(assunto.val() == ""){                
+                tooltip(e, 'Por favor digite seu assunto');
+                assunto.focus();
+                return false;
+            }
+            
+            if(mensagem.val() == ""){                
+                tooltip(e, 'Por favor digite sua mensagem');
+                mensagem.focus();
+                return false;
+            }
+            
+            return true;
+            
+        }).mousemove(function(e){
+            jQuery('.tooltip').css({
+                top : e.pageY - 60,
+                left : e.pageX - 90
+            });            
+        });
+        
+        jQuery('#formulario-contato').mouseleave(function(){            
+            jQuery('.tooltip').remove();
+        });
         
         if(Banner.length > 0){
             Banner.cycle({
@@ -109,7 +159,7 @@ jQuery(document).ready(
    
         jQuery("*[rel=tooltip]").hover(
             function(e){                
-                jQuery("body").append('<div class="tooltip">'+jQuery(this).attr('title')+'</div>');
+                jQuery("body").append('<div class="tooltip">'+jQuery(this).attr('title')+'</div>');                
                 jQuery('.tooltip').css({
                     top : e.pageY - 60,
                     left : e.pageX - 90
@@ -129,4 +179,13 @@ jQuery(document).ready(
 function geraFrameTag(link){
     return "<iframe width=\"315\" height=\"300\" src=\""+link+"\" frameborder=\"0\"></iframe>";
 }
+
+function tooltip(e, mensagem){
+    jQuery("body").append('<div class="tooltip">'+mensagem+'</div>');    
+    jQuery('.tooltip').css({
+        top : e.pageY - 60,
+        left : e.pageX - 90
+    }).fadeIn();               
+}
+
     
