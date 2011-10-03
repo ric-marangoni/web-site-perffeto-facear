@@ -1,5 +1,9 @@
 *{margin: 0; padding: 0;}
 
+/************************************************
+* PADRÕES DE TAGS HTML                          *
+*************************************************/
+
 body{
     background: url("../images/bg-body.jpg");    
     text-align: center;
@@ -21,7 +25,13 @@ img{
     border: 0;
 }
 
-h1{}
+h1{
+	font-size: 24px;
+	color: 777;
+	border-bottom: 1px dotted #CCC;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
 
 h2{
     font-size: 20px;
@@ -36,6 +46,10 @@ h3{
     font-size: 12px;
 }
 
+/************************************************
+* TOPO                                          *
+*************************************************/
+
 #bg-topo{
     background: url("http://static2.grsites.com/images/fadestrip2.png") repeat-x;    
 }
@@ -47,6 +61,10 @@ h3{
     text-align: left;
     position: relative;
 }
+
+/************************************************
+* MENU PRINCIPAL                             *
+*************************************************/
 
 #bg-menu{
     background: url("../images/bg-menu.jpg") repeat-x bottom left;
@@ -128,7 +146,13 @@ ul#menu li:hover ul{
     margin: 0 auto;	
     text-align: left;
     position: relative;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #FFA833;
 }
+
+/************************************************
+* BANNER HOME                             *
+*************************************************/
 
 #banner{
     width: 1000px;
@@ -165,6 +189,10 @@ ul#menu li:hover ul{
     background: #FFF;
     color: #FFA833;
 }
+
+/************************************************
+* BLOCO VIDEO DESTAQUE E CARROSSEL              *
+*************************************************/
 
 #bloco-destaque{
     float: left;
@@ -258,6 +286,10 @@ ul#menu li:hover ul{
     background: url("../images/seta-baixo-hover.png") no-repeat;
 }
 
+/************************************************
+* BLOCO PERSONAL TRAINERS                       *
+*************************************************/
+
 #trainers{
     float: left;
     width: 395px;
@@ -280,8 +312,11 @@ ul#menu li:hover ul{
     padding: 10px;    
 }
 
-#home-modalidades{
-	/*background: url("../images/bg-box-modalidades.jpg") repeat-x top center;*/	
+/************************************************
+* HOME MODALIDADES                              *
+*************************************************/
+
+#home-modalidades{	
 	margin: 10px 8px 10px 10px;
 	width: 569px;
 	float: left;	
@@ -316,24 +351,101 @@ ul#menu li:hover ul{
 	font-weight: bold;   
 }
 
+#home-modalidades a.mais-modalidades{
+    float: right;
+    background: #333;
+    color: #FFF;
+    padding: 7px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-right: 45px;
+}
+
+#home-modalidades a.mais-modalidades:hover{
+    background: #E5E5E5;
+    border: 1px solid #333;
+    color: #333;
+    padding: 6px;
+}
+
+/************************************************
+* ALUNOS DESTAQUE E SLIDER                      *
+*************************************************/
+
 #alunos-destaque{
 	float: left;
 	border-left: 1px dotted #CCC;
 	margin-top: 10px;	
 	width: 388px;	
-	padding-left: 10px;		
+    padding-left: 10px;		
+        
 }
 
-#alunos-destaque ul {
-	list-style: none;
+#scroll-pane{ 
+    float: left;
+    overflow: auto; 
+    width: 365px; 
+    height: 380px;
+    position: relative;    
+    display: inline;    
 }
 
-#alunos-destaque ul  li{
-	float: left;
-	display: block;
-	margin: 10px;
+#scroll-content{
+    position: absolute;
+    top: 0;
+    left: 0
 }
 
+.scroll-content-item{
+    background-color: #fcfcfc;
+    color: #003366;
+    width: 108px;
+    height: 106px;
+    float: left; 
+    margin: 10px 5px;     
+    line-height: 96px;
+    text-align: center; 
+    border: 1px solid gray;
+    display: inline;
+    position: relative;
+}
+
+.scroll-content-item .nome-aluno{
+    position: absolute;
+    bottom: 2px;	
+	background: #FFF;
+	opacity: 0.8;
+	width: 103px;	
+    padding-left: 3px;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+}
+
+.scroll-content-item .nome-aluno a{
+    color: #000;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+#slider-wrap{
+    float: left;    
+    width: 22px;
+    border: 0;    
+}
+#slider-vertical{
+    position: relative;
+    height:100%;
+    margin-left: 8px;
+}
+.ui-slider-handle{
+    width: 24px;
+    height: 10px;
+    margin: 0 auto;
+    background-color:darkgray;
+    display:block;
+    position:absolute;    
+}
 
 /************************************************
 * PÁGINA DE CONTATO                             *
@@ -341,27 +453,52 @@ ul#menu li:hover ul{
 
 #form-contato{
     float: left;
-    width: 500px
+    width: 407px
     
 }
 
-#form-contato input, #form-contato textarea{
-    background-color: #FFEACC;
-    box-shadow: 0 1px 1px #BBBBBB;
-    color: #492F70;
+#form-contato input, #form-contato textarea{    
+    padding: 3px 5px;
+    border: 1px solid #CCC;
+}
+
+#form-contato input{
+    width: 250px;
+}
+
+#form-contato input:focus, #form-contato textarea:focus{
+    border: 1px solid #333;
+}
+
+#form-contato span{
+    font-weight: bold;
+}
+
+#form-contato .btn{
+    background: #FFA833;
+    color: #FFF;
     border-radius: 5px;
-    padding: 3px 5px;    
+    border: 0;
+    width: 100px;
+    float: right;
+    margin-top: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#form-contato .btn:hover{
+    background: #333;
 }
 
 #mapa-contato{
     float: left;
     width: 425px;
-    margin-left: 20px;
+    margin-right: 100px;
 }
 
 #mapa-contato span, #form-contato span{
     margin-top: 10px;
-    display: block;
+    display: block;    
 }
 
 /************************************************
@@ -448,4 +585,21 @@ ul#menu li:hover ul{
 .border-shadow {
     background: url("../images/bg-shadow.jpg") no-repeat top center;
     height: 32px;
+}
+
+/************************************************
+* TOOLTIP                                       *
+*************************************************/
+
+.tooltip{	
+	position: absolute;
+	display: none;
+	padding: 10px 30px;
+	background: #000;
+	color: #fff;
+	width: 150px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+    z-index: 9999;
 }
