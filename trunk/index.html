@@ -10,7 +10,7 @@
         <script type="text/javascript" src="js/jquery.cycle.js"></script>
         <script type="text/javascript" src="js/carrosel.js"></script>
         <script type="text/javascript" src="js/util.js" ></script>
-        <script type="text/javascript" src="js/slider.js" ></script>
+        <script type="text/javascript" src="js/mousewheel.js" ></script>
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
             <link href="css/ie6.css" rel="stylesheet" type="text/css" />
@@ -31,8 +31,8 @@
                 <li><a href="#">HORÁRIOS</a></li>
                 <li><a href="#">GALERIA</a>
                     <ul>
-                        <li><a href="#">VIDEOS</a></li>
-                        <li><a href="#">FOTOS</a></li>
+                        <li><a href="#" rel="tooltip" title="Ooops! Esta opção está inativa por enquanto">VIDEOS</a></li>
+                        <li><a href="#" rel="tooltip" title="Ooops! Esta opção está inativa por enquanto">FOTOS</a></li>
                     </ul>
                 </li>
                 <li><a style="border: 0;" href="paginas/contato.html">CONTATO</a></li>			
@@ -70,28 +70,28 @@
                         </li>
                         <li>
                             <div class="thumb">
-                                <a href="http://www.youtube.com/embed/oOG-YCPoQBw">
+                                <a href="http://www.youtube.com/embed/iy4mXZN1Zzk">
                                     <img src="images/carrossel/teste4.jpg" alt="" />
                                 </a>
                             </div>
                             <div class="descricao">
-                                <h3>Ryu Theme</h3>
+                                <h3>Robbie Williams</h3>
                                 <p>
-                                    <a href="http://www.youtube.com/embed/oOG-YCPoQBw">
-                                        Música do tema do principal personagem de Street Fighter
+                                    <a href="http://www.youtube.com/embed/iy4mXZN1Zzk">
+                                        Feel
                                     </a>
                                 </p>
                             </div>                            
                         </li>                        
                         <li>
                             <div class="thumb">
-                                <a href="http://www.youtube.com/embed/VT1-sitWRtY">
+                                <a href="http://www.youtube.com/embed/hcm55lU9knw">
                                     <img src="images/carrossel/teste2.jpg" alt="" />
                                 </a>
                             </div>
                             <div class="descricao">
-                                <h3>Avril Lavigne</h3>
-                                <p><a href="http://www.youtube.com/embed/VT1-sitWRtY">Wish You Were Here</a></p>
+                                <h3>Michel Teló</h3>
+                                <p><a href="http://www.youtube.com/embed/hcm55lU9knw">Aí se eu te pego!</a></p>
                             </div>
                         </li>                                                                     
                     </ul>                    
@@ -155,50 +155,123 @@
                         <div><a href="#">Dança de Salão</a></div>
 					</li>
 				</ul>
+                <a href="#" class="mais-modalidades">Veja mais detalhes</a>
 			</div>
 			<div id="alunos-destaque">
-				<h2>Alunos Destaque</h2>				
-                <div class="slider">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <img src="images/trainers/trainers1.jpg" alt="" />							
-                            </a>
-                            <p>Neno - Musculação</p>						
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/trainers/trainers1.jpg" alt="" />							
-                            </a>
-                            <p>Neno - Musculação</p>						
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/trainers/trainers1.jpg" alt="" />							
-                            </a>
-                            <p>Neno - Musculação</p>						
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/trainers/trainers1.jpg" alt="" />							
-                            </a>
-                            <p>Neno - Musculação</p>						
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/trainers/trainers1.jpg" alt="" />							
-                            </a>
-                            <p>Neno - Musculação</p>						
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="images/trainers/trainers1.jpg" alt="" />							
-                            </a>
-                            <p>Neno - Musculação</p>						
-                        </li>
-                    </ul>
+                <h2>Alunos Destaque</h2>				
+                <div id="scroll-pane">
+                    <div id="scroll-content">
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers1.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Ricardo Marangoni</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers4.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Feijão</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers3.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Black</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers1.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Ricardo Marangoni</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers4.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Feijão</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers3.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Black</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers1.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Ricardo Marangoni</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers4.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Feijão</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers3.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Black</a>
+                            </div>
+                        </div>
+						<div class="scroll-content-item">
+                            <img src="images/trainers/trainers1.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Ricardo Marangoni</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers4.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Feijão</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers3.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Black</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers1.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Ricardo Marangoni</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers4.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Feijão</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers3.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Black</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers1.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Ricardo Marangoni</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers4.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Feijão</a>
+                            </div>
+                        </div>
+                        <div class="scroll-content-item">
+                            <img src="images/trainers/trainers3.jpg" alt="" />
+                            <div class="nome-aluno">
+                                <a href="#">Black</a>
+                            </div>
+                        </div>
+                    </div>                                   
                 </div>
-			</div>
+            </div>            
 			<div class="clear"></div>
         </div><!-- wrap -->
         <div id="rodape">
