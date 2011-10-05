@@ -11,6 +11,22 @@ jQuery(document).ready(
             jQuery('.video').html(tagVideo);
             return false;
         });
+        
+        jQuery('.horarios table:eq(0) tr:even').css({
+            background: '#F5F5F5',
+            color: '#333'
+        });
+        
+        jQuery('.horarios table:eq(1) tr:even').css({
+            background: '##F5F5F5',
+            color: '#333'
+        });
+        
+        jQuery('.horarios table:eq(2) tr:even').css({
+            background: '#F5F5F5',
+            color: '#333'
+        });
+        
                 
         //change the main div to overflow-hidden as we can use the slider now
         $('#scroll-pane').css('overflow','hidden');
@@ -106,13 +122,7 @@ jQuery(document).ready(
                 tooltip(e, 'Por favor digite seu email');
                 email.focus();
                 return false;
-            }
-            
-            if(telefone.val() == ""){                
-                tooltip(e, 'Por favor digite seu telefone');
-                telefone.focus();
-                return false;
-            }
+            }               
             
             if(assunto.val() == ""){                
                 tooltip(e, 'Por favor digite seu assunto');
@@ -136,7 +146,7 @@ jQuery(document).ready(
         });
         
         jQuery('#formulario-contato').mouseleave(function(){            
-            jQuery('.tooltip').remove();
+            jQuery('.tooltip').fadeOut();
         });
         
         if(Banner.length > 0){
@@ -181,6 +191,7 @@ function geraFrameTag(link){
 }
 
 function tooltip(e, mensagem){
+    jQuery('.tooltip').remove();
     jQuery("body").append('<div class="tooltip">'+mensagem+'</div>');    
     jQuery('.tooltip').css({
         top : e.pageY - 60,

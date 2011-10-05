@@ -27,7 +27,7 @@ img{
 
 h1{
 	font-size: 24px;
-	color: 777;
+	color: #666666;
 	border-bottom: 1px dotted #CCC;
 	margin-bottom: 5px;
 	text-transform: uppercase;
@@ -448,13 +448,122 @@ ul#menu li:hover ul{
 }
 
 /************************************************
-* PÁGINA DE CONTATO                             *
+* P�GINA DE HOR�RIOS                             *
+*************************************************/
+
+.horarios{
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.horarios table{
+    width: 100%;
+    border: 0;
+    color: #666;
+}
+
+.horarios table th{
+    background: #F4F4F4;    
+    border-bottom: 1px solid #CCC;
+    padding: 5px;
+    border: 0;
+    
+}
+
+.horarios table td{
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    padding: 5px 3px;    
+}
+
+.horarios table td.pump{
+   color: #CD5555;
+   font-weight: bold;
+}
+
+.horarios table td.jump{
+   color: #7A378B;
+   font-weight: bold;
+}
+
+.horarios table td.muay-thai{
+   color: #CD950C;
+   font-weight: bold;
+}
+
+.horarios table td.spinning{
+   color: #6E8B3D;
+   font-weight: bold;
+}
+
+.horarios table td.danca-salao{
+   color: #FF1493;
+   font-weight: bold;
+}
+
+
+
+/************************************************
+* HISTORIA		                        *
+*************************************************/
+
+.historia-content .left{
+    float: left;
+    margin-right: 5px;
+}
+
+.historia-content .right{
+    float: right;
+    margin-left: 5px;
+}
+
+.historia-content p{
+    text-align: justify;
+    padding: 7px;
+}
+
+
+/************************************************
+* P�GINA DE MODALIDADES                         *
+*************************************************/
+
+.modalidade{
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.modalidade img{
+    float:left;
+    margin-right: 5px;
+}
+
+.modalidade p{
+    padding: 4px;    
+    margin-bottom: 5px;
+    text-align: justify;
+}
+
+.modalidade h2{
+    font-size: 18px;
+    color: #FFA54F;
+    border: 0;
+}
+
+
+/************************************************
+* P�?GINA DE CONTATO                             *
 *************************************************/
 
 #form-contato{
     float: left;
     width: 407px
     
+}
+
+#form-contato b{
+   color: red;
 }
 
 #form-contato input, #form-contato textarea{    
@@ -510,7 +619,7 @@ ul#menu li:hover ul{
 }
 
 /************************************************
-* FIM PÁGINA DE CONTATO                         *
+* FIM P�?GINA DE CONTATO                         *
 *************************************************/
 
 /************************************************
