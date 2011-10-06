@@ -461,6 +461,7 @@ ul#menu li:hover ul{
     width: 100%;
     border: 0;
     color: #666;
+
 }
 
 .horarios table th{
@@ -474,7 +475,7 @@ ul#menu li:hover ul{
 .horarios table td{
     border-top: 1px solid #CCC;
     border-left: 1px solid #CCC;
-    padding: 5px 3px;    
+    padding: 10px 3px;    
 }
 
 .horarios table td.pump{
@@ -521,6 +522,13 @@ ul#menu li:hover ul{
 .historia-content p{
     text-align: justify;
     padding: 7px;
+}
+
+.historia-content h2{
+    font-size: 20px;
+    color: #FFA54F;
+    border: 0;    
+    margin: 10px 0 0 7px;;
 }
 
 
@@ -702,6 +710,10 @@ ul#menu li:hover ul{
 .border-shadow {
     background: url("../images/bg-shadow.jpg") no-repeat top center;
     height: 32px;
+}
+
+.vermelho{
+    color: red;
 }
 
 /************************************************
