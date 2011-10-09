@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 07/10/2011, 21:16:41
-    Author     : Ricardo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
