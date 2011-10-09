@@ -25,46 +25,45 @@
             <ul id="menu">
                 <li class="menu-right"></li>			
                 <li class="menu-left"></li>
-                <li><a href="#">HOME</a></li>
+                <li><a href="index.jsp?pagina=home">HOME</a></li>
                 <li><a href="index.jsp?pagina=historia">A PERFETTO</a></li>
-                <li><a href="paginas/modalidades.html">MODALIDADES</a></li>
-                <li><a href="paginas/horarios.html">HORÁRIOS</a></li>
+                <li><a href="index.jsp?pagina=modalidades">MODALIDADES</a></li>
+                <li><a href="index.jsp?pagina=horarios">HORÁRIOS</a></li>
                 <li><a href="#">GALERIA</a>
                     <ul>
                         <li><a href="#" rel="tooltip" title="Ooops! Esta opção está inativa por enquanto">VIDEOS</a></li>
                         <li><a href="#" rel="tooltip" title="Ooops! Esta opção está inativa por enquanto">FOTOS</a></li>
                     </ul>
                 </li>
-                <li><a style="border: 0;" href="paginas/contato.html">CONTATO</a></li>			
+                <li><a style="border: 0;" href="index.jsp?pagina=contato">CONTATO</a></li>			
             </ul>		
         </div>       	
         <div id="wrap">
-             <%
+             <%                
                 String url = request.getParameter("pagina");
+                String file = "paginas/home.jsp";
                 
-                if(url == null){                    
+                if(url != null && url != ""){
+                    file = "paginas/"+url+".jsp";                
+                }
+                
                 %>
-                    <jsp:include page="paginas/home.jsp" flush="true" />
+                    <jsp:include page="<%=file%>" flush="true"/>
                 <%
-                }else{
-                
-                %>
-                    <jsp:include page="paginas/.jsp" flush="true" />
-                <%  
-                }                
+                               
              %>
         </div><!-- wrap -->
         <div id="rodape">
             <div id="rodape-centro">                	
                 <div class="institucional">                    
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">A Perfetto</a></li>
-                        <li><a href="#">Modalidades</a></li>
-                        <li><a href="#">Horários</a></li>
+                        <li><a href="index.jsp?pagina=home">Home</a></li>
+                        <li><a href="index.jsp?pagina=historia">A Perfetto</a></li>
+                        <li><a href="index.jsp?pagina=modalidades">Modalidades</a></li>
+                        <li><a href="index.jsp?pagina=horarios">Horários</a></li>
                         <li><a href="#">Galeria de Videos</a></li>
                         <li><a href="#">Galeria de Fotos</a></li>
-                        <li style="background: none;"><a href="#">Contato</a></li>									
+                        <li style="background: none;"><a href="index.jsp?pagina=contato">Contato</a></li>									
                     </ul>
                 </div> 
             </div>
