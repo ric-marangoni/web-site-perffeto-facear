@@ -45,13 +45,10 @@
                 
                 if(url != null && url != ""){
                     file = "paginas/"+url+".jsp";                
-                }
-                
-                %>
-                    <jsp:include page="<%=file%>" flush="true"/>
-                <%
-                               
-             %>
+                }                
+             %>                
+             <jsp:include page="<%=file%>" flush="true"/>
+             
         </div><!-- wrap -->
         <div id="rodape">
             <div id="rodape-centro">                	
