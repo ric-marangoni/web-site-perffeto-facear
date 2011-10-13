@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="login">
-            <form action="login.jsp" method="post">
+            <form action="../controllers/loginController.jsp" method="post">
                 <legend>Bem Vindo</legend>
                 <span>Login:</span>
                 <input type="text" name="login" />
