@@ -41,13 +41,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `perfetto`.`adimin`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `perfetto`.`adimin` (
-  `id_adimin` INT NOT NULL AUTO_INCREMENT ,
+CREATE  TABLE IF NOT EXISTS `perfetto`.`admin` (
+  `id_admin` INT NOT NULL AUTO_INCREMENT ,
   `login` VARCHAR(45) NOT NULL ,
   `senha` VARCHAR(45) NOT NULL ,
   `nome` VARCHAR(100) NOT NULL ,
   `sobrenome` VARCHAR(100) NOT NULL ,
-  PRIMARY KEY (`id_adimin`) ,
+  PRIMARY KEY (`id_admin`) ,
   UNIQUE INDEX `login_UNIQUE` (`login` ASC) )
 ENGINE = InnoDB;
 

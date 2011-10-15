@@ -1,4 +1,10 @@
 <div id="banner">
+    <p><% 
+        if(session.getAttribute("logado") != null){            
+            out.print("logadoooooooooooo");
+        }
+        %>
+    </p>
     <ul>
         <li><img src="images/banner/musculacao.jpg" alt="Musculação" /></li>
         <li><img src="images/banner/muay-thai.jpg" alt="Musculação" /></li>				
