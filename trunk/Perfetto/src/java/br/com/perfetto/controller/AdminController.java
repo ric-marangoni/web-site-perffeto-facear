@@ -21,39 +21,56 @@ public class AdminController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        response.setContentType("text/html;charset=UTF-8");        
-        
-        Admin admin = new Admin();
-        AdminDao admin_dao = new AdminDao();
-        String login = request.getParameter("login");
-        String senha = request.getParameter("senha");
-        boolean logged = false;
-        String msgErro = "";
-        
-        if(login.isEmpty()){
-            msgErro = "Por favor digite seu login";
-        }else if(senha.isEmpty()){
-            msgErro = "Por favor digite sua senha";
-        }else{
-            admin.setLogin(login);
-            admin.setSenha(senha);
-        
-            logged = admin_dao.login(admin);
+
+        response.setContentType("text/html;charset=UTF-8");
+        HttpSession session = request.getSession(true);
+        int action = Integer.parseInt(request.getParameter("action"));        
+        PrintWriter out = response.getWriter();
+
+        switch (action) {
+            case 1://login
+                Admin admin = new Admin();
+                AdminDao admin_dao = new AdminDao();
+                boolean logged = false;
+                String msgErro = "";
+
+                String login = request.getParameter("login");
+                String senha = request.getParameter("senha");
+
+                if (login.isEmpty()) {
+                    msgErro = "Por favor digite seu login";
+                } else if (senha.isEmpty()) {
+                    msgErro = "Por favor digite sua senha";
+                } else {
+                    admin.setLogin(login);
+                    admin.setSenha(senha);
+
+                    logged = admin_dao.login(admin);
+                }
+
+                if (logged) {
+                    session.setAttribute("logado", true);
+                    response.sendRedirect("index.jsp");
+                } else {
+                    msgErro = "Login e/ou senha digitados estão incorretos";
+                    request.setAttribute("msgErro", msgErro);
+                    request.setAttribute("path", "admin/");
+                    request.getRequestDispatcher("admin/index.jsp").forward(request, response);                                    
+                }
+                break;
+            case 0://logout
+                session.setAttribute("logado", null);
+                response.sendRedirect("index.jsp");                
+                break;
+            default:
+            //não faz nada =D
         }
-        
-        if(logged){
-            HttpSession session = request.getSession(true);
-            session.setAttribute("logado", true);
-            response.sendRedirect("index.jsp");
-        }else{
-            request.setAttribute("msgErro", msgErro);
-            request.setAttribute("path", "admin/");
-            request.getRequestDispatcher("admin/index.jsp").forward(request, response);            
-        }
-        
+
+
+
+
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

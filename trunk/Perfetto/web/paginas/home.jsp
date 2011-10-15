@@ -1,10 +1,9 @@
 <div id="banner">
-    <p><% 
-        if(session.getAttribute("logado") != null){            
-            out.print("logadoooooooooooo");
-        }
-        %>
-    </p>
+    <%if (session.getAttribute("logado") != null) {%>            
+    <div class="toolbar">
+        <a href="#">incluir banner</a>
+    </div>
+    <%}%>
     <ul>
         <li><img src="images/banner/musculacao.jpg" alt="Musculação" /></li>
         <li><img src="images/banner/muay-thai.jpg" alt="Musculação" /></li>				

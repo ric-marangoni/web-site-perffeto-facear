@@ -696,8 +696,53 @@ ul#menu li:hover ul{
 }
 
 /************************************************
-* FIM RODAPÉ                                    *
+* SISTEMA                                       *
 *************************************************/
+
+.toolbar{
+    width: 150px;
+    height: 150px;
+    background: #FFF;
+    opacity: 0.8;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    z-index: 99;    
+}
+
+.toolbar a{
+    color: #000;
+    text-decoration: none;
+}
+
+.toolbar-admin{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #000;
+    height: 22px;    
+    border-radius: 0 0 0 5px;     
+    opacity: 0.6;
+    padding: 3px 3px 0 3px;
+}
+
+.toolbar-admin a{
+    font-size: 13px;
+    color: #FFF;
+    text-decoration: none;    
+}
+
+.toolbar-admin:hover{
+    opacity: 1.0;
+}
+
+.toolbar-admin form input{
+    border: 0;
+    background: #000;
+    color: #FFF;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /************************************************
 * CLASSES GENÉRICAS                             *
