@@ -19,7 +19,17 @@
     </head>
     <body>        
         <div id="topo">
-            <img src="images/topo.jpg" alt="Perfetto Academia" title="Perfetto Academia" />
+            <div class="toolbar-admin">
+            <%if (session.getAttribute("logado") == null) {%>            
+                <a href="admin/index.jsp">ativar painéis administrativos</a>            
+            <%}else{%>            
+            <form action="AdminController" method="post">
+                <input type="submit" value="desativar painéis administrativos" />
+                <input type="hidden" name="action" value="0" />                
+            </form>
+            <%}%>            
+            </div>
+            <img src="images/topo.jpg" alt="Perfetto Academia" />
         </div>        
         <div id="bg-menu">
             <ul id="menu">

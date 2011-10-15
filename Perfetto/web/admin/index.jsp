@@ -14,6 +14,7 @@
                 <input type="text" name="login" />
                 <span>Senha:</span>
                 <input type="password" name="senha" />
+                <input type="hidden" name="action" value="1" />
                 <input type="submit" class="btn" value="Entrar" />
             </form>
             ${msgErro}
