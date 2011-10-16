@@ -26,11 +26,11 @@ img{
 }
 
 h1{
-	font-size: 24px;
-	color: #666666;
-	border-bottom: 1px dotted #CCC;
-	margin-bottom: 5px;
-	text-transform: uppercase;
+    font-size: 24px;
+    color: #666666;
+    border-bottom: 1px dotted #CCC;
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 h2{
@@ -144,8 +144,7 @@ ul#menu li:hover ul{
     width: 1000px;
     background: #FFF;
     margin: 0 auto;	
-    text-align: left;
-    position: relative;
+    text-align: left;    
     padding-bottom: 30px;
     border-bottom: 2px solid #FFA833;
 }
@@ -239,7 +238,7 @@ ul#menu li:hover ul{
 .carrossel ul li .thumb img{    
     position: absolute;
     top: -15px;
-    
+
 }
 
 .carrossel ul li .descricao{
@@ -317,38 +316,38 @@ ul#menu li:hover ul{
 *************************************************/
 
 #home-modalidades{	
-	margin: 10px 8px 10px 10px;
-	width: 569px;
-	float: left;	
+    margin: 10px 8px 10px 10px;
+    width: 569px;
+    float: left;	
 }
 
 #home-modalidades ul{
-	list-style: none;
+    list-style: none;
 }
 
 #home-modalidades ul li{
-	margin: 25px;	
-	float: left;
-	position: relative;
+    margin: 25px;	
+    float: left;
+    position: relative;
 }
 
 #home-modalidades ul li a{
-	
-	
+
+
 }
 
 #home-modalidades ul li div{	
-	position: absolute;
-	bottom: 2px;	
-	background: #333;
-	opacity: 0.8;
-	width: 204px;
-	padding: 10px;
+    position: absolute;
+    bottom: 2px;	
+    background: #333;
+    opacity: 0.8;
+    width: 204px;
+    padding: 10px;
 }
 
 #home-modalidades ul li div a{
-	color: #FFF;
-	font-weight: bold;   
+    color: #FFF;
+    font-weight: bold;   
 }
 
 #home-modalidades a.mais-modalidades{
@@ -373,12 +372,12 @@ ul#menu li:hover ul{
 *************************************************/
 
 #alunos-destaque{
-	float: left;
-	border-left: 1px dotted #CCC;
-	margin-top: 10px;	
-	width: 388px;	
+    float: left;
+    border-left: 1px dotted #CCC;
+    margin-top: 10px;	
+    width: 388px;	
     padding-left: 10px;		
-        
+
 }
 
 #scroll-pane{ 
@@ -413,9 +412,9 @@ ul#menu li:hover ul{
 .scroll-content-item .nome-aluno{
     position: absolute;
     bottom: 2px;	
-	background: #FFF;
-	opacity: 0.8;
-	width: 103px;	
+    background: #FFF;
+    opacity: 0.8;
+    width: 103px;	
     padding-left: 3px;
     height: 25px;
     line-height: 25px;
@@ -448,7 +447,7 @@ ul#menu li:hover ul{
 }
 
 /************************************************
-* P�GINA DE HOR�RIOS                             *
+* PÁGINA DE HORÁRIOS                             *
 *************************************************/
 
 .horarios{
@@ -469,7 +468,7 @@ ul#menu li:hover ul{
     border-bottom: 1px solid #CCC;
     padding: 5px;
     border: 0;
-    
+
 }
 
 .horarios table td{
@@ -479,28 +478,28 @@ ul#menu li:hover ul{
 }
 
 .horarios table td.pump{
-   color: #CD5555;
-   font-weight: bold;
+    color: #CD5555;
+    font-weight: bold;
 }
 
 .horarios table td.jump{
-   color: #7A378B;
-   font-weight: bold;
+    color: #7A378B;
+    font-weight: bold;
 }
 
 .horarios table td.muay-thai{
-   color: #CD950C;
-   font-weight: bold;
+    color: #CD950C;
+    font-weight: bold;
 }
 
 .horarios table td.spinning{
-   color: #6E8B3D;
-   font-weight: bold;
+    color: #6E8B3D;
+    font-weight: bold;
 }
 
 .horarios table td.danca-salao{
-   color: #FF1493;
-   font-weight: bold;
+    color: #FF1493;
+    font-weight: bold;
 }
 
 
@@ -567,11 +566,11 @@ ul#menu li:hover ul{
 #form-contato{
     float: left;
     width: 407px
-    
+
 }
 
 #form-contato b{
-   color: red;
+    color: red;
 }
 
 #form-contato input, #form-contato textarea{    
@@ -647,7 +646,7 @@ ul#menu li:hover ul{
     padding: 8px 0 24px 0;
     border-bottom: 1px solid #E3E3E3;
     height: 5px;	
-	
+
 }
 .copy-right {
     width: 1000px;
@@ -665,7 +664,7 @@ ul#menu li:hover ul{
 .institucional {    
     margin-right: 20px;
     padding: 5px 20px 4px 0;
-    
+
 }
 
 .institucional ul {
@@ -680,7 +679,7 @@ ul#menu li:hover ul{
     display: inline;
     margin: 0 10px 0 0;
     padding: 0 14px 0 0;
-    
+
 }
 
 .institucional ul li a {
@@ -745,6 +744,42 @@ ul#menu li:hover ul{
 }
 
 /************************************************
+* JANELA MODAL                                  *
+*************************************************/
+
+
+#mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9000;
+    background-color: #000;
+    display: none;
+}
+
+.window {
+    position: absolute;
+    width: 440px;
+    height: 200px;
+    display: none;
+    z-index: 9999;
+    padding: 20px;
+}
+
+/* posiciona o link para fechar a janela */
+.close {
+    display: block;
+    text-align: right;
+}
+
+/* Personalize as janelas modal aqui. Você pode adicionar uma imagem de fundo. */
+#banner-incluir {
+    width: 375px;
+    height: 203px;
+    background: #FFF;
+}
+
+/************************************************
 * CLASSES GENÉRICAS                             *
 *************************************************/
 
@@ -766,14 +801,14 @@ ul#menu li:hover ul{
 *************************************************/
 
 .tooltip{	
-	position: absolute;
-	display: none;
-	padding: 10px 30px;
-	background: #000;
-	color: #fff;
-	width: 150px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+    position: absolute;
+    display: none;
+    padding: 10px 30px;
+    background: #000;
+    color: #fff;
+    width: 150px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
     z-index: 9999;
 }
