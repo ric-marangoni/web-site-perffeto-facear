@@ -11,6 +11,7 @@
         <script type="text/javascript" src="js/carrosel.js"></script>
         <script type="text/javascript" src="js/util.js" ></script>
         <script type="text/javascript" src="js/mousewheel.js" ></script>
+        <script type="text/javascript" src="js/modal.js" ></script>
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
             <link href="css/ie6.css" rel="stylesheet" type="text/css" />
