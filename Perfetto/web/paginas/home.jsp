@@ -1,10 +1,20 @@
 <div id="banner">
     <%if (session.getAttribute("logado") != null) {%>            
-    <div class="toolbar">
-        <a href="#banner-incluir" name="modal">incluir banner</a>        
+    <div class="banner-toolbar">
+        <ul>
+            <li class="add">
+                <a href="#banner-incluir" name="modal">incluir banner</a>     
+            </li>
+            <li class="editar">
+                <a href="#banner-incluir" name="modal">editar banner</a>     
+            </li>
+            <li class="excluir">
+                <a href="#banner-incluir" name="modal">excluir banner</a>     
+            </li>
+        </ul>
     </div>    
     <%}%>
-    <ul>
+    <ul class="banner">
         <li><img src="images/banner/musculacao.jpg" alt="Musculação" /></li>
         <li><img src="images/banner/muay-thai.jpg" alt="Musculação" /></li>				
     </ul>	
@@ -13,7 +23,9 @@
 <div class="border-shadow"></div>
 
 <!-- AQUI ESTÃO AS JANELAS MODAL DO BANNER -->
+<%if (session.getAttribute("logado") != null) {%>            
 <%@include file="../views/banner/incluir.jsp" %>
+<%}%>
 <!-- FIM JANELAS MODAL -->
 
 <div id="bloco-destaque">

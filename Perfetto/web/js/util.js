@@ -1,6 +1,6 @@
 jQuery(document).ready(
     function(){			    		
-        var Banner = jQuery('#banner ul');
+        var Banner = jQuery('#banner ul.banner');
         var primeiroVideo = jQuery('.descricao a').eq(0).attr('href');        
         
         jQuery('.video').html(geraFrameTag(primeiroVideo));

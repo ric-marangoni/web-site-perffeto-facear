@@ -532,7 +532,7 @@ ul#menu li:hover ul{
 
 
 /************************************************
-* P�GINA DE MODALIDADES                         *
+* PÁGINA DE MODALIDADES                         *
 *************************************************/
 
 .modalidade{
@@ -560,7 +560,7 @@ ul#menu li:hover ul{
 
 
 /************************************************
-* P�?GINA DE CONTATO                             *
+* PÁGINA DE CONTATO                             *
 *************************************************/
 
 #form-contato{
@@ -626,7 +626,7 @@ ul#menu li:hover ul{
 }
 
 /************************************************
-* FIM P�?GINA DE CONTATO                         *
+* FIM PÁGINA DE CONTATO                         *
 *************************************************/
 
 /************************************************
@@ -698,9 +698,9 @@ ul#menu li:hover ul{
 * SISTEMA                                       *
 *************************************************/
 
-.toolbar{
+.banner-toolbar{
     width: 150px;
-    height: 150px;
+    height: 105px;
     background: #FFF;
     opacity: 0.8;
     position: absolute;
@@ -709,9 +709,38 @@ ul#menu li:hover ul{
     z-index: 99;    
 }
 
-.toolbar a{
+.banner-toolbar ul{
+    list-style: none;
+    margin: 10px;
+}
+
+.banner-toolbar ul li{
+    height: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.banner-toolbar ul li a{
     color: #000;
     text-decoration: none;
+    padding: 0 25px;
+    display: block;
+}
+
+.banner-toolbar ul li a:hover{
+    text-decoration: underline;
+}
+
+.banner-toolbar ul li.add{
+    background: url("../images/sistema/add.png") no-repeat;    
+}
+
+.banner-toolbar ul li.editar{
+    background: url("../images/sistema/edit.png") no-repeat;    
+}
+
+.banner-toolbar ul li.excluir{
+    background: url("../images/sistema/delete.png") no-repeat;    
 }
 
 .toolbar-admin{
@@ -763,20 +792,52 @@ ul#menu li:hover ul{
     height: 200px;
     display: none;
     z-index: 9999;
-    padding: 20px;
+    padding: 10px;
+}
+
+.window h2{
+    font-size: 20px;
+    color: #FFA54F;
+    border: 0;    
+    margin: -24px 0 30px 0;
+    border-bottom: 1px solid #CCC;
+}
+
+.window input{
+    display: block;    
+}
+
+.window input#ajax-submit{        
+    margin: 15px 40px 0 0;
+    background: #333;
+    color: #FFF;
+    border-radius: 5px;
+    border: 0;
+    width: 100px;
+    float: right;    
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.window .ajax-msg{
+    margin: 30px 0;
+    color: #6E8B3D;
+    font-weight: bold;
 }
 
 /* posiciona o link para fechar a janela */
 .close {
     display: block;
-    text-align: right;
+    text-align: right;    
 }
 
 /* Personalize as janelas modal aqui. Você pode adicionar uma imagem de fundo. */
 #banner-incluir {
     width: 375px;
     height: 203px;
-    background: #FFF;
+    background: #FFF url("../images/bg_box.png") repeat-x bottom center;
+    border-radius: 0 5px;
 }
 
 /************************************************
