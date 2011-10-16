@@ -24,10 +24,8 @@ public class BannerController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-            
+                       
         out.println("aeeeeeeeee");
-            
             
         out.close();
     }

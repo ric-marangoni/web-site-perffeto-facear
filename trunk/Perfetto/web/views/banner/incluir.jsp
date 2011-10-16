@@ -1,15 +1,15 @@
 <div id="banner-incluir" class="window">
     <!-- Botão para fechar a janela tem class="close" -->
-    <a href="#" class="close">Fechar [X]</a>
-    <br />
-    <b>Busque a imagem que deseja incluir:</b>
-    <br />
-    <br />
+    <a href="#" class="close"><img src="images/sistema/close.png" alt="" /></a>    
+    <h2>Incluir novo banner</h2>
+    
     <form action="" method="post">
-        <input type="file" name="path_image" />
+        <span>Buscar imagem no computador:</span>
+        <input type="file" size="27" name="path_image" />
         <input type="button" name="ajax-submit" id="ajax-submit" value="enviar" />
     </form>
-    <div class="msg"></div>
+    <div class="clear"></div>
+    <div class="ajax-msg"></div>
 </div>
 
 <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
@@ -21,10 +21,11 @@
             url: "BannerController",
             method: 'post',
             beforeSend: function(){
-                
+                ajaxLoader.show();                
             },
             success: function(response){
-                jQuery('.msg').html(response);
+                ajaxLoader.hide();
+                jQuery('.ajax-msg').html(response);
             }
         });        
     });    
