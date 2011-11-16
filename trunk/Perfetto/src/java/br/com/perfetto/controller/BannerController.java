@@ -99,10 +99,61 @@ public class BannerController extends HttpServlet {
     
     private void editBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
+
+        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+
+        if (!isMultipart) {
+            out.print("Não foi possível fazer requisição!" + request);
+        } else {
+            FileItemFactory factory = new DiskFileItemFactory();
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            Banner banner = new Banner();
+            BannerDao bannerDao = new BannerDao();
+            List items = null;
+
+            try {
+                items = upload.parseRequest(request);
+            } catch (FileUploadException e) {
+                out.print(e.getMessage());
+            }
+
+            try {
+
+                Iterator itr = items.iterator();
+
+                FileItem item = (FileItem) itr.next();
+
+                String itemName = (new File(item.getName()).getName());
+
+                File savedFile = new File(Aplication.getBasePath() + "images/banner/" + itemName);
+
+                item.write(savedFile);  // upload realizado
+
+                banner.setId(Integer.parseInt(request.getParameter("id")));
+                banner.setImage_path("images/banner/" + itemName);
+
+                bannerDao.edit(banner);
+
+                out.print("<img src=\"images/banner/" + itemName + "\" />");
+
+            } catch (Exception e) {
+                out.print(e.getMessage());
+            }
+        }
+        out.close();
     }
     
     private void deleteBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
         PrintWriter out = response.getWriter();
+        BannerDao bannerDao = new BannerDao();
+        Banner banner = new Banner();
+        
+        banner.setId(Integer.parseInt(request.getParameter("id")));
+        
+        bannerDao.delete(banner);
+        
+        out.print("Banner excluído com sucesso!");
+        
     }
 
     public ArrayList<Banner> getBanners() {
