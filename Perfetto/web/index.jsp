@@ -4,7 +4,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="css/estilo.css" type="text/css" rel="stylesheet" />
-        <link href="css/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" />
+        <link href="css/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" />        
         <script type="text/javascript" src="js/jQuery.js"></script>
         <script type="text/javascript" src="js/jQueryUI.js"></script>
         <script type="text/javascript" src="js/jquery.cycle.js"></script>
@@ -13,6 +13,8 @@
         <script type="text/javascript" src="js/mousewheel.js" ></script>
         <script type="text/javascript" src="js/modal.js" ></script>
         <script type="text/javascript" src="js/ajaxLoader.js" ></script>
+        <script type="text/javascript" src="js/AjaxUpload.js" ></script>        
+        <script type="text/javascript" src="js/upload.js" ></script>        
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
             <link href="css/ie6.css" rel="stylesheet" type="text/css" />
@@ -22,9 +24,7 @@
     <body>        
         <div id="topo">
             <div class="toolbar-admin">
-            <%if (session.getAttribute("logado") == null) {%>            
-                <a href="admin/index.jsp">ativar painéis administrativos</a>            
-            <%}else{%>            
+            <%if (session.getAttribute("logado") != null) {%>                                   
             <form action="AdminController" method="post">
                 <input type="submit" value="desativar painéis administrativos" />
                 <input type="hidden" name="action" value="0" />                

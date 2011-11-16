@@ -1,11 +1,23 @@
 package br.com.perfetto.controller;
 
+import br.com.perfetto.entidades.Banner;
+import br.com.perfetto.model.BannerDao;
+import br.com.perfetto.util.Aplication;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.FileItemFactory;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -23,14 +35,84 @@ public class BannerController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-                       
-        out.println("aeeeeeeeee");
-            
-        out.close();
+        
+        String action = request.getParameter("action");
+        String incluir = "incluir";
+        String editar = "editar";
+        String deletar = "deletar";
+        
+        if(incluir.equals(action)){
+            this.insertBanner(request, response);
+        }else if(editar.equals(action)){
+            this.editBanner(request, response);
+        }else if(deletar.equals(action)){
+            this.deleteBanner(request, response);
+        }
+        
+        
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    private void insertBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+
+        boolean isMultipart = ServletFileUpload.isMultipartContent(request);
+
+        if (!isMultipart) {
+            out.print("Não foi possível fazer requisição!" + request);
+        } else {
+            FileItemFactory factory = new DiskFileItemFactory();
+            ServletFileUpload upload = new ServletFileUpload(factory);
+            Banner banner = new Banner();
+            BannerDao bannerDao = new BannerDao();
+            List items = null;
+
+            try {
+                items = upload.parseRequest(request);
+            } catch (FileUploadException e) {
+                out.print(e.getMessage());
+            }
+
+            try {
+
+                Iterator itr = items.iterator();
+
+                FileItem item = (FileItem) itr.next();
+
+                String itemName = (new File(item.getName()).getName());
+
+                File savedFile = new File(Aplication.getBasePath() + "images/banner/" + itemName);
+
+                item.write(savedFile);  // upload realizado
+
+                banner.setImage_path("images/banner/" + itemName);
+
+                bannerDao.insert(banner);
+
+                out.print("Banner inserido com sucesso!");
+
+            } catch (Exception e) {
+                out.print(e.getMessage());
+            }
+        }
+        out.close();
+    }
+    
+    private void editBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+    }
+    
+    private void deleteBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+    }
+
+    public ArrayList<Banner> getBanners() {
+
+        BannerDao bannerDao = new BannerDao();
+
+        return bannerDao.getAllBanners();
+    }
+
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request

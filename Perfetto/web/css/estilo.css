@@ -793,31 +793,41 @@ ul#menu li:hover ul{
     display: none;
     z-index: 9999;
     padding: 10px;
+    border: 1px solid #CCC;
 }
 
 .window h2{
-    font-size: 20px;
-    color: #FFA54F;
-    border: 0;    
-    margin: -24px 0 30px 0;
-    border-bottom: 1px solid #CCC;
+    font-size: 16px;
+    color: #000;        
+    position: absolute;
+    top: -14px;
+    left: 15px;
+    background: #FFF;
+    border: 1px solid #CCC;
+    padding: 5px;
 }
 
 .window input{
     display: block;    
 }
 
-.window input#ajax-submit{        
-    margin: 15px 40px 0 0;
+.window input.ajax-submit{        
+    margin-top: 25px;
     background: #333;
-    color: #FFF;
-    border-radius: 5px;
+    color: #FFF;    
     border: 0;
-    width: 100px;
-    float: right;    
+    width: 146px;
+    float: left;    
     font-weight: bold;
     cursor: pointer;
-    padding: 3px;
+    padding: 4.5px;
+}
+
+.window span{
+    border: 1px solid #333;
+    padding: 5px;
+    float: left;
+    margin-top: 25px;
 }
 
 .window .ajax-msg{
@@ -833,12 +843,41 @@ ul#menu li:hover ul{
 }
 
 /* Personalize as janelas modal aqui. Você pode adicionar uma imagem de fundo. */
+
+/************************************************
+* INCLUIR BANNER                                *
+*************************************************/
+
 #banner-incluir {
     width: 375px;
-    height: 203px;
-    background: #FFF url("../images/bg_box.png") repeat-x bottom center;
-    border-radius: 0 5px;
+    height: 148px;
+    background: #FFF;    
+    position: absolute;
 }
+
+/************************************************
+* EDITAR BANNER                                 *
+*************************************************/
+
+#banner-editar {
+    width: 375px;
+    max-height: 345px;
+    background: #FFF;    
+    position: absolute;
+    overflow-x: scroll; 
+}
+
+ul.editar-banner li{
+    width: 350px;
+    height: 200px;
+    overflow: hidden;
+}
+
+ul.editar-banner li img{
+    width: 350px;
+    height: 200px;
+}
+
 
 /************************************************
 * CLASSES GENÉRICAS                             *
@@ -854,7 +893,7 @@ ul#menu li:hover ul{
 }
 
 .vermelho{
-    color: red;
+    color: red !important;
 }
 
 /************************************************
