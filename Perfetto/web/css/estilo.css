@@ -842,6 +842,13 @@ ul#menu li:hover ul{
     text-align: right;    
 }
 
+.painel-rolagem{
+    overflow-y: scroll; 
+    width: 371px;
+    height: 295px;
+    margin-top: 15px;
+}
+
 /* Personalize as janelas modal aqui. Você pode adicionar uma imagem de fundo. */
 
 /************************************************
@@ -861,21 +868,47 @@ ul#menu li:hover ul{
 
 #banner-editar {
     width: 375px;
-    max-height: 345px;
+    height: 345px;
     background: #FFF;    
-    position: absolute;
-    overflow-x: scroll; 
+    position: absolute;    
+}
+
+ul.editar-banner {
+    
 }
 
 ul.editar-banner li{
-    width: 350px;
-    height: 200px;
+    width: 335px;
+    height: 125px;
     overflow: hidden;
+    margin: 10px 0;
+    position: relative;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 10px; 
 }
 
 ul.editar-banner li img{
-    width: 350px;
-    height: 200px;
+    width: 335px;
+    height: 125px;
+}
+
+ul.editar-banner li .btn-alterar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #000 url("../images/sistema/edit-white.png") no-repeat 5px 6px;
+    height: 22px;        
+    opacity: 0.6;    
+    margin: 0 !important;
+    padding: 0 12px;
+    width: 110px !important;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+ul.editar-banner li .hover{
+    opacity: 1.0;
+    text-decoration: underline;
 }
 
 

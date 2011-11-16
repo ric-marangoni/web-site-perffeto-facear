@@ -1,11 +1,19 @@
 var upload = {
-    ajaxUpload: function(action, method, param){
+    ajaxUpload: function(action, method){
         jQuery('.ajax-submit').each(function(){            
-            var btnUpload = jQuery(this).attr('id');  
-            var status = jQuery(".ajax-msg");
+            var btnUpload = jQuery(this).attr('id');              
+            var param = btnUpload.split("-");
+            var id = "";
+            
+            if(!isNaN(param[2])){
+                id = param[2];                
+            }            
+            
+            var status = jQuery(".ajax-msg"+id);
+            
             new AjaxUpload(btnUpload, {
-                action: action+'?action='+method+'&id='+param,
-                name: 'upload',
+                action: action+'?action='+method+'&id='+id,
+                name: btnUpload,
                 onSubmit: function(file, ext){
                     if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
                         status.attr('class', 'ajax-msg vermelho');
@@ -16,7 +24,7 @@ var upload = {
                 },
                 onComplete: function(file, response){
                     ajaxLoader.hide();                 
-                    status.attr('class', 'ajax-msg');
+                    status.attr('class', 'ajax-msg'+id);
                     status.html(response);
                 }
             });

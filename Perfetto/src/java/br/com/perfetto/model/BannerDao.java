@@ -23,6 +23,42 @@ public class BannerDao extends DAO{
             closeDataBase();
         }
     }
+    
+    public void edit(Banner banner){
+        
+        PrintWriter out = null; 
+        
+        try{
+            openDataBase();
+            String SQL = "UPDATE banner SET image_path = ? WHERE id_banner = ?";
+            pstmt = con.prepareStatement(SQL);
+            pstmt.setString(1, banner.getImage_path());            
+            pstmt.setInt(2, banner.getId());            
+            pstmt.execute();            
+                        
+        }catch(Exception e){
+            out.print("Desculpe-nos o transtorno mais ocorreu o seguinte erro: "+e.getMessage());            
+        }finally{
+            closeDataBase();
+        }
+    }
+    
+    public void delete(Banner banner){
+        PrintWriter out = null; 
+        
+        try{
+            openDataBase();
+            String SQL = "DELETE banner WHERE id_banner = ?";
+            pstmt = con.prepareStatement(SQL);            
+            pstmt.setInt(1, banner.getId());            
+            pstmt.execute();            
+                        
+        }catch(Exception e){
+            out.print("Desculpe-nos o transtorno mais ocorreu o seguinte erro: "+e.getMessage());            
+        }finally{
+            closeDataBase();
+        }
+    }
 
     public ArrayList<Banner> getAllBanners() {
         PrintWriter out = null; 

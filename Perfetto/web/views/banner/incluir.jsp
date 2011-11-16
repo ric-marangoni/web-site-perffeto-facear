@@ -5,7 +5,7 @@
 
     <form>
         <span>Buscar imagem no computador:</span>        
-        <input type="button" name="ajax-submit" class="ajax-submit" id="ajax-submit" value="selecionar arquivo" />        
+        <input type="button" name="ajax-submit" class="ajax-submit" id="incluir-banner" value="selecionar arquivo" />        
     </form>
     <div class="clear"></div>
     <div class="ajax-msg"></div>

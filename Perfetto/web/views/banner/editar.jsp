@@ -15,30 +15,34 @@
     <% ArrayList<Banner> listaEditBanner = editBanner.getBanners();%>
     <%if (listaEditBanner.size() > 0) {%>
         <form>        
-            <ul class="editar-banner">
-                <%for (int i = 0; i < listaEditBanner.size(); i++) {%>
-                <li>
-                    <img src="<%out.print(listaEditBanner.get(i).getImage_path());%>" alt="" />
-                    <span>Buscar imagem no computador:</span>        
-                    <input type="button" class="ajax-submit" id="banner-editar<%out.print(listaEditBanner.get(i).getId());%>" value="selecionar arquivo" />   
-                </li>        
-                <%}%>
-            </ul>
+            <div class="painel-rolagem">
+                <ul class="editar-banner">
+                    <%for (int i = 0; i < listaEditBanner.size(); i++) {%>
+                    <%int id = listaEditBanner.get(i).getId();%>
+                    <%String image_banner = listaEditBanner.get(i).getImage_path();%>                    
+                    <li>
+                        <div class="ajax-msg<%out.print(id);%>">
+                            <img src="<%out.print(image_banner);%>" alt="" /> 
+                        </div>
+                        <input type="button" class="ajax-submit btn-alterar" id="banner-editar-<%out.print(id);%>" value="Trocar imagem" />   
+                    </li>        
+                    <%}%>
+                </ul>
+            </div>
         </form>
      <%}else{%>
      <h3>Você não possui banner adicionado.</h3>     
-     <%}%>            
-    
+     <%}%>    
     <div class="clear"></div>
-    <div class="ajax-msg"></div>
+    
 </div>
 
 <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
 <div id="mask"></div>
 
 
-<script type="text/javascript">
-    jQuery(document).ready(function(){
-        upload.ajaxUpload(btn, 'BannerController', 'editar');              
+<script type="text/javascript">    
+    jQuery(document).ready(function(){        
+        upload.ajaxUpload('BannerController', 'editar');              
     });
 </script>
