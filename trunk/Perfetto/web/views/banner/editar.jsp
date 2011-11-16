@@ -24,7 +24,7 @@
                         <div class="ajax-msg<%out.print(id);%>">
                             <img src="<%out.print(image_banner);%>" alt="" /> 
                         </div>
-                        <input type="button" class="ajax-submit btn-alterar" id="banner-editar-<%out.print(id);%>" value="Trocar imagem" />   
+                        <input type="button" class="ajax-submit banner-editar btn-alterar" id="banner-editar-<%out.print(id);%>" value="Trocar imagem" />   
                     </li>        
                     <%}%>
                 </ul>
@@ -43,6 +43,6 @@
 
 <script type="text/javascript">    
     jQuery(document).ready(function(){        
-        upload.ajaxUpload('BannerController', 'editar');              
+        upload.ajaxUpload('BannerController', 'editar', 'banner-editar');              
     });
 </script>

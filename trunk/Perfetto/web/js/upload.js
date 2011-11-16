@@ -1,6 +1,6 @@
 var upload = {
-    ajaxUpload: function(action, method){
-        jQuery('.ajax-submit').each(function(){            
+    ajaxUpload: function(action, method, list){
+        jQuery('.'+list).each(function(){            
             var btnUpload = jQuery(this).attr('id');              
             var param = btnUpload.split("-");
             var id = "";
