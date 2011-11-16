@@ -1,30 +1,38 @@
+<%@page import="br.com.perfetto.controller.BannerController"%>
+<%@page import="br.com.perfetto.entidades.Banner"%>
+<%@page import="java.util.*"%>
+
+<%
+    //VARIÁVEIS E OBJETOS
+    BannerController banner = new BannerController();
+%>
+
 <div id="banner">
     <%if (session.getAttribute("logado") != null) {%>            
-    <div class="banner-toolbar">
-        <ul>
-            <li class="add">
-                <a href="#banner-incluir" name="modal">incluir banner</a>     
-            </li>
-            <li class="editar">
-                <a href="#banner-incluir" name="modal">editar banner</a>     
-            </li>
-            <li class="excluir">
-                <a href="#banner-incluir" name="modal">excluir banner</a>     
-            </li>
-        </ul>
-    </div>    
+        <%@include file="../views/banner/banner-toolbar.jsp" %>
     <%}%>
-    <ul class="banner">
-        <li><img src="images/banner/musculacao.jpg" alt="Musculação" /></li>
-        <li><img src="images/banner/muay-thai.jpg" alt="Musculação" /></li>				
-    </ul>	
-    <div class="pager"></div>    
+
+    <% ArrayList<Banner> listBanner = banner.getBanners();%>
+    <%if (listBanner.size() > 0) {%>
+        <ul class="banner">
+            <%for (int i = 0; i < listBanner.size(); i++) {%>
+            <li><img src="<%out.print(listBanner.get(i).getImage_path());%>" alt="" /></li>        
+            <%}%>
+        </ul>
+        <%if (listBanner.size() > 1) {%>
+            <div class="pager"></div>
+        <%}%>
+    <%}%>
+
+
 </div>
 <div class="border-shadow"></div>
 
 <!-- AQUI ESTÃO AS JANELAS MODAL DO BANNER -->
 <%if (session.getAttribute("logado") != null) {%>            
 <%@include file="../views/banner/incluir.jsp" %>
+<%@include file="../views/banner/editar.jsp" %>
+<%@include file="../views/banner/deletar.jsp" %>
 <%}%>
 <!-- FIM JANELAS MODAL -->
 
