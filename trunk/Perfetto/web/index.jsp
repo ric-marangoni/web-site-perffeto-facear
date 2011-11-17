@@ -15,6 +15,7 @@
         <script type="text/javascript" src="js/ajaxLoader.js" ></script>
         <script type="text/javascript" src="js/AjaxUpload.js" ></script>        
         <script type="text/javascript" src="js/upload.js" ></script>        
+        <script type="text/javascript" src="js/ajaxDelete.js" ></script>        
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
             <link href="css/ie6.css" rel="stylesheet" type="text/css" />

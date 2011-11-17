@@ -21,8 +21,9 @@
                     <%int id = listaEditBanner.get(i).getId();%>
                     <%String image_banner = listaEditBanner.get(i).getImage_path();%>                    
                     <li>
-                        <div class="ajax-msg<%out.print(id);%>">
-                            <img src="<%out.print(image_banner);%>" alt="" /> 
+                        <div class="ajax-msg"></div>
+                        <div class="ajax-trade-image<%out.print(id);%>">
+                            <img class="banner-image" src="<%out.print(image_banner);%>" alt="" /> 
                         </div>
                         <input type="button" class="ajax-submit banner-editar btn-alterar" id="banner-editar-<%out.print(id);%>" value="Trocar imagem" />   
                     </li>        
@@ -43,6 +44,6 @@
 
 <script type="text/javascript">    
     jQuery(document).ready(function(){        
-        upload.ajaxUpload('BannerController', 'editar', 'banner-editar');              
+        upload.ajaxUpload('BannerController', 'editar', 'banner-editar', '.ajax-trade-image');              
     });
 </script>

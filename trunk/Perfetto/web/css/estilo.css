@@ -831,8 +831,7 @@ ul#menu li:hover ul{
 }
 
 .window .ajax-msg{
-    margin: 30px 0;
-    color: #6E8B3D;
+    margin: 30px 0;    
     font-weight: bold;
 }
 
@@ -885,9 +884,16 @@ ul.editar-banner li{
     position: relative;
     border-bottom: 1px solid #CCC;
     padding-bottom: 10px; 
+    position: relative;
 }
 
-ul.editar-banner li img{
+ul.editar-banner li .ajax-msg{
+    position: absolute;
+    top: 20px;
+    left: 120px;
+}
+
+ul.editar-banner li img.banner-image{
     width: 335px;
     height: 125px;
 }
@@ -911,6 +917,26 @@ ul.editar-banner li .hover{
     text-decoration: underline;
 }
 
+/************************************************
+* EXCLUIR BANNER                                *
+*************************************************/
+
+#banner-excluir {
+    width: 375px;
+    height: 345px;
+    background: #FFF;    
+    position: absolute;    
+}
+
+#banner-excluir ul.editar-banner li .btn-alterar{
+    background: #000 url("../images/sistema/delete-white.png") no-repeat 6px 7px;
+}
+
+#banner-excluir ul.editar-banner li .btn-alterar:hover{
+    opacity: 1.0;
+    text-decoration: underline;
+}
+
 
 /************************************************
 * CLASSES GENÉRICAS                             *
@@ -927,6 +953,10 @@ ul.editar-banner li .hover{
 
 .vermelho{
     color: red !important;
+}
+
+.verde{
+    color: #6E8B3D;
 }
 
 /************************************************

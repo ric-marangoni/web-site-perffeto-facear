@@ -88,7 +88,7 @@ public class BannerController extends HttpServlet {
 
                 bannerDao.insert(banner);
 
-                out.print("Banner inserido com sucesso!");
+                out.print("<p class=\"verde\">Banner inserido com sucesso!</p>");
 
             } catch (Exception e) {
                 out.print(e.getMessage());
@@ -134,7 +134,7 @@ public class BannerController extends HttpServlet {
 
                 bannerDao.edit(banner);
 
-                out.print("<img src=\"images/banner/" + itemName + "\" />");
+                out.print("<img class=\"banner-image\" src=\"images/banner/" + itemName + "\" />");
 
             } catch (Exception e) {
                 out.print(e.getMessage());
@@ -143,17 +143,13 @@ public class BannerController extends HttpServlet {
         out.close();
     }
     
-    private void deleteBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        PrintWriter out = response.getWriter();
+    private void deleteBanner(HttpServletRequest request, HttpServletResponse response){        
         BannerDao bannerDao = new BannerDao();
         Banner banner = new Banner();
         
         banner.setId(Integer.parseInt(request.getParameter("id")));
         
         bannerDao.delete(banner);
-        
-        out.print("Banner excluído com sucesso!");
-        
     }
 
     public ArrayList<Banner> getBanners() {
