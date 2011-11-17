@@ -42,12 +42,14 @@ $(document).ready(function() {
         //cancela o comportamento padrão do link
         e.preventDefault();
         $('#mask, .window').hide();
+        window.location.reload();
     });
  
     //se div#mask for clicado
     $('#mask').click(function () {
         $(this).hide();
         $('.window').hide();
+        window.location.reload();
     });
 });
     

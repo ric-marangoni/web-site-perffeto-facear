@@ -1,5 +1,5 @@
 var upload = {
-    ajaxUpload: function(action, method, list){
+    ajaxUpload: function(action, method, list, itemResposta){
         jQuery('.'+list).each(function(){            
             var btnUpload = jQuery(this).attr('id');              
             var param = btnUpload.split("-");
@@ -9,22 +9,20 @@ var upload = {
                 id = param[2];                
             }            
             
-            var status = jQuery(".ajax-msg"+id);
+            var status = jQuery(itemResposta+id);
             
             new AjaxUpload(btnUpload, {
                 action: action+'?action='+method+'&id='+id,
                 name: btnUpload,
                 onSubmit: function(file, ext){
-                    if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){
-                        status.attr('class', 'ajax-msg vermelho');
-                        status.html('Apenas JPG, PNG ou GIF são permitidos');
+                    if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){                        
+                        status.html('<p class="vermelho">Apenas JPG, PNG ou GIF são permitidos</p>');
                         return false;
                     }
                     ajaxLoader.show(); 
                 },
                 onComplete: function(file, response){
-                    ajaxLoader.hide();                 
-                    status.attr('class', 'ajax-msg'+id);
+                    ajaxLoader.hide();                                     
                     status.html(response);
                 }
             });

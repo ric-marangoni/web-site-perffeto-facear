@@ -48,7 +48,7 @@ public class BannerDao extends DAO{
         
         try{
             openDataBase();
-            String SQL = "DELETE banner WHERE id_banner = ?";
+            String SQL = "DELETE FROM banner WHERE id_banner = ?";
             pstmt = con.prepareStatement(SQL);            
             pstmt.setInt(1, banner.getId());            
             pstmt.execute();            
