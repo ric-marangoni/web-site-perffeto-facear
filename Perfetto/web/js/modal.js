@@ -15,12 +15,13 @@ $(document).ready(function() {
         //Define largura e altura do div#mask iguais ás dimensões da tela
         $('#mask').css({
             width: maskWidth,
-            height: maskHeight            
+            height: maskHeight,
+            opacity: 0.8
         });
  
         //efeito de transição
-        $('#mask').fadeIn(1000);
-        $('#mask').fadeTo("slow",0.8);
+        $('#mask').fadeIn();
+        
  
         //armazena a largura e a altura da janela
         var winH = $(window).height();
@@ -31,7 +32,7 @@ $(document).ready(function() {
         $(id).css('top',  (winH/2 - $(id).height()/2) + scrollTop);
         $(id).css('left', winW/2 - $(id).width()/2);
         //efeito de transição
-        $(id).fadeIn(2000);
+        $(id).fadeIn();
         
         
         

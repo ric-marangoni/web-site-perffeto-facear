@@ -44,6 +44,6 @@
 
 <script type="text/javascript">    
     jQuery(document).ready(function(){        
-        upload.ajaxUpload('BannerController', 'editar', 'banner-editar', '.ajax-trade-image');              
+        ajax.uploadRequest('BannerController', 'editar', 'banner-editar', '.ajax-trade-image');              
     });
 </script>

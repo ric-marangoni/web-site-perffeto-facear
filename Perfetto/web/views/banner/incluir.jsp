@@ -17,6 +17,6 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function(){
-        upload.ajaxUpload('BannerController', 'incluir', 'banner-incluir', '.ajax-msg');
+        ajax.uploadRequest('BannerController', 'incluir', 'banner-incluir', '.ajax-msg');
     });
 </script>
