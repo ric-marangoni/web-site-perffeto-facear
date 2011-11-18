@@ -1,5 +1,5 @@
-var upload = {
-    ajaxUpload: function(action, method, list, itemResposta){
+var ajax = {
+    uploadRequest: function(action, method, list, itemResposta){
         jQuery('.'+list).each(function(){            
             var btnUpload = jQuery(this).attr('id');              
             var param = btnUpload.split("-");
@@ -27,5 +27,20 @@ var upload = {
                 }
             });
         });        
+    },  
+    deleteRequest: function(action, method, id, itemResposta){        
+        jQuery.ajax({
+            url: action+'?action='+method+'&id='+id,
+            type: 'post',
+            beforeSend: function(){
+                ajaxLoader.show();
+            },
+            success: function(){
+                ajaxLoader.hide();
+                jQuery('#'+itemResposta+id).fadeOut();
+            }            
+        });
+        
     }    
 }
+

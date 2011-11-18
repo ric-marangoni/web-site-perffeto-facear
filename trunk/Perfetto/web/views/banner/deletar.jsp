@@ -43,10 +43,10 @@
 <script type="text/javascript">    
     jQuery(document).ready(function(){        
         jQuery('.banner-excluir').click(function(){            
-            if(window.confirm("Tem certeza que deseja excluir esse banner?")){
+            if(window.confirm("Tem certeza que deseja excluir essa imagem?")){
                 var paramId = jQuery(this).attr('id').split("-");
                 var id = paramId[2];
-                ajaxDelete.request('BannerController', 'deletar', id, 'item-banner-excluir-');
+                ajax.deleteRequest('BannerController', 'deletar', id, 'item-banner-excluir-');
             }
         });
     });
