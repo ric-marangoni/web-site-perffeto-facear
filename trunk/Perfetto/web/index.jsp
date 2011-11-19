@@ -6,6 +6,7 @@
         
         <!-- LINK ARQUIVOS CSS -->
         <link href="css/estilo.css" type="text/css" rel="stylesheet" />
+        <link href="css/Jcrop.css" type="text/css" rel="stylesheet" />
         <link href="css/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" />        
         
         <!-- LINK ARQUIVOS JAVASCRIPT -->
@@ -19,6 +20,22 @@
         <script type="text/javascript" src="js/ajaxLoader.js" ></script>
         <script type="text/javascript" src="js/AjaxUpload.js" ></script>        
         <script type="text/javascript" src="js/ajax.js" ></script>                
+        <script type="text/javascript" src="js/Jcrop.js" ></script>                
+        <script type="text/javascript" src="js/imageResize.js" ></script>                
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("ul.banner li img").aeImageResize({                    
+                    height: 351                   
+                });
+                
+                $('.banner-image-thumb').aeImageResize({
+                    height: 125                    
+                });
+
+            });
+            
+
+        </script>
         
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
@@ -28,15 +45,15 @@
     </head>
     <body>        
         <div id="topo">
-            <div class="toolbar-admin">
             <%if (session.getAttribute("logado") != null) {%>                                   
-            <form action="AdminController" method="post">
-                <input type="submit" value="desativar painéis administrativos" />
-                <input type="hidden" name="action" value="0" />                
-            </form>
-            <%}%>            
+            <div class="toolbar-admin">            
+                <form action="AdminController" method="post">
+                    <input type="submit" value="desativar painéis administrativos" />
+                    <input type="hidden" name="action" value="0" />                
+                </form>                        
             </div>
-            <img src="images/topo.jpg" alt="Perfetto Academia" />
+            <%}%>
+            <img src="images/topo.jpg" class="target" alt="Perfetto Academia" />
         </div>        
         <div id="bg-menu">
             <ul id="menu">

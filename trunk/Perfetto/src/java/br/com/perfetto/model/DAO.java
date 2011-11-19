@@ -15,8 +15,7 @@ public class DAO {
             String password = "admin";
 
             con = DriverManager.getConnection(url, user, password);
-        }catch(Exception e){
-            
+        }catch(Exception e){            
             
         }
     }
