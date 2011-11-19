@@ -22,7 +22,7 @@
                     <%String image_banner = listaDeleteBanner.get(i).getImage_path();%>                    
                     <li id="item-banner-excluir-<%out.print(id);%>">
                         <div class="ajax-msg"></div>
-                        <img class="banner-image" src="<%out.print(image_banner);%>" alt="" />                         
+                        <img class="banner-image-thumb" src="<%out.print(image_banner);%>" alt="" />                         
                         <input type="button" class="ajax-submit btn-alterar banner-excluir" id="banner-excluir-<%out.print(id);%>" value="Excluir imagem" />   
                     </li>        
                     <%}%>

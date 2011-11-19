@@ -5,6 +5,7 @@
 package br.com.perfetto.util;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,6 +22,8 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
  * @author Ricardo
  */
 public class Aplication {
+
+    private static String IMAGE_JPG;
 
     public static String getBasePath() {
         return "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
@@ -48,16 +51,24 @@ public class Aplication {
                     item.write(savedFile);  // upload realizado
                 } catch (Exception ex) {
                     Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                
-                return itemName;
+                }               
+                    
+                try {
+                    Image image = ImageLoader.fromFile(Aplication.getBasePath() + "images/banner/" + itemName);
+                    image.getResizedToWidth(750).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + "images/banner/_nova" + itemName), 0.8f);
+                } catch (IOException ex) {
+                    Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
+                }              
+                                    
+
+                return "_nova"+itemName;
 
             } catch (FileUploadException e) {
-                
             }
         }
-        
+
         return "";
 
     }
-}
+
+    }
