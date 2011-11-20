@@ -22,19 +22,11 @@
         <script type="text/javascript" src="js/ajax.js" ></script>                
         <script type="text/javascript" src="js/Jcrop.js" ></script>                
         <script type="text/javascript" src="js/imageResize.js" ></script>                
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $("ul.banner li img").aeImageResize({                    
-                    height: 351                   
-                });
-                
-                $('.banner-image-thumb').aeImageResize({
-                    height: 125                    
-                });
-
-            });
-            
-
+        <script type="text/javascript">            
+                function showCoords(c){
+                      // variables can be accessed here as
+                      alert('x: '+c.x+'\ny: '+c.y+'\nx2: '+c.x2+'\ny2 '+c.y2+'\nw: '+c.w+'\nh: '+c.h);
+                };
         </script>
         
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
@@ -53,7 +45,7 @@
                 </form>                        
             </div>
             <%}%>
-            <img src="images/topo.jpg" class="target" alt="Perfetto Academia" />
+            <img src="images/topo.jpg" class="banner-crop" alt="Perfetto Academia" />
         </div>        
         <div id="bg-menu">
             <ul id="menu">

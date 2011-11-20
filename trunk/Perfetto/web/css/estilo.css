@@ -832,7 +832,7 @@ ul#menu li:hover ul{
 
 .window .ajax-msg{
     margin: 30px 0;    
-    font-weight: bold;
+    font-weight: bold;    
 }
 
 /* posiciona o link para fechar a janela */
@@ -846,6 +846,33 @@ ul#menu li:hover ul{
     width: 371px;
     height: 295px;
     margin-top: 15px;
+}
+
+.window-crop {
+    display: none;
+    background: #FFF;
+    position: absolute;    
+    z-index: 9999;    
+    border: 1px solid #CCC;
+    padding: 10px;
+    padding-bottom: 0;
+    opacity: 0.8;
+}
+
+.window-crop .btn-crop{    
+    float: right;
+    background: #000;        
+    margin: 10px;
+    padding: 5px 12px;    
+    font-size: 11px;
+    font-weight: normal;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+}
+
+.window-crop .btn-crop:hover{    
+    text-decoration: underline;
 }
 
 /* Personalize as janelas modal aqui. Você pode adicionar uma imagem de fundo. */
