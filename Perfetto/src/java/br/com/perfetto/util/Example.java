@@ -37,7 +37,7 @@ public class Example {
             System.out.println("Image dimensions: "+ img.getWidth() +"x"+ img.getHeight());
 
             //crop it
-            Image cropped = img.crop(200, 200, 500, 350);
+            Image cropped = img.crop(200, 200, 500, 350);            
             cropped.writeToJPG(new File(Aplication.getBasePath()+"cropped.jpg"), 0.95f);
             cropped.dispose();
 

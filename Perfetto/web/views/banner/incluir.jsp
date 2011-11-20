@@ -11,6 +11,8 @@
     <div class="ajax-msg"></div>
 </div>
 
+<div class="window-crop"></div> 
+
 <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
 <div id="mask"></div>
 

@@ -39,9 +39,24 @@ public class BannerController extends HttpServlet {
             this.editBanner(request, response);
         }else if(deletar.equals(action)){
             this.deleteBanner(request, response);
+        }else{
+            this.upload(request, response);
         }
         
         
+    }
+    
+    private void upload(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        PrintWriter out = response.getWriter();
+        
+        String path = "images/banner/";
+        int resizeWidth = 1000;
+        
+        String itemName = Aplication.upload(request, path, resizeWidth); 
+
+        out.print(Aplication.getCropImageProperties(path + itemName, 1000, 250));
+                    
+        out.close();
     }
 
     private void insertBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -49,16 +64,15 @@ public class BannerController extends HttpServlet {
         Banner banner = new Banner();
         BannerDao bannerDao = new BannerDao();
        
-        String itemName = Aplication.upload(request);
+        /*String itemName = Aplication.upload(request);
         
         banner.setImage_path("images/banner/" + itemName);
 
         bannerDao.insert(banner);
 
-        out.print("<p class=\"verde\">Banner inserido com sucesso!</p>");
-
-            
-        out.close();
+        out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
+                    
+        out.close();*/
     }
     
     private void editBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -66,17 +80,17 @@ public class BannerController extends HttpServlet {
         Banner banner = new Banner();
         BannerDao bannerDao = new BannerDao();
         
-        String itemName = Aplication.upload(request);
+        /*String itemName = Aplication.upload(request);
         
         banner.setId(Integer.parseInt(request.getParameter("id")));
         banner.setImage_path("images/banner/" + itemName);
 
         bannerDao.edit(banner);
 
-        out.print("<img class=\"banner-image\" src=\"images/banner/" + itemName + "\" />");
+        out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
 
             
-        out.close();
+        out.close();*/
     }
     
     private void deleteBanner(HttpServletRequest request, HttpServletResponse response){        

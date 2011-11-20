@@ -47,10 +47,10 @@ $(document).ready(function() {
     });
  
     //se div#mask for clicado
-    $('#mask').click(function () {
+    /*$('#mask').click(function () {
         $(this).hide();
         $('.window').hide();
         window.location.reload();
-    });
+    });*/
 });
     

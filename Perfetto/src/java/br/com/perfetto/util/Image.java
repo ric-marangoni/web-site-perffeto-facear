@@ -292,7 +292,7 @@ public class Image {
      * Free up resources associated with this image
      */
     public void dispose() {
-        img.flush();
+        img.flush();        
     }
 
     /**
