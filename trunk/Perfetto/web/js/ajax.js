@@ -12,7 +12,7 @@ var ajax = {
             var status = jQuery(itemResposta+id);
             
             new AjaxUpload(btnUpload, {
-                action: action+'?action=upload&id='+id,
+                action: action+'?action='+method+'&id='+id,
                 name: btnUpload,
                 onSubmit: function(file, ext){
                     if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){                        
@@ -23,15 +23,20 @@ var ajax = {
                 },
                 onComplete: function(file, response){                    
                     ajaxLoader.hide();                                     
+                    status.html(response);
+                    /*jQuery('.window-crop').html(response); 
                     
-                    jQuery('.window-crop').html(response); 
+                    var x, y, x2, y2;                    
                     
                     jQuery('.window-crop img').Jcrop({
                         minSize: [jQuery('.cropWidth').val(), jQuery('.cropHeight').val()],
                         maxSize: [jQuery('.cropWidth').val(), jQuery('.cropHeight').val()],
                         onSelect: function(c){
-                          // variables can be accessed here as
-                          alert('x: '+c.x+'\ny: '+c.y+'\nx2: '+c.x2+'\ny2 '+c.y2+'\nw: '+c.w+'\nh: '+c.h);
+                            // variables can be accessed here as
+                            x  = c.x;
+                            y  = c.y;
+                            x2 = c.x2;
+                            y2 = c.y2;
                         }
                     });
                                                                                 
@@ -45,15 +50,35 @@ var ajax = {
                     $('.window-crop').css('left', left);                                                          
                     
                     jQuery('.window').fadeOut(1000);
-                    jQuery('.window-crop').fadeIn(1000);                    
+                    jQuery('.window-crop').fadeIn(1000);
+
+                    jQuery('.btn-crop').click(function(){
+                        
+                        var params = jQuery.param(x, y, x2, y2);
+                        
+                        jQuery.ajax({
+                            url: action+'?action='+method+'&crop=true&id='+id,
+                            type: 'post',
+                            data: params,
+                            beforeSend: function(){
+                                jQuery('.window-crop').remove();
+                                jQuery('.window').fadeIn(1000);                                
+                                ajaxLoader.show();
+                            },
+                            success: function(response){
+                                ajaxLoader.hide();
+                                status.html(response);                                
+                            }   
+                        });
+                    });*/
                     
                 }
             });
         });        
     },  
-    deleteRequest: function(action, method, id, itemResposta){        
+    deleteRequest: function(action, id, itemResposta){        
         jQuery.ajax({
-            url: action+'?action=delete&id='+id,
+            url: action+'?action=deletar&id='+id,
             type: 'post',
             beforeSend: function(){
                 ajaxLoader.show();

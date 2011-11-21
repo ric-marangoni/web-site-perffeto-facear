@@ -16,7 +16,7 @@
     <%if (listBanner.size() > 0) {%>
         <ul class="banner">
             <%for (int i = 0; i < listBanner.size(); i++) {%>
-            <li><img src="<%out.print(listBanner.get(i).getImage_path());%>" alt="" /></li>        
+            <li><img src="images/banner/<%out.print(listBanner.get(i).getImage_path());%>" alt="" /></li>        
             <%}%>
         </ul>
         <%if (listBanner.size() > 1) {%>

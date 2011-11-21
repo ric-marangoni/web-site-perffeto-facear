@@ -31,7 +31,7 @@ public class Aplication {
         return "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
     }
 
-    public static String upload(HttpServletRequest request, String image_path, int image_width) throws InterruptedException {
+    public static String upload(HttpServletRequest request, String image_path, int image_width, int image_thumb_width) throws InterruptedException {
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
         if (isMultipart) {
@@ -57,17 +57,15 @@ public class Aplication {
                     
                 try {
                     Image image = ImageLoader.fromFile(Aplication.getBasePath() + image_path + itemName);
-                    image.getResizedToWidth(image_width).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path +"nova_"+ itemName), 0.8f);               
-                                        
-                    Thread.sleep(1500);
-                    
+                    image.getResizedToWidth(image_width).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + itemName), 0.8f);               
+                    image.getResizedToWidth(image_thumb_width).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + "thumb_"+itemName), 0.8f);                                                           
                     image.dispose();                                                           
                                         
                 } catch (IOException ex) {
                     Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
                 }                             
 
-                return "nova_"+itemName;
+                return itemName;
 
             } catch (FileUploadException e) {
             }

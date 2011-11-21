@@ -23,7 +23,7 @@
                     <li>
                         <div class="ajax-msg"></div>
                         <div class="ajax-trade-image<%out.print(id);%>">
-                            <img class="banner-image-thumb" src="<%out.print(image_banner);%>" alt="" /> 
+                            <img class="banner-image-thumb" src="images/banner/thumb_<%out.print(image_banner);%>" alt="" /> 
                         </div>
                         <input type="button" class="ajax-submit banner-editar btn-alterar" id="banner-editar-<%out.print(id);%>" value="Trocar imagem" />   
                     </li>        
