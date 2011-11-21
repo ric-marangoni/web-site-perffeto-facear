@@ -20,6 +20,7 @@ $(document).ready(function() {
         });
  
         //efeito de transição
+        $('iframe').hide();
         $('#mask').fadeIn();
         
  
@@ -43,6 +44,7 @@ $(document).ready(function() {
         //cancela o comportamento padrão do link
         e.preventDefault();
         $('#mask, .window').hide();
+        $('iframe').show();
         window.location.reload();
     });
  
@@ -50,6 +52,7 @@ $(document).ready(function() {
     /*$('#mask').click(function () {
         $(this).hide();
         $('.window').hide();
+        $('iframe').show();
         window.location.reload();
     });*/
 });

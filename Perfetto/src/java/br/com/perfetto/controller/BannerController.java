@@ -3,10 +3,11 @@ package br.com.perfetto.controller;
 import br.com.perfetto.entidades.Banner;
 import br.com.perfetto.model.BannerDao;
 import br.com.perfetto.util.Aplication;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +26,7 @@ public class BannerController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, InterruptedException {
         response.setContentType("text/html;charset=UTF-8");
         
         String action = request.getParameter("action");
@@ -46,51 +47,64 @@ public class BannerController extends HttpServlet {
         
     }
     
-    private void upload(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void upload(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
         
         String path = "images/banner/";
         int resizeWidth = 1000;
+        int thumbWidth = 125;
         
-        String itemName = Aplication.upload(request, path, resizeWidth); 
+        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth); 
 
         out.print(Aplication.getCropImageProperties(path + itemName, 1000, 250));
                     
         out.close();
     }
 
-    private void insertBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void insertBanner(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
         Banner banner = new Banner();
         BannerDao bannerDao = new BannerDao();
        
-        /*String itemName = Aplication.upload(request);
+        String path = "images/banner/";
+        int resizeWidth = 1000;
+        int thumbWidth = 350;
         
-        banner.setImage_path("images/banner/" + itemName);
+        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth); 
+        
+        banner.setImage_path(itemName);
 
         bannerDao.insert(banner);
 
-        out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
+        out.print("<p class=\"verde\">Banner inserido com sucesso!</p>");
+        
+        //out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
                     
-        out.close();*/
+        out.close();
     }
     
-    private void editBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void editBanner(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
         Banner banner = new Banner();
         BannerDao bannerDao = new BannerDao();
         
-        /*String itemName = Aplication.upload(request);
+        String path = "images/banner/";
+        int resizeWidth = 1000;
+        int thumbWidth = 350;
+        
+        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth);         
         
         banner.setId(Integer.parseInt(request.getParameter("id")));
-        banner.setImage_path("images/banner/" + itemName);
+        banner.setImage_path(itemName);
 
         bannerDao.edit(banner);
 
-        out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
+        out.print("<img src=\""+path+"thumb_"+itemName+"\" alt=\"\" />");
+        
+        //out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
 
             
-        out.close();*/
+        out.close();
     }
     
     private void deleteBanner(HttpServletRequest request, HttpServletResponse response){        
@@ -120,7 +134,11 @@ public class BannerController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(BannerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 
@@ -133,7 +151,11 @@ public class BannerController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(BannerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /** 

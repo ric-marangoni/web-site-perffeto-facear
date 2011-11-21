@@ -20,14 +20,7 @@
         <script type="text/javascript" src="js/ajaxLoader.js" ></script>
         <script type="text/javascript" src="js/AjaxUpload.js" ></script>        
         <script type="text/javascript" src="js/ajax.js" ></script>                
-        <script type="text/javascript" src="js/Jcrop.js" ></script>                
-        <script type="text/javascript" src="js/imageResize.js" ></script>                
-        <script type="text/javascript">            
-                function showCoords(c){
-                      // variables can be accessed here as
-                      alert('x: '+c.x+'\ny: '+c.y+'\nx2: '+c.x2+'\ny2 '+c.y2+'\nw: '+c.w+'\nh: '+c.h);
-                };
-        </script>
+        <script type="text/javascript" src="js/Jcrop.js" ></script>                                
         
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
