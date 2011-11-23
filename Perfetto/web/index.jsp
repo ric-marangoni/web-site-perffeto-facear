@@ -7,7 +7,8 @@
         <!-- LINK ARQUIVOS CSS -->
         <link href="css/estilo.css" type="text/css" rel="stylesheet" />
         <link href="css/Jcrop.css" type="text/css" rel="stylesheet" />
-        <link href="css/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" />        
+        <link href="css/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" /> 
+        <link href="css/personal-trainers.css" type="text/css" rel="stylesheet" />
         
         <!-- LINK ARQUIVOS JAVASCRIPT -->
         <script type="text/javascript" src="js/jQuery.js"></script>
@@ -20,7 +21,7 @@
         <script type="text/javascript" src="js/ajaxLoader.js" ></script>
         <script type="text/javascript" src="js/AjaxUpload.js" ></script>        
         <script type="text/javascript" src="js/ajax.js" ></script>                
-        <script type="text/javascript" src="js/Jcrop.js" ></script>                                
+        <script type="text/javascript" src="js/Jcrop.js" ></script>        
         
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>

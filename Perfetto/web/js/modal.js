@@ -45,7 +45,7 @@ $(document).ready(function() {
         e.preventDefault();
         $('#mask, .window').hide();
         $('iframe').show();
-        window.location.reload();
+        //window.location.reload();
     });
  
     //se div#mask for clicado

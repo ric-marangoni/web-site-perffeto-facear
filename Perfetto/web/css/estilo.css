@@ -294,7 +294,8 @@ ul#menu li:hover ul{
     width: 395px;
     height: 346px;
     border-bottom: 1px dotted #CCC;
-    margin: 0 0 0 18px;    
+    margin: 0 0 0 18px;   
+    position: relative;
 }
 
 #trainers ul{
@@ -811,8 +812,7 @@ ul#menu li:hover ul{
     display: block;    
 }
 
-.window input.ajax-submit{        
-    margin-top: 25px;
+.window input.ajax-submit{   
     background: #333;
     color: #FFF;    
     border: 0;
@@ -820,14 +820,40 @@ ul#menu li:hover ul{
     float: left;    
     font-weight: bold;
     cursor: pointer;
-    padding: 4.5px;
+    padding: 4px;
+}
+
+.window .preview h3{
+    color: #333;
+    border-bottom: 2px solid #333;
+    margin-top: 25px;
+    font-size: 18px;
 }
 
 .window span{
+    display: block; 
+    font-weight: bold;
+    margin: 8px 0 2px 0; 
+}
+
+.window .campo-upload{
+    color: #666;
     border: 1px solid #333;
-    padding: 5px;
     float: left;
-    margin-top: 25px;
+    padding: 4px;
+}
+
+.window input{
+    display: block;
+    padding: 3px;
+}
+
+.window input.pequeno{
+    width: 200px;    
+}
+
+.window input.medio{
+    width: 300px;
 }
 
 .window .ajax-msg{
