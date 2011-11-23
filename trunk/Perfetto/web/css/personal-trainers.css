@@ -1,0 +1,49 @@
+
+.personal-toolbar{
+    width: 150px;
+    height: 105px;
+    background: #000;
+    opacity: 0.8;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    z-index: 99;    
+}
+
+.personal-toolbar ul{
+    list-style: none;
+    margin: 10px;
+}
+
+.personal-toolbar ul li{
+    height: 20px;    
+    margin-bottom: 10px   
+}
+
+.personal-toolbar ul li a{
+    color: #FFF;
+    text-decoration: none;
+    padding: 0 25px;
+    display: block;
+}
+
+.personal-toolbar ul li a:hover{
+    text-decoration: underline;
+}
+
+.personal-toolbar ul li.add{
+    background: url("../images/sistema/add.png") no-repeat;    
+}
+
+.personal-toolbar ul li.editar{
+    background: url("../images/sistema/edit.png") no-repeat;    
+}
+
+.personal-toolbar ul li.excluir{
+    background: url("../images/sistema/delete.png") no-repeat;    
+}
+
+#personal-incluir{
+    background: #FFF;
+    height: 400px;
+}

@@ -88,6 +88,9 @@
     <p class="next"><a href="#">next</a></p>
 </div>
 <div id="trainers">
+    <%if(session.getAttribute("logado") != null){%>
+    <%@include file="../views/personal-trainers/personal-toolbar.jsp"%>
+    <%}%>
     <h2>Personal Trainers</h2>
     <ul>
         <li>
@@ -115,7 +118,16 @@
             <p>Neno - Musculação</p>
         </li>
     </ul>
-</div>            
+</div>
+    
+<!-- AQUI ESTÃO AS JANELAS MODAL DO BANNER -->
+<%if (session.getAttribute("logado") != null) {%>            
+<%@include file="../views/personal-trainers/incluir.jsp" %>
+<%//@include file="../views/banner/editar.jsp" %>
+<%//@include file="../views/banner/deletar.jsp" %>
+<%}%>
+<!-- FIM JANELAS MODAL -->
+    
 <div id="home-modalidades">
     <h2>Modalidades</h2>
     <ul>
