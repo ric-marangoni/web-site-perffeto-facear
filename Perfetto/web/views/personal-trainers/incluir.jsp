@@ -1,4 +1,4 @@
-<div id="personal-incluir" class="window">
+<div id="personals-incluir" class="window">
     <!-- Botão para fechar a janela tem class="close" -->
     <a href="#" class="close"><img src="images/sistema/close.png" alt="" /></a>    
     <h2>Incluir Personal</h2>    
@@ -37,7 +37,7 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function(){
-        ajax.uploadRequest('PersonalController', 'upload', 'personal-incluir', '.ajax-msg');
+        ajax.uploadRequest('personalController', 'upload', 'personal-incluir', '.ajax-msg');
                
         jQuery('#nome-personal').blur(function(){
             jQuery('#preview-personal-nome').html(jQuery(this).val());          
@@ -60,7 +60,7 @@
                 personal_imagem: image
             };
             
-            ajax.normalRequest('PersonalController', 'incluir', params, '.resposta');            
+            ajax.normalRequest('personalController', 'incluir', params, '.resposta');            
         });
         
         
