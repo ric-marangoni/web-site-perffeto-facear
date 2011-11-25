@@ -91,7 +91,7 @@
     <%if(session.getAttribute("logado") != null){%>
     <%@include file="../views/personal-trainers/personal-toolbar.jsp"%>
     <%}%>
-    <h2>Personal Trainers</h2>
+    <h2>Personal <%if(session.getAttribute("logado") == null){%>Trainers<%}%></h2>
     <ul>
         <li>
             <img src="images/trainers/trainers1.jpg" alt="" />
