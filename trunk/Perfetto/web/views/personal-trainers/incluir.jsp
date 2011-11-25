@@ -1,4 +1,4 @@
-<div id="personals-incluir" class="window">
+<div id="personal-incluir" class="window">
     <!-- Botão para fechar a janela tem class="close" -->
     <a href="#" class="close"><img src="images/sistema/close.png" alt="" /></a>    
     <h2>Incluir Personal</h2>    

@@ -10,9 +10,9 @@ public class DAO {
     protected void openDataBase(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:8084/perfetto";
+            String url = "jdbc:mysql://localhost:3306/perfetto";
             String user = "root";
-            String password = "ideias";
+            String password = "admin";
 
             con = DriverManager.getConnection(url, user, password);
         }catch(Exception e){            

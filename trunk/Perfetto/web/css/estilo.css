@@ -298,6 +298,25 @@ ul#menu li:hover ul{
     position: relative;
 }
 
+#trainers .nome-personal{
+    position: absolute;
+    bottom: 2px;	
+    background: #FFF;
+    opacity: 0.8;
+    width: 103px;	
+    padding-left: 3px;
+    height: 25px;
+    line-height: 25px;
+    text-align: left;
+}
+
+#trainers .nome-personal a{
+    color: #000;
+    font-weight: bold;
+    font-size: 10px;
+    display: block;    
+}
+
 #trainers ul{
     list-style: none;
 }
@@ -305,7 +324,20 @@ ul#menu li:hover ul{
 #trainers ul li{
     display: block;
     float: left;
-    margin: 10px 10px;
+    margin: 16px 10px;
+    position: relative;
+    border: 1px solid gray;
+}
+
+#trainers ul li .area-personal{
+    position: absolute;
+    bottom: -21px;
+    right: -1px;
+    color: #000;    
+    background: #CCC;
+    border: 1px solid gray;
+    padding: 3px;        
+    font-size: 10px;
 }
 
 #conteudo{    
