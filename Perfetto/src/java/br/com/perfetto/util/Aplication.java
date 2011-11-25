@@ -28,7 +28,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 public class Aplication {    
 
     public static String getBasePath() {
-        return "C:\\Documents and Settings\\Samela\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
+        return "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
     }
 
     public static String upload(HttpServletRequest request, String image_path, int image_width, int image_thumb_width) throws InterruptedException {

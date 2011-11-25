@@ -2,9 +2,11 @@
     <!-- Botão para fechar a janela tem class="close" -->
     <a href="#" class="close"><img src="images/sistema/close.png" alt="" /></a>    
     <h2>Incluir novo banner</h2>    
-
+    
+    <br />      
+    
     <form>
-        <span>Buscar imagem no computador:</span>        
+        <div class="campo-upload">Buscar imagem no computador</div>
         <input type="button" name="ajax-submit" class="ajax-submit banner-incluir" id="incluir-banner" value="selecionar arquivo" />        
     </form>
     <div class="clear"></div>

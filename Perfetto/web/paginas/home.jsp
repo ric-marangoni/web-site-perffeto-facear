@@ -93,29 +93,47 @@
     <%}%>
     <h2>Personal <%if(session.getAttribute("logado") == null){%>Trainers<%}%></h2>
     <ul>
-        <li>
+        <li>            
             <img src="images/trainers/trainers1.jpg" alt="" />
-            <p>Neno - Musculação</p>
+            <div class="nome-personal">
+                <a href="javascript:void(0)">Neno</a>                                
+            </div>            
+            <div class="area-personal">Musculação</div>
         </li>
-        <li>
-            <img src="images/trainers/trainers2.jpg" alt="" />
-            <p>Neno - Musculação</p>
+        <li>            
+            <img src="images/trainers/trainers1.jpg" alt="" />
+            <div class="nome-personal">
+                <a href="javascript:void(0)">Neno</a>                                
+            </div>        
+            <div class="area-personal">Spinning</div>
         </li>
-        <li>
-            <img src="images/trainers/trainers3.jpg" alt="" />
-            <p>Neno - Musculação</p>
+        <li>            
+            <img src="images/trainers/trainers1.jpg" alt="" />
+            <div class="nome-personal">
+                <a href="javascript:void(0)">Neno</a>                                
+            </div>        
+            <div class="area-personal">Body Pump</div>
         </li>
-        <li>
-            <img src="images/trainers/trainers4.jpg" alt="" />
-            <p>Neno - Musculação</p>
+        <li>            
+            <img src="images/trainers/trainers1.jpg" alt="" />
+            <div class="nome-personal">
+                <a href="javascript:void(0)">Neno</a>                                
+            </div>   
+            <div class="area-personal">Dança de Salão</div>
         </li>
-        <li>
-            <img src="images/trainers/trainers3.jpg" alt="" />
-            <p>Neno - Musculação</p>
+        <li>            
+            <img src="images/trainers/trainers1.jpg" alt="" />
+            <div class="nome-personal">
+                <a href="javascript:void(0)">Neno</a>                                
+            </div>     
+            <div class="area-personal">Muay Thai</div>
         </li>
-        <li>
-            <img src="images/trainers/trainers4.jpg" alt="" />
-            <p>Neno - Musculação</p>
+        <li>            
+            <img src="images/trainers/trainers1.jpg" alt="" />
+            <div class="nome-personal">
+                <a href="javascript:void(0)">Neno</a>                                
+            </div>         
+            <div class="area-personal">Power Jump</div>
         </li>
     </ul>
 </div>
