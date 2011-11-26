@@ -101,7 +101,7 @@
     <% if(listaPersonal.size() > 0){ %>
         <%for(int i = 0; i < listaPersonal.size(); i++){%>
             <ul>
-                <li>            
+                <li class="showImage">            
                     <img src="images/trainers/thumb_<%out.print(listaPersonal.get(i).getImage_path());%>" alt="" />
                     <div class="nome-personal">
                         <a href="javascript:void(0)"><%out.print(listaPersonal.get(i).getNome());%></a>                                

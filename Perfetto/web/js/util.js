@@ -182,7 +182,36 @@ jQuery(document).ready(
                 top : e.pageY - 60,
                 left : e.pageX - 90
             });
-        });			
+        });
+        
+        jQuery("#trainers ul li").toggle(
+            function(e){
+                
+                var pathArray = jQuery(this).children().attr('src').split("/");
+                var imgArray = pathArray[2].split("thumb_");
+                var img = imgArray[1];
+                var path = pathArray[0]+"/"+pathArray[1]+"/";
+                
+                jQuery("body").append('<div class="show-image-personal"><img src="'+path+img+'" /></div>');                
+                jQuery('.show-image-personal').css({
+                    top : e.pageY + 30,
+                    left : e.pageX - 300
+                }).fadeIn();
+				  
+            }, function(){
+                jQuery('.show-image-personal').remove();
+            }).mousemove(function(e){
+            jQuery('.show-image-personal').css({
+                top : e.pageY + 30,
+                left : e.pageX - 300
+            });
+        });
+        
+        jQuery("#trainers ul li").mouseleave(function(){
+            if( jQuery('.show-image-personal').length ){
+                jQuery(this).click();
+            }                        
+        });
     }
     );
     

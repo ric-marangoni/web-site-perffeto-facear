@@ -21,7 +21,7 @@
     float: left !important; 
     border: 0 !important;
     border-right: 1px solid #FFF !important;
-    padding: 0 !important;
+    padding: 0 !important;    
 }
 
 .personal-toolbar ul li a{
@@ -58,4 +58,11 @@
 #personal-incluir{
     background: #FFF;
     height: 445px;
+}
+
+.show-image-personal{	
+    position: absolute;
+    display: none;    
+    border: 1px solid gray;
+    z-index: 9999;
 }

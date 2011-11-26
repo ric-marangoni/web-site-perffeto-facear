@@ -55,7 +55,7 @@ public class PersonalController extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         String path = "images/trainers/";
-        int resizeWidth = 1000;
+        int resizeWidth = 500;
         int thumbWidth = 106;
         
         String itemName = Aplication.upload(request, path);

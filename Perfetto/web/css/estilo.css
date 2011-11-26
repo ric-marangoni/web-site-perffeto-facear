@@ -328,6 +328,7 @@ ul#menu li:hover ul{
     position: relative;
     border: 1px solid gray;
     padding: 2px;
+    cursor: pointer;    
 }
 
 .area-personal{
@@ -906,7 +907,7 @@ ul#menu li:hover ul{
     overflow-y: scroll; 
     width: 371px;
     height: 295px;
-    margin-top: 15px;
+    margin-top: 30px;
 }
 
 .window-crop {
