@@ -31,7 +31,7 @@ public class Aplication {
         return "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
     }
 
-    public static String upload(HttpServletRequest request, String image_path, int image_width, int image_thumb_width) throws InterruptedException {
+    public static String upload(HttpServletRequest request, String image_path) throws InterruptedException {
         boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 
         if (isMultipart) {
@@ -55,16 +55,6 @@ public class Aplication {
                     Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
                 }               
                     
-                try {
-                    Image image = ImageLoader.fromFile(Aplication.getBasePath() + image_path + itemName);
-                    image.getResizedToWidth(image_width).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + itemName), 0.8f);               
-                    image.getResizedToWidth(image_thumb_width).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + "thumb_"+itemName), 0.8f);                                                           
-                    image.dispose();                                                           
-                                        
-                } catch (IOException ex) {
-                    Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
-                }                             
-
                 return itemName;
 
             } catch (FileUploadException e) {
@@ -75,17 +65,28 @@ public class Aplication {
 
     }
     
-    public static String getCropImageProperties(String path_image, int width, int height){        
-        
-        String imageToCrop = "<img src=\""+path_image+"\" alt=\"\" />";
-        imageToCrop += "<input type=\"hidden\" class=\"cropWidth\" value=\""+width+"\" />";
-        imageToCrop += "<input type=\"hidden\" class=\"cropHeight\" value=\""+height+"\" />";
-        imageToCrop += "<input type=\"button\" id=\"cancelUpload\" class=\"btn-crop\" value=\"cancelar\" />";
-        imageToCrop += "<input type=\"button\" id=\"crop\" class=\"btn-crop\" value=\"cortar imagem\" />";
-        imageToCrop += "<input type=\"button\" id=\"useNormalImage\" class=\"btn-crop\" value=\"usar imagem original\" />";        
-        
-        return imageToCrop;
-        
+    public static void resizeIt(String image_path, String itemName, int image_width, String prefix){
+        try{
+            Image image = ImageLoader.fromFile(Aplication.getBasePath() + image_path + itemName);
+            if(image.getWidth() > image_width){
+                image.getResizedToWidth(image_width).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + prefix + itemName), 0.8f);
+            }
+            image.dispose();
+        }catch(IOException ex){
+            Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void thumbnailIt(String image_path, String itemName, int image_width){
+        try{
+            Image image = ImageLoader.fromFile(Aplication.getBasePath() + image_path + itemName);
+            if(image.getWidth() > image_width){
+                image.getResizedToSquare(image_width, 0.0).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + "thumb_"+itemName), 0.8f);                                                                               
+            }
+            image.dispose();
+        }catch(IOException ex){
+            Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void copiarArquivo(File fonte, File destino) throws IOException{
@@ -100,5 +101,4 @@ public class Aplication {
         in.close();
         out.close();
     }
-
 }

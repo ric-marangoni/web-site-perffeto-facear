@@ -21,6 +21,7 @@
     float: left !important; 
     border: 0 !important;
     border-right: 1px solid #FFF !important;
+    padding: 0 !important;
 }
 
 .personal-toolbar ul li a{
@@ -46,7 +47,15 @@
     background: url("../images/sistema/delete.png") no-repeat;    
 }
 
+#personal-preview{
+    margin: 20px 40px;
+    position: relative;
+    border: 1px solid gray;
+    padding: 2px;
+    width: 106px;
+}
+
 #personal-incluir{
     background: #FFF;
-    height: 400px;
+    height: 445px;
 }

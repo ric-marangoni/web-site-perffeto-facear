@@ -24,6 +24,7 @@ public class AdminController extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(true);
+
         int action = Integer.parseInt(request.getParameter("action"));        
         PrintWriter out = response.getWriter();
 

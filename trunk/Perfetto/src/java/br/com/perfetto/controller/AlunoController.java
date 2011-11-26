@@ -55,9 +55,11 @@ public class AlunoController extends HttpServlet {
         
         String path = "images/trainers/";
         int resizeWidth = 1000;
-        int thumbWidth = 109;
+        int thumbWidth = 108;
         
-        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth); 
+        String itemName = Aplication.upload(request, path);
+        Aplication.resizeIt(path, itemName, resizeWidth, "");
+        Aplication.thumbnailIt(path, itemName, thumbWidth);
 
         out.print("<img src=\""+path + "thumb_"+itemName+"\" />");
                     

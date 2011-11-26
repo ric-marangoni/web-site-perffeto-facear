@@ -40,26 +40,8 @@ public class BannerController extends HttpServlet {
             this.editBanner(request, response);
         }else if(deletar.equals(action)){
             this.deleteBanner(request, response);
-        }else{
-            this.upload(request, response);
-        }
-        
-        
-    }
-    
-    private void upload(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
-        PrintWriter out = response.getWriter();
-        
-        String path = "images/banner/";
-        int resizeWidth = 1000;
-        int thumbWidth = 125;
-        
-        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth); 
-
-        out.print(Aplication.getCropImageProperties(path + itemName, 1000, 250));
-                    
-        out.close();
-    }
+        }        
+    }    
 
     private void insertBanner(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
@@ -70,7 +52,9 @@ public class BannerController extends HttpServlet {
         int resizeWidth = 1000;
         int thumbWidth = 350;
         
-        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth); 
+        String itemName = Aplication.upload(request, path);
+        Aplication.resizeIt(path, itemName, resizeWidth, "");
+        Aplication.resizeIt(path, itemName, thumbWidth, "thumb_");
         
         banner.setImage_path(itemName);
 
@@ -92,7 +76,9 @@ public class BannerController extends HttpServlet {
         int resizeWidth = 1000;
         int thumbWidth = 350;
         
-        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth);         
+        String itemName = Aplication.upload(request, path);
+        Aplication.resizeIt(path, itemName, resizeWidth, "");
+        Aplication.resizeIt(path, itemName, thumbWidth, "thumb_");         
         
         banner.setId(Integer.parseInt(request.getParameter("id")));
         banner.setImage_path(itemName);
@@ -101,9 +87,6 @@ public class BannerController extends HttpServlet {
 
         out.print("<img src=\""+path+"thumb_"+itemName+"\" alt=\"\" />");
         
-        //out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
-
-            
         out.close();
     }
     

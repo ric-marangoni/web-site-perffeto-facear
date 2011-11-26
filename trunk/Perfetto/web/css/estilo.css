@@ -298,7 +298,7 @@ ul#menu li:hover ul{
     position: relative;
 }
 
-#trainers .nome-personal{
+.nome-personal{
     position: absolute;
     bottom: 2px;	
     background: #FFF;
@@ -310,7 +310,7 @@ ul#menu li:hover ul{
     text-align: left;
 }
 
-#trainers .nome-personal a{
+.nome-personal a{
     color: #000;
     font-weight: bold;
     font-size: 10px;
@@ -324,12 +324,13 @@ ul#menu li:hover ul{
 #trainers ul li{
     display: block;
     float: left;
-    margin: 16px 10px;
+    margin: 16px 9px;
     position: relative;
     border: 1px solid gray;
+    padding: 2px;
 }
 
-#trainers ul li .area-personal{
+.area-personal{
     position: absolute;
     bottom: -21px;
     right: -1px;
@@ -827,6 +828,7 @@ ul#menu li:hover ul{
     z-index: 9999;
     padding: 10px;
     border: 1px solid #CCC;
+    cursor: move;
 }
 
 .window h2{
@@ -896,7 +898,8 @@ ul#menu li:hover ul{
 /* posiciona o link para fechar a janela */
 .close {
     display: block;
-    text-align: right;    
+    float: right;
+    width: 24px;
 }
 
 .painel-rolagem{

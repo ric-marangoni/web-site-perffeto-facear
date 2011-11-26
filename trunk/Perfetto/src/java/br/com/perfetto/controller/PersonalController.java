@@ -9,6 +9,7 @@ import br.com.perfetto.model.PersonalDao;
 import br.com.perfetto.util.Aplication;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -55,11 +56,16 @@ public class PersonalController extends HttpServlet {
         
         String path = "images/trainers/";
         int resizeWidth = 1000;
-        int thumbWidth = 109;
+        int thumbWidth = 106;
         
-        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth); 
+        String itemName = Aplication.upload(request, path);
+        Aplication.resizeIt(path, itemName, resizeWidth, "");
+        Aplication.thumbnailIt(path, itemName, thumbWidth);
+        
 
-        out.print("<img src=\""+path + "thumb_"+itemName+"\" />");
+        out.print(""
+                + "<img src=\""+path + "thumb_"+itemName+"\" />"
+                + "<input type=\"hidden\" id=\"imagem-personal\" value=\""+itemName+"\"/>");
                     
         out.close();
     }
@@ -69,33 +75,45 @@ public class PersonalController extends HttpServlet {
         
         Personal personal = new Personal();
         PersonalDao personalDao = new PersonalDao();
-                
-        personal.setNome(request.getParameter("personal_nome"));
-        personal.setArea(request.getParameter("personal_modalidade"));
-        personal.setImage_path(request.getParameter("personal_imagem"));
+        String personalNome = request.getParameter("personal_nome");        
+        String personalArea = request.getParameter("personal_modalidade");
+        String personalImagem = request.getParameter("personal_imagem");
         
-        personalDao.insert(personal);
-        
-        out.print("Personal trainer inserido com sucesso");
-        
-        //Personal personal = new Personal();
-        /*BannerDao bannerDao = new BannerDao();
-       
-        String path = "images/banner/";
-        int resizeWidth = 1000;
-        int thumbWidth = 350;
-        
-        String itemName = Aplication.upload(request, path, resizeWidth, thumbWidth); 
-        
-        banner.setImage_path(itemName);
+        try{        
+            if(!personalNome.isEmpty()){
+                personal.setNome(personalNome);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor informe o nome do personal</p>");
+            }
+            
+            if(!personalArea.isEmpty()){
+                personal.setArea(personalArea);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor informe a área de atuação do personal</p>");
+            }
+            
+            if(personalImagem != null){
+                personal.setImage_path(personalImagem);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para o personal</p>");
+            }            
 
-        bannerDao.insert(banner);
+            personalDao.insert(personal);
 
-        out.print("<p class=\"verde\">Banner inserido com sucesso!</p>");
+            out.print("<p class=\"verde\">Personal inserido com sucesso</p>");        
+            
+        }catch(Exception ex){
+            out.print(ex.getMessage());
+        }
         
-        //out.print(Aplication.getCropImageProperties("images/banner/" +itemName, 1000, 250));
-                    
-        out.close();*/
+    }
+    
+    public ArrayList<Personal> getTrainers(){
+        
+        PersonalDao personalDao = new PersonalDao();
+        
+        return personalDao.getAllTrainers();
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

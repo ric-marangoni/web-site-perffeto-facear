@@ -6,6 +6,7 @@ package br.com.perfetto.model;
 
 import br.com.perfetto.entidades.Personal;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,5 +31,32 @@ public class PersonalDao extends DAO {
         }finally{
             closeDataBase();
         }
+    }
+    
+    public ArrayList<Personal> getAllTrainers(){
+        PrintWriter out = null; 
+        ArrayList<Personal> listaPersonal = new ArrayList<Personal>();
+        
+        try{
+            openDataBase();
+            String SQL = "SELECT * FROM personal_trainers";
+            pstmt = con.prepareStatement(SQL);            
+            rs = pstmt.executeQuery(SQL);
+            
+            while(rs.next()){
+                Personal personal = new Personal();
+                personal.setNome(rs.getString("nome"));
+                personal.setArea(rs.getString("area"));
+                personal.setImage_path(rs.getString("image_path"));
+                listaPersonal.add(personal);
+            }
+                        
+        }catch(Exception e){
+            out.print("Desculpe-nos o transtorno mais ocorreu o seguinte erro: "+e.getMessage());            
+        }finally{
+            closeDataBase();
+        }
+        
+        return listaPersonal;
     }
 }

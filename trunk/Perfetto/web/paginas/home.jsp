@@ -1,3 +1,5 @@
+<%@page import="br.com.perfetto.entidades.Personal"%>
+<%@page import="br.com.perfetto.controller.PersonalController"%>
 <%@page import="br.com.perfetto.controller.BannerController"%>
 <%@page import="br.com.perfetto.entidades.Banner"%>
 <%@page import="java.util.*"%>
@@ -5,6 +7,7 @@
 <%
     //VARIÁVEIS E OBJETOS
     BannerController banner = new BannerController();
+    PersonalController personal = new PersonalController();
 %>
 
 <div id="banner">
@@ -87,55 +90,27 @@
     </div>                
     <p class="next"><a href="#">next</a></p>
 </div>
+
+
 <div id="trainers">
     <%if(session.getAttribute("logado") != null){%>
     <%@include file="../views/personal-trainers/personal-toolbar.jsp"%>
     <%}%>
     <h2>Personal <%if(session.getAttribute("logado") == null){%>Trainers<%}%></h2>
-    <ul>
-        <li>            
-            <img src="images/trainers/trainers1.jpg" alt="" />
-            <div class="nome-personal">
-                <a href="javascript:void(0)">Neno</a>                                
-            </div>            
-            <div class="area-personal">Musculação</div>
-        </li>
-        <li>            
-            <img src="images/trainers/trainers1.jpg" alt="" />
-            <div class="nome-personal">
-                <a href="javascript:void(0)">Neno</a>                                
-            </div>        
-            <div class="area-personal">Spinning</div>
-        </li>
-        <li>            
-            <img src="images/trainers/trainers1.jpg" alt="" />
-            <div class="nome-personal">
-                <a href="javascript:void(0)">Neno</a>                                
-            </div>        
-            <div class="area-personal">Body Pump</div>
-        </li>
-        <li>            
-            <img src="images/trainers/trainers1.jpg" alt="" />
-            <div class="nome-personal">
-                <a href="javascript:void(0)">Neno</a>                                
-            </div>   
-            <div class="area-personal">Dança de Salão</div>
-        </li>
-        <li>            
-            <img src="images/trainers/trainers1.jpg" alt="" />
-            <div class="nome-personal">
-                <a href="javascript:void(0)">Neno</a>                                
-            </div>     
-            <div class="area-personal">Muay Thai</div>
-        </li>
-        <li>            
-            <img src="images/trainers/trainers1.jpg" alt="" />
-            <div class="nome-personal">
-                <a href="javascript:void(0)">Neno</a>                                
-            </div>         
-            <div class="area-personal">Power Jump</div>
-        </li>
-    </ul>
+    <% ArrayList<Personal> listaPersonal = personal.getTrainers(); %>
+    <% if(listaPersonal.size() > 0){ %>
+        <%for(int i = 0; i < listaPersonal.size(); i++){%>
+            <ul>
+                <li>            
+                    <img src="images/trainers/thumb_<%out.print(listaPersonal.get(i).getImage_path());%>" alt="" />
+                    <div class="nome-personal">
+                        <a href="javascript:void(0)"><%out.print(listaPersonal.get(i).getNome());%></a>                                
+                    </div>            
+                    <div class="area-personal"><%out.print(listaPersonal.get(i).getArea());%></div>
+                </li>        
+            </ul>   
+        <%}%>
+    <%}%>
 </div>
     
 <!-- AQUI ESTÃO AS JANELAS MODAL DO BANNER -->
