@@ -212,6 +212,14 @@ jQuery(document).ready(
                 jQuery(this).click();
             }                        
         });
+        
+        $('.window').draggable();
+        
+        $('.painel-rolagem').hover(function(){
+            $('.window').draggable({ disabled: true });
+        }, function(){
+            $('.window').draggable({disabled: false});
+        });   
     }
     );
     

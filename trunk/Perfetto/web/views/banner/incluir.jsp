@@ -4,6 +4,7 @@
     <h2>Incluir novo banner</h2>    
     
     <br />      
+    <br />      
     
     <form>
         <div class="campo-upload">Buscar imagem no computador</div>
@@ -12,8 +13,6 @@
     <div class="clear"></div>
     <div class="ajax-msg"></div>
 </div>
-
-<div class="window-crop"></div> 
 
 <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
 <div id="mask"></div>

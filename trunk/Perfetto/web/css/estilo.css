@@ -828,8 +828,10 @@ ul#menu li:hover ul{
     display: none;
     z-index: 9999;
     padding: 10px;
+    padding-top: 25px; 
     border: 1px solid #CCC;
     cursor: move;
+    opacity: 1.0 !important;
 }
 
 .window h2{
@@ -850,12 +852,12 @@ ul#menu li:hover ul{
 .window input.ajax-submit{   
     background: #333;
     color: #FFF;    
-    border: 0;
-    width: 146px;
+    border: 0;    
     float: left;    
     font-weight: bold;
     cursor: pointer;
-    padding: 4px;
+    padding: 0 4px;
+    height: 26px;
 }
 
 .window .preview h3{
@@ -876,6 +878,8 @@ ul#menu li:hover ul{
     border: 1px solid #333;
     float: left;
     padding: 4px;
+    height: 16px;
+    width: 190px;
 }
 
 .window input{

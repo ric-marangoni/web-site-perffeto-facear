@@ -60,6 +60,25 @@
     height: 445px;
 }
 
+#personal-incluir #personal-ajax-submit{
+    background: #333;
+    border-radius: 5px;
+    color: #FFF;    
+    margin-left: 239px;
+    margin-top: 10px;
+    padding: 4px;
+    width: 105px;
+    text-decoration: none;
+}
+
+#personal-incluir #personal-ajax-submit:hover{
+    background: #CCC;    
+    color: #333;
+    border: 1px solid #333;
+    padding: 3px;
+    
+}
+
 .show-image-personal{	
     position: absolute;
     display: none;    

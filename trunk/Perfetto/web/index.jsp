@@ -21,12 +21,7 @@
         <script type="text/javascript" src="js/ajaxLoader.js" ></script>
         <script type="text/javascript" src="js/AjaxUpload.js" ></script>        
         <script type="text/javascript" src="js/ajax.js" ></script>                
-        <script type="text/javascript" src="js/Jcrop.js" ></script>
-        <script>
-            $(function(){
-                $('.window').draggable();
-            });            
-        </script>
+        <script type="text/javascript" src="js/Jcrop.js" ></script>       
         
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>

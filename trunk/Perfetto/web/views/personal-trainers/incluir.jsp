@@ -5,12 +5,12 @@
 
     <form>
         <span>Nome:</span>
-        <input type="text" name="nome-personal" id="nome-personal" class="medio" />
+        <input type="text" name="nome-personal" id="nome-personal" class="medio" value="" />
         <span>Modalidade: </span>
-        <input type="text" name="modalidade-personal" id="modalidade-personal" class="medio" />
+        <input type="text" name="modalidade-personal" id="modalidade-personal" class="medio" value="" />
         <span>Imagem: </span>
         <div class="campo-upload">Buscar imagem no computador</div>
-        <input type="button" name="btn-imagem-personal" class="ajax-submit personal-incluir" id="btn-imagem-personal" value="buscar arquivo" />
+        <input type="button" name="btn-imagem-personal" class="ajax-submit personal-incluir" id="btn-imagem-personal" value="selecionar arquivo" />
         <br />
         <br />
         <br />
@@ -42,11 +42,11 @@
     jQuery(document).ready(function(){
         ajax.uploadRequest('PersonalController', 'upload', 'personal-incluir', '.preview-personal-imagem');
                
-        jQuery('#nome-personal').blur(function(){
+        jQuery('#nome-personal').keyup(function(){
             jQuery('#preview-personal-nome a').html(jQuery(this).val());          
         }); 
         
-        jQuery('#modalidade-personal').blur(function(){
+        jQuery('#modalidade-personal').keyup(function(){
             jQuery('#preview-personal-modalidade').html(jQuery(this).val());          
         });
         
