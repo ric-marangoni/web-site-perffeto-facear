@@ -45,6 +45,7 @@ var ajax = {
         jQuery.ajax({
             url: action+'?action='+method,
             type: 'post',
+            headers: {content: "text/html; charset=UTF-8"},
             data: params,
             beforeSend: function(){
                 ajaxLoader.show();
