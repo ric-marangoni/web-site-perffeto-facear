@@ -2,7 +2,7 @@
     <!-- Botão para fechar a janela tem class="close" -->
     <a href="#" class="close"><img src="images/sistema/close.png" alt="" /></a>    
     <h2>Incluir Personal</h2>    
-    
+
     <form>
         <span>Nome:</span>
         <input type="text" name="nome-personal" id="nome-personal" class="medio" />
@@ -10,26 +10,29 @@
         <input type="text" name="modalidade-personal" id="modalidade-personal" class="medio" />
         <span>Imagem: </span>
         <div class="campo-upload">Buscar imagem no computador</div>
-        <input type="button" name="imagem-personal" class="ajax-submit personal-incluir" id="imagem-personal" value="buscar arquivo" />
+        <input type="button" name="btn-imagem-personal" class="ajax-submit personal-incluir" id="btn-imagem-personal" value="buscar arquivo" />
         <br />
         <br />
         <br />
-        <input type="button" id="personal-ajax-submit" class="ajax-submit" value="enviar" />
+        <input type="button" id="personal-ajax-submit" class="ajax-submit" value="enviar" />        
+        <div class="clear"></div>
+        <div class="preview">
+            <h3>Preview</h3>
+
+            <div id="personal-preview">
+                <div class="preview-personal-imagem">
+                    <img src="images/sistema/personal-preview.gif" />
+                </div>
+                <div id="preview-personal-nome" class="nome-personal">
+                    <a href="javascript:void(0)"></a>                                
+                </div>                           
+                <div id="preview-personal-modalidade" class="area-personal"></div>
+            </div>
+        </div>
     </form>    
-    <div class="clear"></div>
-    
-    <div class="preview">
-        <h3>Preview</h3>
-        <form>
-            <div class="ajax-msg"><img src="images/preview.jpg" /></div>
-            <p id="preview-personal-nome"></p>           
-            <p id="preview-personal-modalidade"></p>
-        </form>        
-    </div>
-    
-    <div class="resposta"></div>
-    
-    
+    <div class="ajax-msg"></div>
+
+
 </div>
 
 <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
@@ -37,10 +40,10 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function(){
-        ajax.uploadRequest('personalController', 'upload', 'personal-incluir', '.ajax-msg');
+        ajax.uploadRequest('PersonalController', 'upload', 'personal-incluir', '.preview-personal-imagem');
                
         jQuery('#nome-personal').blur(function(){
-            jQuery('#preview-personal-nome').html(jQuery(this).val());          
+            jQuery('#preview-personal-nome a').html(jQuery(this).val());          
         }); 
         
         jQuery('#modalidade-personal').blur(function(){
@@ -48,11 +51,7 @@
         });
         
         jQuery('#personal-ajax-submit').click(function(){
-            var imageParts = jQuery('.ajax-msg img').attr('src').split("/");
-            
-            var image = imageParts[2];
-            
-            alert(image);
+            var image = jQuery('#imagem-personal').val();
             
             var params = {
                 personal_nome: jQuery('#nome-personal').val(),
@@ -60,7 +59,7 @@
                 personal_imagem: image
             };
             
-            ajax.normalRequest('personalController', 'incluir', params, '.resposta');            
+            ajax.normalRequest('PersonalController', 'incluir', params, '.ajax-msg');            
         });
         
         

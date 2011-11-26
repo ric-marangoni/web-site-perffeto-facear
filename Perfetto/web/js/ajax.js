@@ -16,7 +16,7 @@ var ajax = {
                 name: btnUpload,
                 onSubmit: function(file, ext){
                     if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){                        
-                        status.html('<p class="vermelho">Apenas JPG, PNG ou GIF são permitidos</p>');
+                        jQuery('.ajax-msg').html('<p class="vermelho">Apenas JPG, PNG ou GIF são permitidos</p>');
                         return false;
                     }
                     ajaxLoader.show(); 
