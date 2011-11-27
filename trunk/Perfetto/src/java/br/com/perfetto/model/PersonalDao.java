@@ -7,6 +7,8 @@ package br.com.perfetto.model;
 import br.com.perfetto.entidades.Personal;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -33,6 +35,24 @@ public class PersonalDao extends DAO {
         }
     }
     
+    public void deleteTrainer(Personal personal){
+        
+        PrintWriter out = null; 
+        
+        try{
+            openDataBase();
+            String SQL = "DELETE FROM personal_trainers WHERE id_personal_trainers = ?";
+            pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, personal.getId());
+            pstmt.execute();
+        }catch(Exception ex){
+            out.print("Desculpe-nos o transtorno mais ocorreu o seguinte erro: "+ex.getMessage());            
+        }finally{
+            closeDataBase();
+        }        
+        
+    }
+    
     public ArrayList<Personal> getAllTrainers(){
         PrintWriter out = null; 
         ArrayList<Personal> listaPersonal = new ArrayList<Personal>();
@@ -45,6 +65,7 @@ public class PersonalDao extends DAO {
             
             while(rs.next()){
                 Personal personal = new Personal();
+                personal.setId(rs.getInt("id_personal_trainers"));
                 personal.setNome(rs.getString("nome"));
                 personal.setArea(rs.getString("area"));
                 personal.setImage_path(rs.getString("image_path"));

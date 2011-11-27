@@ -79,6 +79,32 @@
     
 }
 
+#personal-editar, #personal-excluir{
+    background: #FFF;
+    height: 362px;
+    width: 375px;
+}
+
+#personal-editar ul.editar li, #personal-excluir ul.editar li{
+    height: 109px;
+    margin: 15px 0;
+    padding-bottom: 15px;
+    background: #F5F5F5;
+}
+
+#personal-excluir ul li img, #personal-editar ul li img{
+    float: left;
+    margin: 7px;
+    border: 1px solid gray;
+    padding: 2px;
+}
+
+#personal-excluir ul li p, #personal-editar ul li p{
+    margin-top: 35px;
+}
+
+
+
 .show-image-personal{	
     position: absolute;
     display: none;    

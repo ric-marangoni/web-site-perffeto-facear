@@ -184,7 +184,7 @@ jQuery(document).ready(
             });
         });
         
-        jQuery("#trainers ul li").toggle(
+        jQuery("#trainers ul li.showImage").toggle(
             function(e){
                 
                 var pathArray = jQuery(this).children().attr('src').split("/");
@@ -207,7 +207,7 @@ jQuery(document).ready(
             });
         });
         
-        jQuery("#trainers ul li").mouseleave(function(){
+        jQuery("#trainers ul li.showImage").mouseleave(function(){
             if( jQuery('.show-image-personal').length ){
                 jQuery(this).click();
             }                        
