@@ -910,8 +910,10 @@ ul#menu li:hover ul{
 .painel-rolagem{
     overflow-y: scroll; 
     width: 371px;
-    height: 295px;
+    height: 302px;
     margin-top: 30px;
+    padding-top: 10px;
+    position: relative;        
 }
 
 .window-crop {
@@ -965,11 +967,11 @@ ul#menu li:hover ul{
     position: absolute;    
 }
 
-ul.editar-banner {
+ul.editar{
     
 }
 
-ul.editar-banner li{
+ul.editar li{
     width: 335px;
     height: 125px;
     overflow: hidden;
@@ -980,13 +982,13 @@ ul.editar-banner li{
     position: relative;
 }
 
-ul.editar-banner li .ajax-msg{
+.painel-rolagem .ajax-msg{
     position: absolute;
-    top: 20px;
-    left: 120px;
+    top: -30px;
+    left: 0;
 }
 
-ul.editar-banner li .btn-alterar{
+ul.editar li .btn-alterar{
     position: absolute;
     top: 0;
     right: 0;
@@ -1000,11 +1002,6 @@ ul.editar-banner li .btn-alterar{
     font-weight: normal;
 }
 
-ul.editar-banner li .hover{
-    opacity: 1.0;
-    text-decoration: underline;
-}
-
 /************************************************
 * EXCLUIR BANNER                                *
 *************************************************/
@@ -1016,11 +1013,40 @@ ul.editar-banner li .hover{
     position: absolute;    
 }
 
-#banner-excluir ul.editar-banner li .btn-alterar{
+ul.editar li .btn-alterar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #000 url("../images/sistema/edit-white.png") no-repeat 5px 6px;
+    height: 22px;        
+    opacity: 0.6;    
+    margin: 0 !important;
+    padding: 0 12px;
+    width: 110px !important;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+ul.editar li .hover{
+    opacity: 1.0;
+    text-decoration: underline;
+}
+
+ul.editar li .btn-excluir{
+    position: absolute;
+    top: 0;
+    right: 0;    
+    height: 22px;        
+    opacity: 0.6;    
+    margin: 0 !important;
+    padding: 0 12px;
+    width: 110px !important;
+    font-size: 11px;
+    font-weight: normal;
     background: #000 url("../images/sistema/delete-white.png") no-repeat 6px 7px;
 }
 
-#banner-excluir ul.editar-banner li .btn-alterar:hover{
+ul.editar li .btn-excluir:hover{
     opacity: 1.0;
     text-decoration: underline;
 }

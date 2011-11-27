@@ -4,6 +4,7 @@
  */
 package br.com.perfetto.util;
 
+import br.com.perfetto.model.DAO;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -25,7 +26,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
  *
  * @author Ricardo
  */
-public class Aplication {    
+public class Aplication extends DAO {    
 
     public static String getBasePath() {
         return "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
@@ -48,7 +49,8 @@ public class Aplication {
 
                 String itemName = (new File(item.getName()).getName());
 
-                File savedFile = new File(Aplication.getBasePath() + image_path + itemName);
+                File savedFile = new File(Aplication.getBasePath() + image_path + itemName);                
+                
                 try {
                     item.write(savedFile);  // upload realizado
                 } catch (Exception ex) {
@@ -58,6 +60,7 @@ public class Aplication {
                 return itemName;
 
             } catch (FileUploadException e) {
+                
             }
         }
 
@@ -77,12 +80,15 @@ public class Aplication {
         }
     }
     
-    public static void thumbnailIt(String image_path, String itemName, int image_width){
+    public static void thumbnailIt(String image_path, String itemName, int image_width) throws InterruptedException{
         try{
             Image image = ImageLoader.fromFile(Aplication.getBasePath() + image_path + itemName);
             if(image.getWidth() > image_width){
                 image.getResizedToSquare(image_width, 0.0).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + "thumb_"+itemName), 0.8f);                                                                               
             }
+            
+            Thread.sleep(2000);
+            
             image.dispose();
         }catch(IOException ex){
             Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
@@ -100,5 +106,9 @@ public class Aplication {
         }
         in.close();
         out.close();
+    }
+    
+    private int getLastInsertId(){
+        return 1;
     }
 }

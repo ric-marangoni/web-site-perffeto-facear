@@ -16,14 +16,14 @@
     <%if (listaDeleteBanner.size() > 0) {%>
         <form>        
             <div class="painel-rolagem">                
-                <ul class="editar-banner">
+                <div class="ajax-msg"></div>
+                <ul class="editar">
                     <%for (int i = 0; i < listaDeleteBanner.size(); i++) {%>
                     <%int id = listaDeleteBanner.get(i).getId();%>
                     <%String image_banner = listaDeleteBanner.get(i).getImage_path();%>                    
-                    <li id="item-banner-excluir-<%out.print(id);%>">
-                        <div class="ajax-msg"></div>
+                    <li id="item-banner-excluir-<%out.print(id);%>">                        
                         <img class="banner-image-thumb" src="images/banner/thumb_<%out.print(image_banner);%>" alt="" />                         
-                        <input type="button" class="ajax-submit btn-alterar banner-excluir" id="banner-excluir-<%out.print(id);%>" value="Excluir imagem" />   
+                        <input type="button" class="ajax-submit btn-excluir banner-excluir" id="banner-excluir-<%out.print(id);%>" value="Excluir imagem" />   
                     </li>        
                     <%}%>
                 </ul>

@@ -13,15 +13,15 @@
     <h2>Editar banner</h2>    
     
     <% ArrayList<Banner> listaEditBanner = editBanner.getBanners();%>
-    <%if (listaEditBanner.size() > 0) {%>
+    <%if (listaEditBanner.size() > 0) {%>        
         <form>        
             <div class="painel-rolagem">
-                <ul class="editar-banner">
+                <div class="ajax-msg"></div>
+                <ul class="editar">
                     <%for (int i = 0; i < listaEditBanner.size(); i++) {%>
                     <%int id = listaEditBanner.get(i).getId();%>
                     <%String image_banner = listaEditBanner.get(i).getImage_path();%>                    
-                    <li>
-                        <div class="ajax-msg"></div>
+                    <li>                        
                         <div class="ajax-trade-image<%out.print(id);%>">
                             <img class="banner-image-thumb" src="images/banner/thumb_<%out.print(image_banner);%>" alt="" /> 
                         </div>
@@ -37,8 +37,6 @@
     <div class="clear"></div>
     
 </div>
-    
-<div class="window-crop"></div> 
 
 <!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
 <div id="mask"></div>

@@ -45,7 +45,7 @@ public class PersonalController extends HttpServlet {
         }else if(editar.equals(action)){
             //this.editBanner(request, response);
         }else if(deletar.equals(action)){
-            //this.deleteBanner(request, response);
+            this.deleteTrainer(request);
         }else{
             this.upload(request, response);
         }
@@ -54,11 +54,11 @@ public class PersonalController extends HttpServlet {
     private void upload(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
         
-        String path = "images/trainers/";
+        String path = "images/trainers/";        
         int resizeWidth = 500;
         int thumbWidth = 106;
         
-        String itemName = Aplication.upload(request, path);
+        String itemName = Aplication.upload(request, path);        
         Aplication.resizeIt(path, itemName, resizeWidth, "");
         Aplication.thumbnailIt(path, itemName, thumbWidth);
         
@@ -100,12 +100,21 @@ public class PersonalController extends HttpServlet {
 
             personalDao.insert(personal);
 
-            out.print("<p class=\"verde\">Personal inserido com sucesso</p>");        
+            out.print("<p class=\"verde\">Trainer inserido com sucesso</p>");        
             
         }catch(Exception ex){
             out.print(ex.getMessage());
         }
         
+    }
+    
+    private void deleteTrainer(HttpServletRequest request){
+        Personal personal = new Personal();
+        PersonalDao personalDao = new PersonalDao();
+        
+        personal.setId(Integer.parseInt(request.getParameter("id")));
+        
+        personalDao.deleteTrainer(personal);
     }
     
     public ArrayList<Personal> getTrainers(){
