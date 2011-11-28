@@ -31,7 +31,7 @@ $(document).ready(function() {
         
         //centraliza na tela a janela popup
         $(id).css('top',  (winH/2 - $(id).height()/2) + scrollTop);
-        $(id).css('left', winW/2 - ($(id).width()/2) - 13);
+        $(id).css('left', winW/2 - ($(id).width()/2) - 11);
         //efeito de transição
         $(id).fadeIn();
         

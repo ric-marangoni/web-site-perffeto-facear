@@ -36,10 +36,26 @@
         jQuery('#modalidade-ajax-submit').click(function(){
             var image = jQuery('#modalidade-imagem').val();
             
+            var descricao = jQuery('#descricao-modalidade').val().split("\n\n");
+            var descricaoFormatada = "";
+            
+            for(var i = 0; i < descricao.length; i++){
+                descricaoFormatada += '<p>'+descricao[i]+'</p>';
+            }
+            
+            descricao = descricaoFormatada.split("\n");
+            descricaoFormatada = "";
+            for(var i = 0; i < descricao.length; i++){
+                descricaoFormatada += descricao[i]+'<br />';
+            }
+            
+            descricaoFormatada = descricaoFormatada.replace("<p></p>", "");
+            
+            alert(descricaoFormatada);
             var params = {
                 modalidade_titulo: jQuery('#titulo-modalidade').val(),                
                 modalidade_imagem: image,
-                modalidade_descricao: jQuery('#descricao-modalidade').val()
+                modalidade_descricao: descricaoFormatada
             };
             
             ajax.normalRequest('ModalidadeController', 'incluir', params, '.ajax-msg');            
