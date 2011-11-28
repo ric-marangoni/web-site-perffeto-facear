@@ -26,12 +26,12 @@ $(document).ready(function() {
  
         //armazena a largura e a altura da janela
         var winH = $(window).height();
-        var winW = $(window).width();
+        var winW = $(document).width();
         var scrollTop = $(window).scrollTop()
         
         //centraliza na tela a janela popup
         $(id).css('top',  (winH/2 - $(id).height()/2) + scrollTop);
-        $(id).css('left', winW/2 - $(id).width()/2);
+        $(id).css('left', winW/2 - ($(id).width()/2) - 13);
         //efeito de transição
         $(id).fadeIn();
         

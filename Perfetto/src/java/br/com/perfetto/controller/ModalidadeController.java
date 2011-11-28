@@ -4,8 +4,6 @@
  */
 package br.com.perfetto.controller;
 
-import br.com.perfetto.entidades.Aluno;
-import br.com.perfetto.model.AlunoDao;
 import br.com.perfetto.util.Aplication;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author LÍDIA
+ * @author Samela
  */
-public class AlunoController extends HttpServlet {
+public class ModalidadeController extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -40,48 +38,38 @@ public class AlunoController extends HttpServlet {
         String deletar = "deletar";
         
         if(incluir.equals(action)){
-            this.insertAluno(request, response);
+            //this.insert(request, response);
         }else if(editar.equals(action)){
             //this.editBanner(request, response);
         }else if(deletar.equals(action)){
-            //this.deleteBanner(request, response);
+            //this.delete(request);
         }else{
             this.upload(request, response);
         }
+        
     }
     
-    private void upload(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
+    private void upload(HttpServletRequest request, HttpServletResponse response) throws InterruptedException, IOException{
         PrintWriter out = response.getWriter();
         
-        String path = "images/trainers/";
-        int resizeWidth = 1000;
-        int thumbWidth = 108;
+        String path = "images/modalidades/";        
+        int resizeWidth = 280;
+        int cropHeight = 230;
+        int thumbWidth = 224;
         
-        String itemName = Aplication.upload(request, path);
-        Aplication.resizeIt(path, itemName, resizeWidth, "");
+        String itemName = Aplication.upload(request, path);        
+        Aplication.thumbnailIt(path, itemName, resizeWidth, "");
+        Aplication.cropIt(path, itemName, resizeWidth, cropHeight);
         Aplication.thumbnailIt(path, itemName, thumbWidth, "thumb_");
+        
 
-        out.print("<img src=\""+path + "thumb_"+itemName+"\" />");
+        out.print(""
+                + "<img src=\""+path + itemName+"\" />"
+                + "<input type=\"hidden\" id=\"modalidade-imagem\" value=\""+itemName+"\"/>");
                     
         out.close();
     }
-
-    private void insertAluno(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
-        PrintWriter out = response.getWriter();
-        
-        Aluno aluno = new Aluno();
-        AlunoDao alunoDao = new AlunoDao();
-                
-        aluno.setNome(request.getParameter("aluno_nome"));
-        aluno.setImage_path(request.getParameter("aluno_imagem"));
-        
-        alunoDao.insert(aluno);
-        
-        out.print("Aluno destaque inserido com sucesso");
-        
-        
-    }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
@@ -96,7 +84,7 @@ public class AlunoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (InterruptedException ex) {
-            Logger.getLogger(AlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModalidadeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -113,7 +101,7 @@ public class AlunoController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (InterruptedException ex) {
-            Logger.getLogger(AlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModalidadeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

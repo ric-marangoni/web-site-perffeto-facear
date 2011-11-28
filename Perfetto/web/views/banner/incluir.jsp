@@ -7,7 +7,7 @@
     <br />      
     
     <form>
-        <div class="campo-upload">Buscar imagem no computador</div>
+        <div class="campo-upload">Buscar imagem...</div>
         <input type="button" name="ajax-submit" class="ajax-submit banner-incluir" id="incluir-banner" value="selecionar arquivo" />        
     </form>
     <div class="clear"></div>
