@@ -4,6 +4,8 @@
  */
 package br.com.perfetto.controller;
 
+import br.com.perfetto.entidades.Modalidade;
+import br.com.perfetto.model.ModalidadeDao;
 import br.com.perfetto.util.Aplication;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,7 +40,7 @@ public class ModalidadeController extends HttpServlet {
         String deletar = "deletar";
         
         if(incluir.equals(action)){
-            //this.insert(request, response);
+            this.insert(request, response);
         }else if(editar.equals(action)){
             //this.editBanner(request, response);
         }else if(deletar.equals(action)){
@@ -68,6 +70,43 @@ public class ModalidadeController extends HttpServlet {
                 + "<input type=\"hidden\" id=\"modalidade-imagem\" value=\""+itemName+"\"/>");
                     
         out.close();
+    }
+    
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        PrintWriter out = response.getWriter();
+        
+        Modalidade modalidade = new Modalidade();
+        ModalidadeDao modalidadeDao = new ModalidadeDao();
+        String modalidadeTitulo = request.getParameter("modalidade_titulo");        
+        String modalidadeDescricao = request.getParameter("modalidade_descricao");
+        String modalidadeImagem = request.getParameter("modalidade_imagem");
+        
+        try{        
+            if(!modalidadeTitulo.isEmpty()){
+                modalidade.setTitulo(modalidadeTitulo);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor informe o título da modalidade</p>");
+            }
+            
+            if(!modalidadeDescricao.isEmpty()){
+                modalidade.setDescricao(modalidadeDescricao);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor fale um pouco sobre a nova modalidade</p>");
+            }
+            
+            if(modalidadeImagem != null){
+                modalidade.setPath_image(modalidadeImagem);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para modalidade</p>");
+            }            
+
+            modalidadeDao.insert(modalidade);
+
+            out.print("<p class=\"verde\">Modalidade inserida com sucesso</p>");        
+            
+        }catch(Exception ex){
+            out.print(ex.getMessage());
+        }
     }
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -41,7 +41,7 @@ public class PersonalController extends HttpServlet {
         String deletar = "deletar";
         
         if(incluir.equals(action)){
-            this.insertPersonal(request, response);
+            this.insert(request, response);
         }else if(editar.equals(action)){
             //this.editBanner(request, response);
         }else if(deletar.equals(action)){
@@ -70,7 +70,7 @@ public class PersonalController extends HttpServlet {
         out.close();
     }
 
-    private void insertPersonal(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
         
         Personal personal = new Personal();

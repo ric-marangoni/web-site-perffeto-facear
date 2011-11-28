@@ -26,10 +26,13 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
  *
  * @author Ricardo
  */
-public class Aplication extends DAO {    
+public class Aplication extends DAO {
+    
+    private static String pcRicardo = "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web";
+    private String pcSamela = "C:\\Documents and Settings\\Samela\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
 
     public static String getBasePath() {
-        return "C:\\Documents and Settings\\Samela\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
+        return Aplication.pcRicardo;
     }
 
     public static String upload(HttpServletRequest request, String image_path) throws InterruptedException {
