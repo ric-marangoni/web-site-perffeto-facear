@@ -1,5 +1,8 @@
 <div id="conteudo">
     <h1>Modalidades</h1>
+    <%if(session.getAttribute("logado") != null){%>
+    <%@include file="../views/modalidades/modalidade-toolbar.jsp"%>
+    <%}%>
     <div class="modalidade">		    
         <img src="images/modalidades/pump.jpg" alt="" />
         <h2>Body Pump</h2>	    
@@ -158,3 +161,8 @@
         <div class="clear"></div>
     </div>                
 </div> 
+    
+<!-- AQUI ESTÃO AS JANELAS MODAL DAS MODALIDADES -->
+<%if(session.getAttribute("logado") != null){%>
+<%@include file="../views/modalidades/incluir.jsp"%>%>
+<%}%>

@@ -29,7 +29,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 public class Aplication extends DAO {    
 
     public static String getBasePath() {
-        return "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
+        return "C:\\Documents and Settings\\Samela\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
     }
 
     public static String upload(HttpServletRequest request, String image_path) throws InterruptedException {
@@ -80,11 +80,21 @@ public class Aplication extends DAO {
         }
     }
     
-    public static void thumbnailIt(String image_path, String itemName, int image_width) throws InterruptedException{
+    public static void cropIt(String image_path, String itemName, int image_width, int image_height){
+        try{
+            Image image = ImageLoader.fromFile(Aplication.getBasePath() + image_path + itemName);            
+            image.crop(0, 0, image_width, image_height).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + itemName), 0.8f);            
+            image.dispose();
+        }catch(IOException ex){
+            Logger.getLogger(Aplication.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void thumbnailIt(String image_path, String itemName, int image_width, String prefix) throws InterruptedException{
         try{
             Image image = ImageLoader.fromFile(Aplication.getBasePath() + image_path + itemName);
             if(image.getWidth() > image_width){
-                image.getResizedToSquare(image_width, 0.0).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + "thumb_"+itemName), 0.8f);                                                                               
+                image.getResizedToSquare(image_width, 0.0).soften(0.08f).writeToJPG(new File(Aplication.getBasePath() + image_path + prefix + itemName), 0.8f);                                                                               
             }
             
             Thread.sleep(2000);

@@ -60,7 +60,7 @@ public class PersonalController extends HttpServlet {
         
         String itemName = Aplication.upload(request, path);        
         Aplication.resizeIt(path, itemName, resizeWidth, "");
-        Aplication.thumbnailIt(path, itemName, thumbWidth);
+        Aplication.thumbnailIt(path, itemName, thumbWidth, "thumb_");
         
 
         out.print(""

@@ -9,7 +9,7 @@
         <span>Modalidade: </span>
         <input type="text" name="modalidade-personal" id="modalidade-personal" class="medio" value="" />
         <span>Imagem: </span>
-        <div class="campo-upload">Buscar imagem no computador</div>
+        <div class="campo-upload">Buscar imagem...</div>
         <input type="button" name="btn-imagem-personal" class="ajax-submit personal-incluir" id="btn-imagem-personal" value="selecionar arquivo" />
         <br />
         <br />

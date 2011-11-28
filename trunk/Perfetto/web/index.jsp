@@ -9,6 +9,7 @@
         <link href="css/Jcrop.css" type="text/css" rel="stylesheet" />
         <link href="css/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet" /> 
         <link href="css/personal-trainers.css" type="text/css" rel="stylesheet" />
+        <link href="css/modalidades.css" type="text/css" rel="stylesheet" />
         
         <!-- LINK ARQUIVOS JAVASCRIPT -->
         <script type="text/javascript" src="js/jQuery.js"></script>

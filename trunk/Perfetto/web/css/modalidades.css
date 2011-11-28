@@ -1,0 +1,64 @@
+.modalidade-toolbar{
+    width: 278px;
+    height: 35px;
+    background: #000;
+    opacity: 0.8;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    z-index: 99;    
+}
+
+.modalidade-toolbar ul{
+    list-style: none;
+    margin: 2px 10px;
+}
+
+.modalidade-toolbar ul li{
+    height: 20px;
+    margin: 7px !important;    
+    float: left !important; 
+    border: 0 !important;
+    border-right: 1px solid #FFF !important;
+    padding: 0 !important;    
+}
+
+.modalidade-toolbar ul li a{
+    color: #FFF;
+    text-decoration: none;
+    padding: 1px 13px 0 25px;
+    display: block;
+}
+
+.modalidade-toolbar ul li a:hover{
+    text-decoration: underline;
+}
+
+.modalidade-toolbar ul li.add{
+    background: url("../images/sistema/add.png") no-repeat;    
+}
+
+.modalidade-toolbar ul li.editar{
+    background: url("../images/sistema/edit.png") no-repeat;    
+}
+
+.modalidade-toolbar ul li.excluir{
+    background: url("../images/sistema/delete.png") no-repeat;    
+}
+
+.preview-modalidade-imagem{
+    float: left;    
+}
+
+#descricao-modalidade{
+    padding: 2px;
+    height: 222px;
+    color: #777;
+    text-align: justify;
+}
+
+#modalidade-incluir{
+    background: #FFF;
+    width: 960px;
+    height: 470px;
+}
