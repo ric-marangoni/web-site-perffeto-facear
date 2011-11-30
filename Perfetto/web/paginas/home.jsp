@@ -41,6 +41,9 @@
 
 <div id="bloco-destaque">
     <h2>Videos</h2>
+    <% if(session.getAttribute("logado") != null){  %>
+    <%@include file="../views/home-videos/home-videos-toolbar.jsp"%>
+    <% } %>
     <div class="video"></div>
     <p class="prev"><a href="#">prev</a></p>
     <div class="carrossel">                    
@@ -90,6 +93,12 @@
     </div>                
     <p class="next"><a href="#">next</a></p>
 </div>
+    
+<!-- AQUI ESTÃO AS JANELAS MODAL DOS VIDEOS DA HOME -->
+<%if(session.getAttribute("logado")!= null){%>
+
+<%@include file="../views/home-videos/incluir.jsp"%>
+<%}%>
 
 
 <div id="trainers">
@@ -117,7 +126,7 @@
 <%if (session.getAttribute("logado") != null) {%>            
 <%@include file="../views/personal-trainers/incluir.jsp" %>
 <%//@include file="../views/personal-trainers/editar.jsp" %>
-<%//@include file="../views/personal-trainers/deletar.jsp" %>
+<%@include file="../views/personal-trainers/deletar.jsp" %>
 <%}%>
 <!-- FIM JANELAS MODAL -->
     
@@ -152,7 +161,10 @@
     <a href="paginas/modalidades.html" class="mais-modalidades">Veja todas as modalidades</a>
 </div>
 <div id="alunos-destaque">
-    <h2>Alunos Destaque</h2>				
+    <h2>Alunos <%if(session.getAttribute("logado") == null){%>Destaque<%}%></h2>
+    <%if(session.getAttribute("logado") != null){%>
+    <%@include file="../views/alunos-destaque/alunos-toolbar.jsp"%>
+    <%}%>
     <div id="scroll-pane">
         <div id="scroll-content">
             <div class="scroll-content-item">
@@ -231,3 +243,5 @@
     </div>
 </div>            
 <div class="clear"></div>
+    
+    

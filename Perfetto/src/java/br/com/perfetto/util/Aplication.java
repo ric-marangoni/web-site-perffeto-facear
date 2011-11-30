@@ -29,10 +29,11 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 public class Aplication extends DAO {
     
     private static String pcRicardo = "C:\\Documents and Settings\\Ricardo\\Desktop\\Projeto Perfetto\\Perfetto\\web";
-    private String pcSamela = "C:\\Documents and Settings\\Samela\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
-
+    private static String pcSamela = "C:\\Documents and Settings\\Samela\\Desktop\\Projeto Perfetto\\Perfetto\\web\\";
+    private static String pcBruno = "C:\\Users\\Ederon Bruno\\Desktop\\Sistema_Perfetto\\Perfetto\\web\\";
+    
     public static String getBasePath() {
-        return Aplication.pcRicardo;
+        return Aplication.pcBruno;
     }
 
     public static String upload(HttpServletRequest request, String image_path) throws InterruptedException {
