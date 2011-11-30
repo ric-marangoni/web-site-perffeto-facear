@@ -9,6 +9,7 @@ import br.com.perfetto.model.AlunoDao;
 import br.com.perfetto.util.Aplication;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -40,7 +41,7 @@ public class AlunoController extends HttpServlet {
         String deletar = "deletar";
         
         if(incluir.equals(action)){
-            this.insertAluno(request, response);
+            this.insert(request, response);
         }else if(editar.equals(action)){
             //this.editBanner(request, response);
         }else if(deletar.equals(action)){
@@ -66,19 +67,52 @@ public class AlunoController extends HttpServlet {
         out.close();
     }
 
-    private void insertAluno(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
         
         Aluno aluno = new Aluno();
         AlunoDao alunoDao = new AlunoDao();
-                
-        aluno.setNome(request.getParameter("aluno_nome"));
-        aluno.setImage_path(request.getParameter("aluno_imagem"));
+        String alunoNome = request.getParameter("aluno_nome");        
+        String alunoImagem = request.getParameter("aluno_imagem");
         
-        alunoDao.insert(aluno);
+        try{        
+            if(!alunoNome.isEmpty()){
+                aluno.setNome(alunoNome);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor informe o nome do personal</p>");
+            }
+            
+            
+            if(alunoImagem != null){
+                aluno.setImage_path(alunoImagem);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para o personal</p>");
+            }            
+
+            alunoDao.insert(aluno);
+
+            out.print("<p class=\"verde\">Trainer inserido com sucesso</p>");        
+            
+        }catch(Exception ex){
+            out.print(ex.getMessage());
+        }
         
-        out.print("Aluno destaque inserido com sucesso");
+    }
+    
+    private void deleteDestaque(HttpServletRequest request){
+        Aluno aluno = new Aluno();
+        AlunoDao alunoDao = new AlunoDao();
         
+        aluno.setId(Integer.parseInt(request.getParameter("id")));
+        
+        alunoDao.deleteDestaque(aluno);
+    }
+    
+    public ArrayList<Aluno> getDestaque(){
+        
+        AlunoDao personalDao = new AlunoDao();
+        
+        return personalDao.getAllDestaque();
         
     }
 
