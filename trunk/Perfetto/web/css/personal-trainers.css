@@ -47,6 +47,10 @@
     background: url("../images/sistema/delete.png") no-repeat;    
 }
 
+.pre-edit-personal{
+    display: none;
+}
+
 #personal-preview{
     margin: 20px 40px;
     position: relative;

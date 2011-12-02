@@ -16,6 +16,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import  javax.servlet.http.HttpServletResponse;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 /**
  *
@@ -39,6 +42,8 @@ public class PersonalController extends HttpServlet {
         String incluir = "incluir";
         String editar = "editar";
         String deletar = "deletar";
+        String upload = "upload";
+        String preEdit = "preEdit";
         
         if(incluir.equals(action)){
             this.insert(request, response);
@@ -46,6 +51,8 @@ public class PersonalController extends HttpServlet {
             //this.editBanner(request, response);
         }else if(deletar.equals(action)){
             this.deleteTrainer(request);
+        }else if(preEdit.equals(action)){
+            this.getTrainerById(request, response);
         }else{
             this.upload(request, response);
         }
@@ -123,6 +130,26 @@ public class PersonalController extends HttpServlet {
         
         return personalDao.getAllTrainers();
         
+    }
+    
+    private void getTrainerById(HttpServletRequest request, HttpServletResponse response) throws IOException{        
+        PrintWriter out = response.getWriter();
+        
+        PersonalDao personalDao = new PersonalDao();
+        
+        Personal personal = personalDao.getTrainerById(Integer.parseInt(request.getParameter("id")));
+        
+        try{
+            JSONObject jPersonal = new JSONObject();
+            
+            jPersonal.put("id", personal.getId());
+            jPersonal.put("nome", personal.getNome());
+            jPersonal.put("imagem", personal.getImage_path());
+            jPersonal.put("area", personal.getArea());
+            out.print(jPersonal);
+        }catch(JSONException ex){
+            out.print(ex);
+        }        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

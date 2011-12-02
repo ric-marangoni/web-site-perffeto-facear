@@ -51,7 +51,7 @@
             
             descricaoFormatada = descricaoFormatada.replace("<p></p>", "");
             
-            alert(descricaoFormatada);
+            
             var params = {
                 modalidade_titulo: jQuery('#titulo-modalidade').val(),                
                 modalidade_imagem: image,
