@@ -7,6 +7,7 @@ package br.com.perfetto.controller;
 import br.com.perfetto.entidades.Modalidade;
 import br.com.perfetto.model.ModalidadeDao;
 import br.com.perfetto.util.Aplication;
+import java.awt.image.ImagingOpException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -59,15 +60,21 @@ public class ModalidadeController extends HttpServlet {
         int cropHeight = 230;
         int thumbWidth = 224;
         
-        String itemName = Aplication.upload(request, path);        
-        Aplication.thumbnailIt(path, itemName, resizeWidth, "");
-        Aplication.cropIt(path, itemName, resizeWidth, cropHeight);
-        Aplication.thumbnailIt(path, itemName, thumbWidth, "thumb_");
+        String itemName = Aplication.upload(request, path);
         
+        try{
+            Aplication.thumbnailIt(path, itemName, resizeWidth, "");
+            Aplication.cropIt(path, itemName, resizeWidth, cropHeight);
+            Aplication.thumbnailIt(path, itemName, thumbWidth, "thumb_");
 
-        out.print(""
-                + "<img src=\""+path + itemName+"\" />"
-                + "<input type=\"hidden\" id=\"modalidade-imagem\" value=\""+itemName+"\"/>");
+
+            out.print(""
+                    + "<img src=\""+path + itemName+"\" />"
+                    + "<input type=\"hidden\" id=\"modalidade-imagem\" value=\""+itemName+"\"/>");
+        }catch(ImagingOpException ex){
+            out.print(ex.getMessage());
+        }
+        
                     
         out.close();
     }

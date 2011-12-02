@@ -125,7 +125,7 @@
 <!-- AQUI ESTÃO AS JANELAS MODAL DOS TRAINERS -->
 <%if (session.getAttribute("logado") != null) {%>            
 <%@include file="../views/personal-trainers/incluir.jsp" %>
-<%//@include file="../views/personal-trainers/editar.jsp" %>
+<%@include file="../views/personal-trainers/editar.jsp" %>
 <%@include file="../views/personal-trainers/deletar.jsp" %>
 <%}%>
 <!-- FIM JANELAS MODAL -->

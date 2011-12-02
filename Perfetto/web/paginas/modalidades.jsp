@@ -164,5 +164,5 @@
     
 <!-- AQUI ESTÃO AS JANELAS MODAL DAS MODALIDADES -->
 <%if(session.getAttribute("logado") != null){%>
-<%@include file="../views/modalidades/incluir.jsp"%>%>
+<%@include file="../views/modalidades/incluir.jsp"%>
 <%}%>

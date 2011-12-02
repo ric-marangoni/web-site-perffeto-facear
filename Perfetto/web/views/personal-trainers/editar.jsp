@@ -14,28 +14,42 @@
     
     <% ArrayList<Personal> listaEditPersonal = editPersonal.getTrainers();%>
     <%if (listaEditPersonal.size() > 0) {%>
-        <form>        
-            <div class="painel-rolagem">
-                <div class="ajax-msg"></div>
-                <ul class="editar">
-                    <%for (int i = 0; i < listaEditPersonal.size(); i++) {%>
-                    <%int id = listaEditPersonal.get(i).getId();%>
-                    <%String image_trainers = listaEditPersonal.get(i).getImage_path();%>    
-                    <%String nome_trainer = listaEditPersonal.get(i).getNome();%>
-                    <%String modalidade_trainer = listaEditPersonal.get(i).getArea();%>
-                    
-                    <li>                        
-                        <div class="ajax-trade-image<%out.print(id);%>">
-                            <img class="banner-image-thumb" src="images/trainers/thumb_<%out.print(image_trainers);%>" alt="" /> 
-                        </div>
-                        <p><b>Nome: </b><%out.print(nome_trainer);%></p>
-                        <p><b>Modalidade: </b><%out.print(modalidade_trainer);%></p>
-                        <input type="button" class="ajax-submit trainer-editar btn-alterar" id="personal-editar-<%out.print(id);%>" value="Trocar imagem" />   
-                    </li>        
-                    <%}%>
-                </ul>
+    <select class="select-edit" id="edit-personal" name="edit-personal">
+        <option value="0" selected="selected">Selecione um personal trainer</option>    
+        <%for (int i = 0; i < listaEditPersonal.size(); i++) {%>
+            <%int id = listaEditPersonal.get(i).getId();%>            
+            <%String nome_trainer = listaEditPersonal.get(i).getNome();%>          
+            <option value="<%out.print(id);%>"><%out.print(nome_trainer);%></option>                       
+        <%}%>    
+    </select>
+    <form class="pre-edit-personal">
+        <span>Nome:</span>
+        <input type="text" name="nome-personal" id="nome-personal-editar" class="medio" value="" />
+        <span>Modalidade: </span>
+        <input type="text" name="modalidade-personal" id="modalidade-personal-editar" class="medio" value="" />
+        <span>Imagem: </span>
+        <div class="campo-upload">Buscar imagem...</div>
+        <input type="button" name="btn-imagem-personal" class="ajax-submit personal-editar" id="btn-imagem-personal" value="selecionar arquivo" />
+        <br />
+        <br />
+        <br />
+        <input type="button" id="personal-ajax-submit" class="ajax-submit" value="enviar" />        
+        <div class="clear"></div>
+        <div class="preview">
+            <h3>Preview</h3>
+
+            <div id="personal-preview">
+                <div class="preview-personal-imagem">
+                    <img src="images/sistema/personal-preview.gif" />
+                </div>
+                <div id="preview-personal-nome" class="nome-personal">
+                    <a href="javascript:void(0)"></a>                                
+                </div>                           
+                <div id="preview-personal-modalidade" class="area-personal"></div>
             </div>
-        </form>
+        </div>
+    </form>    
+    <div class="ajax-msg"></div>
      <%}else{%>
      <h3>Você não possui trainer adicionado.</h3>     
      <%}%>    
@@ -49,6 +63,23 @@
 
 <script type="text/javascript">    
     jQuery(document).ready(function(){        
-        ajax.uploadRequest('PersonalController', 'editar', 'trainer-editar', '.ajax-trade-image');              
+        jQuery('#edit-personal').change(function(){
+            if(jQuery(this).val() != 0){
+                jQuery.ajax({
+                    url: 'PersonalController?action=preEdit',
+                    type: 'post',
+                    data: 'id='+jQuery('#edit-personal').val(),
+                    beforeSend: function(){
+                        ajaxLoader.show();
+                    },
+                    success: function(response){
+                        alert(response);
+                        ajaxLoader.hide();
+                        jQuery('.pre-edit-personal').fadeIn();
+                        ajax.uploadRequest('PersonalController', 'upload', 'personal-editar', '.preview-personal-imagem');              
+                    }            
+                });      
+            }            
+        });        
     });
 </script>

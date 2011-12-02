@@ -80,4 +80,30 @@ public class PersonalDao extends DAO {
         
         return listaPersonal;
     }
+    
+    public Personal getTrainerById(int id){
+        Personal personal = new Personal();
+        
+        try{
+            openDataBase();
+            String SQL = "SELECT * FROM personal_trainers WHERE id_personal_trainers = ?";
+            pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            
+            if(rs.first()){                
+                personal.setId(rs.getInt("id_personal_trainers"));
+                personal.setNome(rs.getString("nome"));
+                personal.setArea(rs.getString("area"));
+                personal.setImage_path(rs.getString("image_path"));                
+            }
+        }catch(Exception ex){
+        
+        }finally{
+            closeDataBase();
+        }
+        
+        return personal;       
+        
+    }
 }
