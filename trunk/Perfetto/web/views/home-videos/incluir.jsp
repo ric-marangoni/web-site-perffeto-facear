@@ -3,22 +3,19 @@
     <a href="#" class="close"><img src="images/sistema/close.png" alt="" /></a>    
     <h2>Incluir Vídeo</h2>    
 
-    <form>
-        <span>Título</span>
-        <input type="text" name="titulo-home-video" id="titulo-modalidade" class="medio" value="" />
-         <span>Descrição: </span>
-        <div class="descricao-video">
-            <img src="images/sistema/modalidade-preview.gif" />
-        </div>
-        <textarea cols="80" rows=""  name="descricao-video" id="descricao-modalidade"></textarea>
+    <form id="form-home-video">
+        <span>Título:</span>
+        <input type="text" name="titulo-home-video" id="titulo-home-video" class="medio" value="" />
         <span>URL Vídeo:</span>
-        <input type="text" name="url-video" id="titulo-modalidade" class="medio" value="" />
+        <input type="text" name="url-video" id="url-video" class="medio" value="" />
         <span>URL Thumb:</span>
-        <input type="text" name="url-thumb" id="titulo-modalidade" class="medio" value="" />
+        <input type="text" name="url-thumb" id="url-thumb" class="medio" value="" />
+        <span>Descrição: </span>
+        <textarea cols="36" rows="4" class="medio" name="descricao-video" id="descricao-video"></textarea>
         <br />
         <br />
         <br />
-        <input type="button" id="modalidade-ajax-submit" class="ajax-submit" value="enviar" />        
+        <input type="button" id="video-ajax-submit" class="ajax-submit" value="enviar" />        
         <div class="clear"></div>        
     </form>    
     <div class="ajax-msg"></div>
@@ -31,8 +28,13 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function(){
-        
-            //ajax.normalRequest('ModalidadeController', 'incluir', params, '.ajax-msg');            
+            jQuery('#video-ajax-submit').click(function(){
+                var dados = jQuery('#form-home-video').serialize();
+                
+                ajax.normalRequest('HomeVideoController', 'incluir', dados, '.ajax-msg');                  
+                
+            });
+            
         });      
    
    

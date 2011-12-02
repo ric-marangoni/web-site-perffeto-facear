@@ -4,6 +4,7 @@
  */
 package br.com.perfetto.controller;
 
+import br.com.perfetto.entidades.HomeVideo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,20 +31,33 @@ public class HomeVideoController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet HomeVideoController</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet HomeVideoController at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-        } finally {            
-            out.close();
+        
+        String action = request.getParameter("action");
+        String incluir = "incluir";
+        String editar = "editar";
+        String deletar = "deletar";
+        
+        if(incluir.equals(action)){
+            this.insert(request, response);
+        }else if(editar.equals(action)){
+            //this.editBanner(request, response);
+        }else{
+            //this.delete(request);
         }
+        
+    }
+    
+    private void insert(HttpServletRequest request, HttpServletResponse response)
+    {
+        HomeVideo video = new HomeVideo();
+        video.setTitulo(request.getParameter("titulo-home-video"));
+        
+        video.setUrl_video(request.getParameter("url-video"));
+        
+        video.setUrl_thumb_video(request.getParameter("url-thumb"));
+        
+        video.setDescricao(request.getParameter("descricao-video"));
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

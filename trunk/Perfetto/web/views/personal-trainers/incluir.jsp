@@ -60,11 +60,7 @@
             };
             
             ajax.normalRequest('PersonalController', 'incluir', params, '.ajax-msg');            
-        });
-        
-        
-
-       
+        });   
     });    
    
 </script>
