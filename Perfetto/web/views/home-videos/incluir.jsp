@@ -29,9 +29,15 @@
 <script type="text/javascript">
     jQuery(document).ready(function(){
             jQuery('#video-ajax-submit').click(function(){
+                
+                var input_video = jQuery('#url-video').val();
+                alert(input_video);
+                var reg = new RegExp(/^[src="](.*)["]$/);
+                alert(reg.exec(input_video));
+                
                 var dados = jQuery('#form-home-video').serialize();
                 
-                ajax.normalRequest('HomeVideoController', 'incluir', dados, '.ajax-msg');                  
+                //ajax.normalRequest('HomeVideoController', 'incluir', dados, '.ajax-msg');                  
                 
             });
             

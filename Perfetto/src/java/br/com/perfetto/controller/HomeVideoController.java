@@ -5,8 +5,10 @@
 package br.com.perfetto.controller;
 
 import br.com.perfetto.entidades.HomeVideo;
+import br.com.perfetto.model.HomeVideoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,17 +49,56 @@ public class HomeVideoController extends HttpServlet {
         
     }
     
-    private void insert(HttpServletRequest request, HttpServletResponse response)
+    private void insert(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
+        PrintWriter out = response.getWriter();
+        
         HomeVideo video = new HomeVideo();
-        video.setTitulo(request.getParameter("titulo-home-video"));
+        HomeVideoDao videoDao = new HomeVideoDao();
         
-        video.setUrl_video(request.getParameter("url-video"));
+        String titulo = request.getParameter("titulo-home-video");
+        String url_video = request.getParameter("url-video");
+        String url_uthumb_video = request.getParameter("url-thumb");
+        String descricao = request.getParameter("descricao-video");
         
-        video.setUrl_thumb_video(request.getParameter("url-thumb"));
+        try{
         
-        video.setDescricao(request.getParameter("descricao-video"));
-        
+            if(titulo.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor dê um título ao video</p>");
+            }else{
+                video.setTitulo(titulo);        
+            }
+            
+            if(url_video.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor coloque a url do video</p>");
+            }else{
+                video.setUrl_video(url_video);        
+            }
+            
+            if(url_uthumb_video.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para o video</p>");
+            }else{
+                video.setUrl_thumb_video(url_uthumb_video);   
+            }
+            
+            if(descricao.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor coloque alguma descrição</p>");
+            }else{
+                video.setDescricao(descricao);
+            }
+            
+            videoDao.insert(video);
+            out.print("<p class=\"verde\">Video inserido com sucesso</p>");
+            
+        }catch(Exception ex){
+            out.print(ex.getMessage());
+        }finally{
+            out.close();
+        }        
+    }
+    
+    public ArrayList<HomeVideo> getVideos(){
+        return new HomeVideoDao().getVideos();   
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

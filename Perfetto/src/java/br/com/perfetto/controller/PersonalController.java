@@ -48,7 +48,7 @@ public class PersonalController extends HttpServlet {
         if(incluir.equals(action)){
             this.insert(request, response);
         }else if(editar.equals(action)){
-            //this.editBanner(request, response);
+            this.edit(request, response);
         }else if(deletar.equals(action)){
             this.deleteTrainer(request);
         }else if(preEdit.equals(action)){
@@ -115,13 +115,54 @@ public class PersonalController extends HttpServlet {
         
     }
     
+    private void edit(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        PrintWriter out = response.getWriter();
+        
+        Personal personal = new Personal();
+        PersonalDao personalDao = new PersonalDao();        
+        String personalNome = request.getParameter("personal_nome");        
+        String personalArea = request.getParameter("personal_modalidade");
+        String personalImagem = request.getParameter("personal_imagem");        
+        personal.setId(Integer.parseInt(request.getParameter("personal_id")));
+        
+        
+        try{
+            if(!personalNome.isEmpty()){
+                personal.setNome(personalNome);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor informe o nome do personal</p>");
+            }
+            
+            if(!personalArea.isEmpty()){
+                personal.setArea(personalArea);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor informe a área de atuação do personal</p>");
+            }
+            
+            if(personalImagem != null){
+                personal.setImage_path(personalImagem);
+            }else{
+                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para o personal</p>");
+            }   
+            
+            personalDao.edit(personal);
+            out.print("<p class=\"verde\">Trainer editado com sucesso</p>");
+            
+        }catch(Exception ex){
+            out.print(ex.getMessage());
+        }finally{
+            out.close();
+        }
+        
+    }
+    
     private void deleteTrainer(HttpServletRequest request){
         Personal personal = new Personal();
         PersonalDao personalDao = new PersonalDao();
         
         personal.setId(Integer.parseInt(request.getParameter("id")));
         
-        personalDao.deleteTrainer(personal);
+        personalDao.delete(personal);
     }
     
     public ArrayList<Personal> getTrainers(){
