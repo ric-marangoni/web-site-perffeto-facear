@@ -14,7 +14,7 @@
         <br />
         <br />
         <br />
-        <input type="button" id="personal-ajax-submit" class="ajax-submit" value="enviar" />        
+        <input type="button" id="personal-ajax-submit" class="ajax-submit personal-ajax-submit" value="enviar" />        
         <div class="clear"></div>
         <div class="preview">
             <h3>Preview</h3>

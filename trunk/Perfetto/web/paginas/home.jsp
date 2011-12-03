@@ -1,3 +1,5 @@
+<%@page import="br.com.perfetto.entidades.HomeVideo"%>
+<%@page import="br.com.perfetto.controller.HomeVideoController"%>
 <%@page import="br.com.perfetto.entidades.Personal"%>
 <%@page import="br.com.perfetto.controller.PersonalController"%>
 <%@page import="br.com.perfetto.controller.BannerController"%>
@@ -8,6 +10,7 @@
     //VARIÁVEIS E OBJETOS
     BannerController banner = new BannerController();
     PersonalController personal = new PersonalController();
+    HomeVideoController video = new HomeVideoController();
 %>
 
 <div id="banner">
@@ -46,50 +49,29 @@
     <% } %>
     <div class="video"></div>
     <p class="prev"><a href="#">prev</a></p>
-    <div class="carrossel">                    
+    <% ArrayList<HomeVideo> listaVideo = video.getVideos(); %>    
+    <div class="carrossel">
+    <%if(listaVideo.size() > 0){%>    
         <ul>
+            <%for(int i = 0; i < listaVideo.size(); i++){%>
             <li>
                 <div class="thumb">
-                    <a href="http://www.youtube.com/embed/K82jW0G_4nU">
-                        <img src="images/carrossel/teste1.jpg" alt="" />
+                    <a href="<%out.print(listaVideo.get(i).getUrl_video());%>">
+                        <img src="<%out.print(listaVideo.get(i).getUrl_thumb_video());%>" alt="" />
                     </a>
                 </div>
                 <div class="descricao">
-                    <h3>Roberto Gervásio</h3>
+                    <h3><%out.print(listaVideo.get(i).getTitulo());%></h3>
                     <p>
-                        <a href="http://www.youtube.com/embed/K82jW0G_4nU">
-                            NABBA BRASIL 2010 
+                        <a href="<%out.print(listaVideo.get(i).getUrl_video());%>">
+                            <%out.print(listaVideo.get(i).getDescricao());%>
                         </a>
                     </p>
                 </div>
             </li>
-            <li>
-                <div class="thumb">
-                    <a href="http://www.youtube.com/embed/iy4mXZN1Zzk">
-                        <img src="images/carrossel/teste4.jpg" alt="" />
-                    </a>
-                </div>
-                <div class="descricao">
-                    <h3>Robbie Williams</h3>
-                    <p>
-                        <a href="http://www.youtube.com/embed/iy4mXZN1Zzk">
-                            Feel
-                        </a>
-                    </p>
-                </div>                            
-            </li>                        
-            <li>
-                <div class="thumb">
-                    <a href="http://www.youtube.com/embed/hcm55lU9knw">
-                        <img src="images/carrossel/teste2.jpg" alt="" />
-                    </a>
-                </div>
-                <div class="descricao">
-                    <h3>Michel Teló</h3>
-                    <p><a href="http://www.youtube.com/embed/hcm55lU9knw">Aí se eu te pego!</a></p>
-                </div>
-            </li>                                                                     
-        </ul>                    
+            <%}%>                                                                               
+        </ul>
+        <%}%>
     </div>                
     <p class="next"><a href="#">next</a></p>
 </div>

@@ -35,7 +35,27 @@ public class PersonalDao extends DAO {
         }
     }
     
-    public void deleteTrainer(Personal personal){
+    public void edit(Personal personal){
+        PrintWriter out = null; 
+        
+        try{
+            openDataBase();
+            String SQL = "UPDATE personal_trainers SET nome = ?, area = ?, image_path = ? WHERE id_personal_trainers = ?";
+            pstmt = con.prepareStatement(SQL);
+            pstmt.setString(1, personal.getNome());
+            pstmt.setString(2, personal.getArea());                   
+            pstmt.setString(3, personal.getImage_path());
+            pstmt.setInt(4, personal.getId());
+            pstmt.execute();            
+                        
+        }catch(Exception e){
+            out.print("Desculpe-nos o transtorno mais ocorreu o seguinte erro: "+e.getMessage());            
+        }finally{
+            closeDataBase();
+        }
+    }
+    
+    public void delete(Personal personal){
         
         PrintWriter out = null; 
         

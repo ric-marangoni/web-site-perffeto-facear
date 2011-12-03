@@ -64,28 +64,29 @@
     height: 445px;
 }
 
-#personal-incluir #personal-ajax-submit{
+
+#personal-editar{
+    background: #FFF;
+    height: 520px;
+}
+
+.personal-ajax-submit{
     background: #333;
     border-radius: 5px;
     color: #FFF;    
-    margin-left: 239px;
+    margin-left: 208px;
     margin-top: 10px;
     padding: 4px;
     width: 105px;
     text-decoration: none;
 }
 
-#personal-incluir #personal-ajax-submit:hover{
-    background: #CCC;    
-    color: #333;
-    border: 1px solid #333;
-    padding: 3px;
+.personal-ajax-submit:hover{
+    background: #CCC !important;    
+    color: #333 !important;
+    border: 1px solid #333 !important;
+    padding: 3px !important;
     
-}
-
-#personal-editar{
-    background: #FFF;
-    height: 510px;
 }
 
 #personal-excluir{
