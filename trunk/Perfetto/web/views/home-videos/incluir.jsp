@@ -7,9 +7,9 @@
         <span>Título:</span>
         <input type="text" name="titulo-home-video" id="titulo-home-video" class="medio" value="" />
         <span>URL Vídeo:</span>
-        <input type="text" name="url-video" id="url-video" class="medio" value="" />
-        <span>URL Thumb:</span>
-        <input type="text" name="url-thumb" id="url-thumb" class="medio" value="" />
+        <input type="text" name="pre-url-video" id="pre-url-video" class="medio" value="" />
+        <input type="hidden" name="url-video" id="url-video" class="medio" value="" />        
+        <input type="hidden" name="url-thumb" id="url-thumb" class="medio" value="" />
         <span>Descrição: </span>
         <textarea cols="36" rows="4" class="medio" name="descricao-video" id="descricao-video"></textarea>
         <br />
@@ -30,14 +30,13 @@
     jQuery(document).ready(function(){
             jQuery('#video-ajax-submit').click(function(){
                 
-                var input_video = jQuery('#url-video').val();
-                alert(input_video);
-                var reg = new RegExp(/^[src="](.*)["]$/);
-                alert(reg.exec(input_video));
+                var input_video = jQuery('#pre-url-video').val().split("/");
+                jQuery('#url-video').val('http://www.youtube.com/embed/'+input_video[3]);
+                jQuery('#url-thumb').val('http://i2.ytimg.com/vi/'+input_video[3]+'/default.jpg');
                 
                 var dados = jQuery('#form-home-video').serialize();
                 
-                //ajax.normalRequest('HomeVideoController', 'incluir', dados, '.ajax-msg');                  
+                ajax.normalRequest('HomeVideoController', 'incluir', dados, '.ajax-msg');                  
                 
             });
             

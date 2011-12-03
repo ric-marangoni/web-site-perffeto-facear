@@ -245,6 +245,8 @@ ul#menu li:hover ul{
     float: left;
     width: 120px;
     border-bottom: 1px dotted #CCC;
+    height: 62px;
+    overflow: hidden;
 }
 
 .carrossel ul li .descricao p{
