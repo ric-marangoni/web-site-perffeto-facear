@@ -96,7 +96,6 @@
     
 <!-- AQUI ESTÃO AS JANELAS MODAL DOS VIDEOS DA HOME -->
 <%if(session.getAttribute("logado")!= null){%>
-
 <%@include file="../views/home-videos/incluir.jsp"%>
 <%}%>
 

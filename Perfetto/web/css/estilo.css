@@ -810,7 +810,7 @@ ul#menu li:hover ul{
 }
 
 .select-edit{
-    margin: 35px 0 15px 10px;
+    margin: 35px 0 15px 0;
     padding: 3px;
     line-height: 10px
 }

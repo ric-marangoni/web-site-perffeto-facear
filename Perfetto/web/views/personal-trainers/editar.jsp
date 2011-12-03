@@ -39,13 +39,13 @@
             <h3>Preview</h3>
 
             <div id="personal-preview">
-                <div class="preview-personal-imagem">
+                <div class="preview-personal-imagem-editar">
                     <img src="images/sistema/personal-preview.gif" />
                 </div>
-                <div id="preview-personal-nome" class="nome-personal">
+                <div id="preview-personal-nome-editar" class="nome-personal">
                     <a href="javascript:void(0)"></a>                                
                 </div>                           
-                <div id="preview-personal-modalidade" class="area-personal"></div>
+                <div id="preview-personal-modalidade-editar" class="area-personal"></div>
             </div>
         </div>
     </form>    
@@ -73,7 +73,17 @@
                         ajaxLoader.show();
                     },
                     success: function(response){
-                        alert(response);
+                        
+                        var personal = jQuery.parseJSON(response);
+                        
+                        jQuery('#nome-personal-editar').val(personal.nome);                        
+                        jQuery('#modalidade-personal-editar').val(personal.area);
+                        
+                        jQuery('#preview-personal-nome-editar a').html(personal.nome);                        
+                        jQuery('#preview-personal-modalidade-editar').html(personal.area);
+                        
+                        jQuery('.preview-personal-imagem-editar img').attr('src', 'images/trainers/thumb_'+personal.imagem);
+                        
                         ajaxLoader.hide();
                         jQuery('.pre-edit-personal').fadeIn();
                         ajax.uploadRequest('PersonalController', 'upload', 'personal-editar', '.preview-personal-imagem');              
