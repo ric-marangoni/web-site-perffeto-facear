@@ -83,7 +83,12 @@
     
 }
 
-#personal-editar, #personal-excluir{
+#personal-editar{
+    background: #FFF;
+    height: 510px;
+}
+
+#personal-excluir{
     background: #FFF;
     height: 362px;
     width: 375px;

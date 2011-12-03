@@ -33,7 +33,7 @@ public class Aplication extends DAO {
     private static String pcBruno = "C:\\Users\\Ederon Bruno\\Desktop\\Sistema_Perfetto\\Perfetto\\web\\";
     
     public static String getBasePath() {
-        return Aplication.pcRicardo;
+        return Aplication.pcSamela;
     }
 
     public static String upload(HttpServletRequest request, String image_path) throws InterruptedException {
