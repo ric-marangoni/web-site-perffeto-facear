@@ -31,7 +31,7 @@
                 <td class="jump">Power Jump</td> 
                 <td><span>-</span></td>
                 <%if(session.getAttribute("logado") != null){%>
-                <td style="text-align: center;">
+                <td class="ultimo">
                     <input type="button" class="btn-horario-gravar" value="gravar" />
                     <input type="button" class="btn-horario-deletar" value="deletar" />
                 </td>
@@ -46,7 +46,7 @@
                 <td><span>-</span></td> 
                 <td><span>-</span></td>
                 <%if(session.getAttribute("logado") != null){%>
-                <td style="text-align: center;">
+                <td class="ultimo">
                     <input type="button" class="btn-horario-gravar" value="gravar" />
                     <input type="button" class="btn-horario-deletar" value="deletar" />
                 </td>
@@ -61,7 +61,7 @@
                 <td class="spinning">Spinning</td> 
                 <td><span>-</span></td>
                 <%if(session.getAttribute("logado") != null){%>
-                <td style="text-align: center;">
+                <td class="ultimo">
                     <input type="button" class="btn-horario-gravar" value="gravar" />
                     <input type="button" class="btn-horario-deletar" value="deletar" />
                 </td>
@@ -77,7 +77,7 @@
                 <td><span>-</span></td>
                 <td class="danca-salao">Dança de Salão</td>
                 <%if(session.getAttribute("logado") != null){%>
-                <td style="text-align: center;">
+                <td class="ultimo">
                     <input type="button" class="btn-horario-gravar" value="gravar" />
                     <input type="button" class="btn-horario-deletar" value="deletar" />
                 </td>
@@ -98,6 +98,9 @@
                 <th><span>Quinta</span></th> 
                 <th><span>Sexta</span></th>
                 <th><span>Sábado</span></th>
+                <%if(session.getAttribute("logado") != null){%>
+                <th><span>Ações</span></th>
+                <%}%>
             </tr>
             <tr>
                 <td><span>-</span></td>
@@ -107,6 +110,12 @@
                 <td><span>-</span></td>
                 <td><span>-</span></td>
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td class="ultimo">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
         </table>
     </div>
@@ -123,6 +132,9 @@
                 <th><span>Quinta</span></th> 
                 <th><span>Sexta</span></th>
                 <th><span>Sábado</span></th>
+                <%if(session.getAttribute("logado") != null){%>
+                <th><span>Ações</span></th>
+                <%}%>
             </tr>
             <tr>
                 <td>18h20 - 19h20</td> 
@@ -132,6 +144,12 @@
                 <td class="jump">Power Jump</td> 
                 <td class="pump">Body Jump</td> 
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td class="ultimo">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
             <tr>
                 <td>19h30 - 20h30</td>
@@ -141,6 +159,12 @@
                 <td class="pump">Body Jump</td> 
                 <td class="jump">Power Jump</td>
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td class="ultimo">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr> 
             <tr>
                 <td>20h40 - 21h20</td> 
@@ -150,6 +174,12 @@
                 <td class="spinning">Spinning</td> 
                 <td><span>-</span></td>
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td class="ultimo">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
             <tr>
                 <td>20h30 - 22h00</td> 
@@ -159,6 +189,12 @@
                 <td><span>-</span></td>
                 <td class="muay-thai">Mhuay Thai</td>
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td class="ultimo">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
 
             <tr>
@@ -169,6 +205,12 @@
                 <td class="danca-salao">Dança de Salão</td>
                 <td><span>-</span></td>
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td class="ultimo">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
         </table>
     </div>                
