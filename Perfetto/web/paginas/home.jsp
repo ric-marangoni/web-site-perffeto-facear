@@ -79,6 +79,8 @@
 <!-- AQUI ESTÃO AS JANELAS MODAL DOS VIDEOS DA HOME -->
 <%if(session.getAttribute("logado")!= null){%>
 <%@include file="../views/home-videos/incluir.jsp"%>
+<%@include file="../views/home-videos/editar.jsp"%>
+<%@include file="../views/home-videos/deletar.jsp"%>
 <%}%>
 
 

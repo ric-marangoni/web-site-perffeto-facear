@@ -9,6 +9,7 @@ package br.com.perfetto.entidades;
  * @author Ederon Bruno
  */
 public class HomeVideo {
+    private int id;
     private String titulo;
     private String descricao;
     private String url_video;
@@ -68,6 +69,20 @@ public class HomeVideo {
      */
     public void setUrl_thumb_video(String url_thumb_video) {
         this.url_thumb_video = url_thumb_video;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
    
     

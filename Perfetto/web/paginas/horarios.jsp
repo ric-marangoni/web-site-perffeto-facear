@@ -6,7 +6,10 @@
             das 07:00 às 23:30, sexta das 07:00 às 22:30 e sábado das 07:00 às 15:00.</strong>
     </p>
     <div class="horarios">
-        <table border="0" cellspacing="0">
+        <%if(session.getAttribute("logado") != null){%>
+        <%@include file="../views/horarios/horario-toolbar-manha.jsp" %>
+        <%}%>
+        <table border="0" cellspacing="0" id="manha">
             <tr>
                 <th>Manhã</th>
                 <th><span>Segunda</span></th> 
@@ -15,6 +18,9 @@
                 <th><span>Quinta</span></th> 
                 <th><span>Sexta</span></th>
                 <th><span>Sábado</span></th>
+                <%if(session.getAttribute("logado") != null){%>
+                <th><span>Ações</span></th>
+                <%}%>
             </tr>
             <tr>
                 <td>8h00 - 8h50</td> 
@@ -24,6 +30,12 @@
                 <td><span>-</span></td> 
                 <td class="jump">Power Jump</td> 
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td style="text-align: center;">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
             <tr>
                 <td>8h30 - 9h30</td>
@@ -33,6 +45,12 @@
                 <td class="pump">Body Jump</td> 
                 <td><span>-</span></td> 
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td style="text-align: center;">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
             <tr>
                 <td>9h00 - 9h40</td>
@@ -42,6 +60,12 @@
                 <td><span>-</span></td> 
                 <td class="spinning">Spinning</td> 
                 <td><span>-</span></td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td style="text-align: center;">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
 
             <tr>
@@ -52,11 +76,20 @@
                 <td><span>-</span></td> 
                 <td><span>-</span></td>
                 <td class="danca-salao">Dança de Salão</td>
+                <%if(session.getAttribute("logado") != null){%>
+                <td style="text-align: center;">
+                    <input type="button" class="btn-horario-gravar" value="gravar" />
+                    <input type="button" class="btn-horario-deletar" value="deletar" />
+                </td>
+                <%}%>
             </tr>
         </table>
     </div>
     <div class="horarios">
-        <table border="0" cellspacing="0">
+        <%if(session.getAttribute("logado") != null){%>
+        <%@include file="../views/horarios/horario-toolbar-tarde.jsp" %>
+        <%}%>
+        <table border="0" cellspacing="0" id="tarde">
             <tr>    
                 <th>Tarde</th>
                 <th><span>Segunda</span></th> 
@@ -78,7 +111,10 @@
         </table>
     </div>
     <div class="horarios">
-        <table border="0" cellspacing="0">
+        <%if(session.getAttribute("logado") != null){%>
+        <%@include file="../views/horarios/horario-toolbar-noite.jsp" %>
+        <%}%>
+        <table border="0" cellspacing="0" id="noite">
             <tr>
                 <th>Noite</th>
                 <th><span>Segunda</span></th> 
