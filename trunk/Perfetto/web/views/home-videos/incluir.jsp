@@ -1,7 +1,7 @@
 <div id="home-video-incluir" class="window">
     <!-- Botão para fechar a janela tem class="close" -->
     <a href="#" class="close"><img src="images/sistema/close.png" alt="" /></a>    
-    <h2>Incluir Vídeo</h2>    
+    <h2>Incluir Video</h2>    
 
     <form id="form-home-video">
         <span>Título:</span>
@@ -15,7 +15,7 @@
         <br />
         <br />
         <br />
-        <input type="button" id="video-ajax-submit" class="ajax-submit" value="enviar" />        
+        <input type="button" id="video-ajax-submit" class="ajax-submit home-video-ajax-submit" value="enviar" />        
         <div class="clear"></div>        
     </form>    
     <div class="ajax-msg"></div>
@@ -31,6 +31,7 @@
             jQuery('#video-ajax-submit').click(function(){
                 
                 var input_video = jQuery('#pre-url-video').val().split("/");
+                
                 jQuery('#url-video').val('http://www.youtube.com/embed/'+input_video[3]);
                 jQuery('#url-thumb').val('http://i2.ytimg.com/vi/'+input_video[3]+'/default.jpg');
                 

@@ -12,6 +12,7 @@
         <link href="css/modalidades.css" type="text/css" rel="stylesheet" />
         <link href="css/alunos-destaque.css" type="text/css" rel="stylesheet" />
         <link href="css/home-videos.css" type="text/css" rel="stylesheet" />
+        <link href="css/horarios.css" type="text/css" rel="stylesheet" />
         
         <!-- LINK ARQUIVOS JAVASCRIPT -->
         <script type="text/javascript" src="js/jQuery.js"></script>

@@ -14,6 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -42,9 +44,11 @@ public class HomeVideoController extends HttpServlet {
         if(incluir.equals(action)){
             this.insert(request, response);
         }else if(editar.equals(action)){
-            //this.editBanner(request, response);
+            this.edit(request, response);
+        }else if(deletar.equals(action)){
+            this.delete(request);
         }else{
-            //this.delete(request);
+            this.getVideoById(request, response);            
         }
         
     }
@@ -97,8 +101,89 @@ public class HomeVideoController extends HttpServlet {
         }        
     }
     
+    private void edit(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        PrintWriter out = response.getWriter();
+        
+        HomeVideo video = new HomeVideo();
+        HomeVideoDao videoDao = new HomeVideoDao();
+                
+        String titulo = request.getParameter("video_titulo");
+        String url_video = request.getParameter("video_url");
+        String url_uthumb_video = request.getParameter("video_url_thumb");
+        String descricao = request.getParameter("video_descricao");
+        video.setId(Integer.parseInt(request.getParameter("video_id")));
+        
+        try{
+        
+            if(titulo.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor dê um título ao video</p>");
+            }else{
+                video.setTitulo(titulo);        
+            }
+            
+            if(url_video.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor coloque a url do video</p>");
+            }else{
+                video.setUrl_video(url_video);        
+            }
+            
+            if(url_uthumb_video.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para o video</p>");
+            }else{
+                video.setUrl_thumb_video(url_uthumb_video);   
+            }
+            
+            if(descricao.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor coloque alguma descrição</p>");
+            }else{
+                video.setDescricao(descricao);
+            }
+            
+            videoDao.edit(video);
+            out.print("<p class=\"verde\">Video editado com sucesso</p>");
+            
+        }catch(Exception ex){
+            out.print(ex.getMessage());
+        }finally{
+            out.close();
+        }        
+    }
+    
+    private void delete(HttpServletRequest request){
+                
+        HomeVideo video = new HomeVideo();
+        HomeVideoDao videoDao = new HomeVideoDao();
+        
+        video.setId(Integer.parseInt(request.getParameter("id")));
+        
+        try{
+            videoDao.delete(video);
+        }catch(Exception ex){
+        
+        }
+    }
+    
     public ArrayList<HomeVideo> getVideos(){
         return new HomeVideoDao().getVideos();   
+    }
+    
+    private void getVideoById(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        PrintWriter out = response.getWriter();
+        
+        HomeVideo video = new HomeVideoDao().getVideoById(Integer.parseInt(request.getParameter("id")));
+        
+        JSONObject videoJSON = new JSONObject();
+        
+        try{
+            videoJSON.put("id", video.getId());
+            videoJSON.put("titulo", video.getTitulo());
+            videoJSON.put("url_video", video.getUrl_video());
+            videoJSON.put("descricao", video.getDescricao());
+            out.print(videoJSON);
+        }catch(JSONException ex){
+            out.print(ex.getMessage());
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
