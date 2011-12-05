@@ -68,7 +68,7 @@
                 <%}%>
             </tr>
 
-            <tr>
+            <tr id="manha-4">
                 <td>10h30 - 11h30</td>
                 <td><span>-</span></td>
                 <td><span>-</span></td>
@@ -215,3 +215,34 @@
         </table>
     </div>                
 </div>
+            
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        
+        jQuery('body').delegate('input[type=text]', 'focus', function(){            
+            jQuery(this).select();
+        });
+        
+        jQuery('body').delegate('.btn-horario-gravar', 'click', function(){            
+            var formName = jQuery(this).attr('id');
+            var trID = formName.split("-");
+            trID = trID[1]+'-'+trID[2];
+            
+            var horario = jQuery('#'+trID+' .horario-temp').val();
+            var segunda = jQuery('#'+trID+' .segunda-temp').val();
+            var terca = jQuery('#'+trID+' .terca-temp').val();
+            var quarta = jQuery('#'+trID+' .quarta-temp').val();
+            var quinta = jQuery('#'+trID+' .quinta-temp').val();
+            var sexta = jQuery('#'+trID+' .sexta-temp').val();
+            var sabado = jQuery('#'+trID+' .sabado-temp').val();
+            
+            jQuery('#id-'+formName+' .horario').val(horario);            
+            jQuery('#id-'+formName+' .segunda').val(segunda);
+            jQuery('#id-'+formName+' .terca').val(terca);
+            jQuery('#id-'+formName+' .quarta').val(quarta);
+            jQuery('#id-'+formName+' .quinta').val(quinta);
+            jQuery('#id-'+formName+' .sexta').val(sexta);
+            jQuery('#id-'+formName+' .sabado').val(sabado);
+        });
+    });    
+</script>
