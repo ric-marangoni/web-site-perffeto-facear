@@ -16,6 +16,10 @@
         <servlet-name>ModalidadeController</servlet-name>
         <servlet-class>br.com.perfetto.controller.ModalidadeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HorarioController</servlet-name>
+        <servlet-class>br.com.perfetto.controller.HorarioController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/AdminController</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ModalidadeController</servlet-name>
         <url-pattern>/ModalidadeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HorarioController</servlet-name>
+        <url-pattern>/HorarioController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
