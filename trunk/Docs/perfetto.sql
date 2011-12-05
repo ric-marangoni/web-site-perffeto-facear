@@ -86,56 +86,35 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `perfetto`.`periodo`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `perfetto`.`periodo` (
+  `id_periodo` INT NOT NULL AUTO_INCREMENT,
+  `descricao` VARCHAR(15) NOT NULL,
+  PRIMARY KEY (`id_periodo`) )
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
 -- Table `perfetto`.`horario`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `perfetto`.`horario` (
+CREATE  TABLE IF NOT EXISTS `perfetto`.`horarios` (
   `id_horario` INT NOT NULL AUTO_INCREMENT ,
-  `hora` VARCHAR(45) NOT NULL ,
-  `periodo` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`id_horario`) )
+  `id_periodo` int NOT NULL ,
+  `horario` VARCHAR(45) NOT NULL ,
+  `segunda` VARCHAR(45) ,
+  `terca` VARCHAR(45) ,
+  `quarta` VARCHAR(45) ,
+  `quinta` VARCHAR(45) ,
+  `sexta` VARCHAR(45) ,
+  `sabado` VARCHAR(45) ,
+  PRIMARY KEY (`id_horario`),
+  FOREIGN KEY (`id_periodo`) REFERENCES `periodo`(`id_periodo`)
+)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `perfetto`.`dia`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `perfetto`.`dia` (
-  `id_dia` INT NOT NULL AUTO_INCREMENT ,
-  `descricao` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`id_dia`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `perfetto`.`horario_dia_semana`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `perfetto`.`horario_dia_semana` (
-  `id_horario_dia_semana` INT NOT NULL AUTO_INCREMENT ,
-  `id_dia` INT NOT NULL ,
-  `id_horario` INT NOT NULL ,
-  `id_modalidade` INT NOT NULL ,
-  `ordem` INT NOT NULL ,
-  PRIMARY KEY (`id_horario_dia_semana`) ,
-  INDEX `id_dia` (`id_dia` ASC) ,
-  INDEX `id_horario` (`id_horario` ASC) ,
-  INDEX `id_modalidade` (`id_modalidade` ASC) ,
-  CONSTRAINT `id_dia`
-    FOREIGN KEY (`id_dia` )
-    REFERENCES `perfetto`.`dia` (`id_dia` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `id_horario`
-    FOREIGN KEY (`id_horario` )
-    REFERENCES `perfetto`.`horario` (`id_horario` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `id_modalidade`
-    FOREIGN KEY (`id_modalidade` )
-    REFERENCES `perfetto`.`modalidade` (`id_modalidade` )
-    ON DELETE CASCADE
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
+INSERT INTO periodo SET descricao = "manha";
+INSERT INTO periodo SET descricao = "tarde";
+INSERT INTO periodo SET descricao = "noite";
 
 -- -----------------------------------------------------
 -- Table `perfetto`.`categoria`

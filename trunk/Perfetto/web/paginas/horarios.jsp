@@ -213,7 +213,8 @@
                 <%}%>
             </tr>
         </table>
-    </div>                
+    </div>    
+    <div class="ajax-msg"></div>
 </div>
             
 <script type="text/javascript">
@@ -223,11 +224,17 @@
             jQuery(this).select();
         });
         
+        jQuery('body').delegate('input.horario-temp', 'focus', function(){            
+            jQuery(this).mask("99h99 - 99h99",{placeholder: "_"});
+        });
+        
+        
         jQuery('body').delegate('.btn-horario-gravar', 'click', function(){            
             var formName = jQuery(this).attr('id');
             var trID = formName.split("-");
             trID = trID[1]+'-'+trID[2];
             
+            var id = jQuery('#'+trID+' .id-temp').val();           
             var horario = jQuery('#'+trID+' .horario-temp').val();
             var segunda = jQuery('#'+trID+' .segunda-temp').val();
             var terca = jQuery('#'+trID+' .terca-temp').val();
@@ -236,13 +243,22 @@
             var sexta = jQuery('#'+trID+' .sexta-temp').val();
             var sabado = jQuery('#'+trID+' .sabado-temp').val();
             
-            jQuery('#id-'+formName+' .horario').val(horario);            
-            jQuery('#id-'+formName+' .segunda').val(segunda);
-            jQuery('#id-'+formName+' .terca').val(terca);
-            jQuery('#id-'+formName+' .quarta').val(quarta);
-            jQuery('#id-'+formName+' .quinta').val(quinta);
-            jQuery('#id-'+formName+' .sexta').val(sexta);
-            jQuery('#id-'+formName+' .sabado').val(sabado);
+            jQuery('form[name='+formName+'] .id').val(id);            
+            jQuery('form[name='+formName+'] .horario').val(horario);            
+            jQuery('form[name='+formName+'] .segunda').val(segunda);
+            jQuery('form[name='+formName+'] .terca').val(terca);
+            jQuery('form[name='+formName+'] .quarta').val(quarta);
+            jQuery('form[name='+formName+'] .quinta').val(quinta);
+            jQuery('form[name='+formName+'] .sexta').val(sexta);
+            jQuery('form[name='+formName+'] .sabado').val(sabado);
+            
+            var metodo = (id * 1 == 0) ? 'incluir' : 'editar';
+            
+            var params = jQuery('form[name='+formName+']').serialize();
+            alert(params);
+            alert(metodo);
+            
+            ajax.normalRequest('HorarioController', metodo, params, '.ajax-msg');            
         });
     });    
 </script>

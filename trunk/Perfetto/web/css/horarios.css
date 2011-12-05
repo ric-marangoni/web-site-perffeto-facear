@@ -1,0 +1,88 @@
+.horario-toolbar{    
+    width: 152px;
+    height: 35px;
+    background: #F4F4F4;    
+    position: absolute;
+    top: -37px;
+    right: 1px;
+    z-index: 99; 
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 0 0;
+}
+
+.horario-toolbar ul{
+    list-style: none;
+    margin: 2px 10px;
+}
+
+.horario-toolbar ul li{
+    height: 20px;
+    margin: 7px !important;    
+    float: left !important; 
+    border: 0 !important;
+    border-right: 1px solid #FFF !important;
+    padding: 0 !important;    
+}
+
+.horario-toolbar ul li a{
+    color: #333;
+    text-decoration: none;
+    padding: 1px 13px 0 25px;
+    display: block;
+    font-weight: bold;
+}
+
+.horario-toolbar ul li a:hover{
+    text-decoration: underline;
+}
+
+.horario-toolbar ul li.add{
+    background: url("../images/sistema/add.png") no-repeat;    
+}
+
+.btn-horario-gravar{
+    border-radius: 4px;
+    border: 0;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+    background: #98BB26;
+    padding: 4px;
+    margin-right: 5px;
+    width: auto !important;
+}
+
+.btn-horario-gravar:hover{
+    background: #FFF;
+    color: #98BB26;
+    padding: 3px;
+    border: 1px solid #98BB26;
+}
+
+.btn-horario-deletar{
+    border-radius: 4px;
+    border: 0;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+    background: #D94747;
+    padding: 4px;
+    margin-right: 5px;
+    width: auto !important;
+}
+
+.btn-horario-deletar:hover{
+    background: #FFF;
+    color: #D94747;
+    padding: 3px;
+    border: 1px solid #D94747;
+}
+
+#manha input, #tarde input, #noite input{
+    width: 106px;
+}
+
+#manha td.ultimo, #tarde td.ultimo, #noite td.ultimo{
+    width: 150px;
+    text-align: center;
+}

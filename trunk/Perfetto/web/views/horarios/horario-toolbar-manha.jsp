@@ -14,7 +14,10 @@
             
             jQuery('#manha').append('\
                    <tr id="manha-'+trID+'">\
-                        <td><input type="text" class="horario-temp" name="horario" class="horario" /></td>\
+                        <td>\
+                            <input type="text" class="horario-temp" name="horario" />\
+                            <input type="hidden" class="id-temp" name="id" value="0" />\
+                        </td>\
                         <td><input type="text" class="segunda-temp" name="segunda" value="-" /></td>\
                         <td><input type="text" class="terca-temp" name="terca" value="-" /></td>\
                         <td><input type="text" class="quarta-temp" name="quarta" value="-" /></td>\
@@ -25,7 +28,9 @@
                             <input type="button" id="form-manha-'+trID+'" class="btn-horario-gravar" value="gravar" />\
                         </td>\
                         <td class="no-show">\
-                            <form name="form-manha-'+trID+'" id="id-form-manha-'+trID+'">\
+                            <form name="form-manha-'+trID+'">\
+                                <input type="hidden" class="id" name="id" />\
+                                <input type="hidden" name="periodo" value="1" />\
                                 <input type="text" class="horario" name="horario" />\
                                 <input type="text" class="segunda" name="segunda" value="-" />\
                                 <input type="text" class="terca" name="terca" value="-" />\
