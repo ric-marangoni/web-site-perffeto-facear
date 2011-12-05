@@ -8,17 +8,32 @@
 <script type="text/javascript">
     jQuery(document).ready(function(){
         jQuery('#horario-incluir-manha').click(function(){
+            var trID = jQuery('#manha tr').last().attr('id');
+            trID = trID.split("-");
+            trID = trID[1] * 1 + 1;
+            
             jQuery('#manha').append('\
-                   <tr>\
-                        <td><input type="text" name="horario" class="horario" /></td>\
-                        <td><input type="text" name="segunda" value="-" /></td>\
-                        <td><input type="text" name="terca" value="-" /></td>\
-                        <td><input type="text" name="quarta" value="-" /></td>\
-                        <td><input type="text" name="quinta" value="-" /></td>\
-                        <td><input type="text" name="sexta" value="-" /></td>\
-                        <td><input type="text" name="sabado" value="-" /></td>\
+                   <tr id="manha-'+trID+'">\
+                        <td><input type="text" class="horario-temp" name="horario" class="horario" /></td>\
+                        <td><input type="text" class="segunda-temp" name="segunda" value="-" /></td>\
+                        <td><input type="text" class="terca-temp" name="terca" value="-" /></td>\
+                        <td><input type="text" class="quarta-temp" name="quarta" value="-" /></td>\
+                        <td><input type="text" class="quinta-temp" name="quinta" value="-" /></td>\
+                        <td><input type="text" class="sexta-temp" name="sexta" value="-" /></td>\
+                        <td><input type="text" class="sabado-temp" name="sabado" value="-" /></td>\
                         <td class="ultimo">\
-                            <input type="button" class="btn-horario-gravar" value="gravar" />\
+                            <input type="button" id="form-manha-'+trID+'" class="btn-horario-gravar" value="gravar" />\
+                        </td>\
+                        <td class="no-show">\
+                            <form name="form-manha-'+trID+'" id="id-form-manha-'+trID+'">\
+                                <input type="text" class="horario" name="horario" />\
+                                <input type="text" class="segunda" name="segunda" value="-" />\
+                                <input type="text" class="terca" name="terca" value="-" />\
+                                <input type="text" class="quarta" name="quarta" value="-" />\
+                                <input type="text" class="quinta" name="quinta" value="-" />\
+                                <input type="text" class="sexta" name="sexta" value="-" />\
+                                <input type="text" class="sabado" name="sabado" value="-" />\
+                            </form>\
                         </td>\
                    </tr>\
             ');                
