@@ -18,6 +18,12 @@ public class Horario {
     private String quinta;
     private String sexta;
     private String sabado;
+    private String cor_segunda;
+    private String cor_terca;
+    private String cor_quarta;
+    private String cor_quinta;
+    private String cor_sexta;
+    private String cor_sabado;
 
     /**
      * @return the id
@@ -143,5 +149,89 @@ public class Horario {
      */
     public void setSabado(String sabado) {
         this.sabado = sabado;
+    }
+
+    /**
+     * @return the cor_segunda
+     */
+    public String getCor_segunda() {
+        return cor_segunda;
+    }
+
+    /**
+     * @param cor_segunda the cor_segunda to set
+     */
+    public void setCor_segunda(String cor_segunda) {
+        this.cor_segunda = cor_segunda;
+    }
+
+    /**
+     * @return the cor_terca
+     */
+    public String getCor_terca() {
+        return cor_terca;
+    }
+
+    /**
+     * @param cor_terca the cor_terca to set
+     */
+    public void setCor_terca(String cor_terca) {
+        this.cor_terca = cor_terca;
+    }
+
+    /**
+     * @return the cor_quarta
+     */
+    public String getCor_quarta() {
+        return cor_quarta;
+    }
+
+    /**
+     * @param cor_quarta the cor_quarta to set
+     */
+    public void setCor_quarta(String cor_quarta) {
+        this.cor_quarta = cor_quarta;
+    }
+
+    /**
+     * @return the cor_quinta
+     */
+    public String getCor_quinta() {
+        return cor_quinta;
+    }
+
+    /**
+     * @param cor_quinta the cor_quinta to set
+     */
+    public void setCor_quinta(String cor_quinta) {
+        this.cor_quinta = cor_quinta;
+    }
+
+    /**
+     * @return the cor_sexta
+     */
+    public String getCor_sexta() {
+        return cor_sexta;
+    }
+
+    /**
+     * @param cor_sexta the cor_sexta to set
+     */
+    public void setCor_sexta(String cor_sexta) {
+        this.cor_sexta = cor_sexta;
+    }
+
+    /**
+     * @return the cor_sabado
+     */
+    public String getCor_sabado() {
+        return cor_sabado;
+    }
+
+    /**
+     * @param cor_sabado the cor_sabado to set
+     */
+    public void setCor_sabado(String cor_sabado) {
+        this.cor_sabado = cor_sabado;
     }
 }

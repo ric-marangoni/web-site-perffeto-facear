@@ -80,7 +80,7 @@ CREATE  TABLE IF NOT EXISTS `perfetto`.`modalidade` (
   `titulo` VARCHAR(45) NOT NULL ,
   `descricao` VARCHAR(255) NOT NULL ,
   `path_image` VARCHAR(255) NOT NULL ,
-  `ordem` INT NOT NULL ,
+  `mostrar_home` INT,
   PRIMARY KEY (`id_modalidade`) )
 ENGINE = InnoDB;
 
@@ -107,6 +107,12 @@ CREATE  TABLE IF NOT EXISTS `perfetto`.`horarios` (
   `quinta` VARCHAR(45) ,
   `sexta` VARCHAR(45) ,
   `sabado` VARCHAR(45) ,
+  `cor_segunda` VARCHAR(45) ,
+  `cor_terca` VARCHAR(45) ,
+  `cor_quarta` VARCHAR(45) ,
+  `cor_quinta` VARCHAR(45) ,
+  `cor_sexta` VARCHAR(45) ,
+  `cor_sabado` VARCHAR(45) ,
   PRIMARY KEY (`id_horario`),
   FOREIGN KEY (`id_periodo`) REFERENCES `periodo`(`id_periodo`)
 )
@@ -115,16 +121,6 @@ ENGINE = InnoDB;
 INSERT INTO periodo SET descricao = "manha";
 INSERT INTO periodo SET descricao = "tarde";
 INSERT INTO periodo SET descricao = "noite";
-
--- -----------------------------------------------------
--- Table `perfetto`.`categoria`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `perfetto`.`categoria` (
-  `id_categoria` INT NOT NULL AUTO_INCREMENT ,
-  `descricao` VARCHAR(45) NOT NULL ,
-  PRIMARY KEY (`id_categoria`) )
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `perfetto`.`video`
@@ -137,12 +133,7 @@ CREATE  TABLE IF NOT EXISTS `perfetto`.`video` (
   `url_video` VARCHAR(255) NOT NULL ,
   `url_thumb_image` VARCHAR(255) NOT NULL ,
   PRIMARY KEY (`id_video`) ,
-  INDEX `id_categoria` (`id_categoria` ASC) ,
-  CONSTRAINT `id_categoria`
-    FOREIGN KEY (`id_categoria` )
-    REFERENCES `perfetto`.`categoria` (`id_categoria` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  INDEX `id_categoria` (`id_categoria` ASC) 
 ENGINE = InnoDB;
 
 

@@ -79,10 +79,31 @@
 }
 
 #manha input, #tarde input, #noite input{
-    width: 106px;
+    width: 106px;    
 }
 
 #manha td.ultimo, #tarde td.ultimo, #noite td.ultimo{
     width: 150px;
     text-align: center;
+}
+
+.atach-color{
+    text-align: center;
+}
+
+.preenche-espaco{
+    height: 103px;
+    line-height: 103px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.atach-color input{
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.atach-color input, .atach-color .cor-hex{
+    font-weight: bold;
 }

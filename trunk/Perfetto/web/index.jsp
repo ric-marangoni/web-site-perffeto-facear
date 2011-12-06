@@ -13,7 +13,7 @@
         <link href="css/alunos-destaque.css" type="text/css" rel="stylesheet" />
         <link href="css/home-videos.css" type="text/css" rel="stylesheet" />
         <link href="css/horarios.css" type="text/css" rel="stylesheet" />
-        
+                
         <!-- LINK ARQUIVOS JAVASCRIPT -->
         <script type="text/javascript" src="js/jQuery.js"></script>
         <script type="text/javascript" src="js/jQueryUI.js"></script>
@@ -27,6 +27,14 @@
         <script type="text/javascript" src="js/ajax.js" ></script>                
         <script type="text/javascript" src="js/Jcrop.js" ></script>
         <script type="text/javascript" src="js/jquery.maskedinput.js"></script>
+        
+        <!-- PLUGINS -->
+        <link href="plugins/color-picker/css/colorpicker.css" type="text/css" rel="stylesheet" />
+        <link href="plugins/color-picker/css/layout.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="plugins/color-picker/js/colorpicker.js"></script>
+        <script type="text/javascript" src="plugins/color-picker/js/eye.js"></script>
+        <script type="text/javascript" src="plugins/color-picker/js/utils.js"></script>
+        <script type="text/javascript" src="plugins/color-picker/js/layout.js"></script>
         
         <link rel="icon" href="images/logo-perfetto-fav-icon.gif" type="image/x-icon"/>
         <!--[if IE 6]>
@@ -54,12 +62,7 @@
                 <li><a href="index.jsp?pagina=historia">A PERFETTO</a></li>
                 <li><a href="index.jsp?pagina=modalidades">MODALIDADES</a></li>
                 <li><a href="index.jsp?pagina=horarios">HORÁRIOS</a></li>
-                <li><a href="#">GALERIA</a>
-                    <ul>
-                        <li><a href="#" rel="tooltip" title="Ooops! Esta opção está inativa por enquanto">VIDEOS</a></li>
-                        <li><a href="#" rel="tooltip" title="Ooops! Esta opção está inativa por enquanto">FOTOS</a></li>
-                    </ul>
-                </li>
+                <li><a href="#" rel="tooltip" title="Ooops! Esta opção está inativa por enquanto">GALERIA DE FOTOS</a></li>                    
                 <li><a style="border: 0;" href="index.jsp?pagina=contato">CONTATO</a></li>			
             </ul>		
         </div>       	
@@ -82,8 +85,7 @@
                         <li><a href="index.jsp?pagina=home">Home</a></li>
                         <li><a href="index.jsp?pagina=historia">A Perfetto</a></li>
                         <li><a href="index.jsp?pagina=modalidades">Modalidades</a></li>
-                        <li><a href="index.jsp?pagina=horarios">Horários</a></li>
-                        <li><a href="#">Galeria de Videos</a></li>
+                        <li><a href="index.jsp?pagina=horarios">Horários</a></li>                        
                         <li><a href="#">Galeria de Fotos</a></li>
                         <li style="background: none;"><a href="index.jsp?pagina=contato">Contato</a></li>									
                     </ul>
