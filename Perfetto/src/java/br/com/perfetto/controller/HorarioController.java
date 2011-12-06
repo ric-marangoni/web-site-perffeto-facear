@@ -8,6 +8,7 @@ import br.com.perfetto.entidades.Horario;
 import br.com.perfetto.model.HorarioDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,9 +40,9 @@ public class HorarioController extends HttpServlet {
         if(incluir.equals(action)){
             this.insert(request, response);
         }else if(editar.equals(action)){
-            //this.edit(request, response);
+            this.edit(request, response);
         }else if(deletar.equals(action)){
-            //this.delete(request, reponse);
+            this.delete(request, response);
         }
         
     }
@@ -65,6 +66,12 @@ public class HorarioController extends HttpServlet {
                 horario.setQuinta(request.getParameter("quinta"));
                 horario.setSexta(request.getParameter("sexta"));
                 horario.setSabado(request.getParameter("sabado"));
+                horario.setCor_segunda(request.getParameter("cor-segunda"));
+                horario.setCor_terca(request.getParameter("cor-terca"));
+                horario.setCor_quarta(request.getParameter("cor-quarta"));
+                horario.setCor_quinta(request.getParameter("cor-quinta"));
+                horario.setCor_sexta(request.getParameter("cor-sexta"));
+                horario.setCor_sabado(request.getParameter("cor-sabado"));
                 new HorarioDao().insert(horario);
                 out.print("<p class=\"verde\">Horario inserido com sucesso</p>");
             }
@@ -72,6 +79,48 @@ public class HorarioController extends HttpServlet {
             out.print(ex.getMessage());
         }
         
+    }
+    
+    private void edit(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        
+        PrintWriter out = response.getWriter();
+        
+        Horario horario = new Horario();
+        String strHorario = request.getParameter("horario");
+        
+        try{
+            if(strHorario.isEmpty()){
+                throw new Exception("<p class=\"vermelho\">Por favor preencha o campo horario</p>");
+            }else{
+                horario.setId(Integer.parseInt(request.getParameter("id")));
+                horario.setHorario(strHorario);
+                horario.setPeriodo(Integer.parseInt(request.getParameter("periodo")));
+                horario.setSegunda(request.getParameter("segunda"));
+                horario.setTerca(request.getParameter("terca"));
+                horario.setQuarta(request.getParameter("quarta"));
+                horario.setQuinta(request.getParameter("quinta"));
+                horario.setSexta(request.getParameter("sexta"));
+                horario.setSabado(request.getParameter("sabado"));
+                horario.setCor_segunda(request.getParameter("cor-segunda"));
+                horario.setCor_terca(request.getParameter("cor-terca"));
+                horario.setCor_quarta(request.getParameter("cor-quarta"));
+                horario.setCor_quinta(request.getParameter("cor-quinta"));
+                horario.setCor_sexta(request.getParameter("cor-sexta"));
+                horario.setCor_sabado(request.getParameter("cor-sabado"));
+                new HorarioDao().edit(horario);
+                out.print("<p class=\"verde\">Horario inserido com sucesso</p>");
+            }
+        }catch(Exception ex){
+            out.print(ex.getMessage());
+        }        
+    }
+    
+    private void delete(HttpServletRequest request, HttpServletResponse response){
+        new HorarioDao().delete(Integer.parseInt(request.getParameter("id")));
+    }
+    
+    public ArrayList<Horario> getHorarios(int periodo){
+        return new HorarioDao().getHorarios(periodo);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
