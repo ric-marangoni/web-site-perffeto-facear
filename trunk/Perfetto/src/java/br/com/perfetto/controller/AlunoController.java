@@ -16,6 +16,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  *
@@ -31,7 +33,7 @@ public class AlunoController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, InterruptedException {
+            throws ServletException, IOException, InterruptedException, JSONException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
@@ -39,24 +41,27 @@ public class AlunoController extends HttpServlet {
         String incluir = "incluir";
         String editar = "editar";
         String deletar = "deletar";
+        String upload = "upload";
         
         if(incluir.equals(action)){
             this.insert(request, response);
         }else if(editar.equals(action)){
             //this.editBanner(request, response);
         }else if(deletar.equals(action)){
-            //this.deleteBanner(request, response);
-        }else{
+            this.delete(request);
+        }else if(upload.equals(action)){
             this.upload(request, response);
+        }else{
+            this.getAlunoById(request, response);
         }
     }
     
     private void upload(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
         PrintWriter out = response.getWriter();
         
-        String path = "images/trainers/";
+        String path = "images/alunos/";
         int resizeWidth = 1000;
-        int thumbWidth = 108;
+        int thumbWidth = 106;
         
         String itemName = Aplication.upload(request, path);
         Aplication.resizeIt(path, itemName, resizeWidth, "");
@@ -79,19 +84,19 @@ public class AlunoController extends HttpServlet {
             if(!alunoNome.isEmpty()){
                 aluno.setNome(alunoNome);
             }else{
-                throw new Exception("<p class=\"vermelho\">Por favor informe o nome do personal</p>");
+                throw new Exception("<p class=\"vermelho\">Por favor informe o nome do aluno</p>");
             }
             
             
             if(alunoImagem != null){
                 aluno.setImage_path(alunoImagem);
             }else{
-                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para o personal</p>");
+                throw new Exception("<p class=\"vermelho\">Por favor escolha uma imagem para o aluno</p>");
             }            
 
             alunoDao.insert(aluno);
 
-            out.print("<p class=\"verde\">Trainer inserido com sucesso</p>");        
+            out.print("<p class=\"verde\">Aluno inserido com sucesso</p>");        
             
         }catch(Exception ex){
             out.print(ex.getMessage());
@@ -99,22 +104,45 @@ public class AlunoController extends HttpServlet {
         
     }
     
-    private void deleteDestaque(HttpServletRequest request){
+    private void delete(HttpServletRequest request){
         Aluno aluno = new Aluno();
         AlunoDao alunoDao = new AlunoDao();
         
         aluno.setId(Integer.parseInt(request.getParameter("id")));
         
-        alunoDao.deleteDestaque(aluno);
+        alunoDao.delete(aluno);
     }
     
-    public ArrayList<Aluno> getDestaque(){
+    public ArrayList<Aluno> getAlunos(){
         
-        AlunoDao personalDao = new AlunoDao();
+        AlunoDao alunoDao = new AlunoDao();
         
-        return personalDao.getAllDestaque();
+        return alunoDao.getAlunos();
         
     }
+    
+    private void getAlunoById(HttpServletRequest request, HttpServletResponse response) throws IOException, JSONException{
+        PrintWriter out = response.getWriter();
+        
+        Aluno aluno = new AlunoDao().getAlunoById(Integer.parseInt(request.getParameter("id")));
+        
+        JSONObject alunoJSON = new JSONObject();
+        
+        try{
+            alunoJSON.put("id", aluno.getId());
+            alunoJSON.put("nome", aluno.getNome());
+            alunoJSON.put("imagem", aluno.getImage_path());
+            
+            out.print(alunoJSON);
+        }catch(JSONException ex){
+            out.print(ex.getMessage());
+        }
+        
+    }
+    
+    
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -128,7 +156,11 @@ public class AlunoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (JSONException ex) {
+                Logger.getLogger(AlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (InterruptedException ex) {
             Logger.getLogger(AlunoController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -145,7 +177,11 @@ public class AlunoController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (JSONException ex) {
+                Logger.getLogger(AlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (InterruptedException ex) {
             Logger.getLogger(AlunoController.class.getName()).log(Level.SEVERE, null, ex);
         }

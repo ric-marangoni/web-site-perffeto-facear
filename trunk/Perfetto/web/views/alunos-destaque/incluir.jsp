@@ -7,24 +7,28 @@
         <span>Nome:</span>
         <input type="text" name="nome-aluno" id="nome-aluno" class="medio" />
         <span>Imagem: </span>
-        <div class="campo-upload">Buscar imagem no computador</div>
+        <div class="campo-upload">Buscar imagem...</div>
         <input type="button" name="imagem-aluno" class="ajax-submit aluno-incluir" id="imagem-aluno" value="buscar arquivo" />
         <br />
         <br />
         <br />
-        <input type="button" id="aluno-ajax-submit" class="ajax-submit" value="enviar" />
+        <input type="button" id="aluno-ajax-submit" class="ajax-submit alunos-ajax-submit" value="enviar" />
     </form>    
     <div class="clear"></div>
     
     <div class="preview">
         <h3>Preview</h3>
         <form>
-            <div class="ajax-msg"><img src="images/preview.jpg" /></div>
-            <p id="preview-aluno-nome"></p>           
+            <div class="preview-aluno">
+            <div class="resposta">
+              <img src="images/sistema/personal-preview.gif" />
+            </div>
+            <p class="nome-aluno"><a href="#"></a></p>     
+            </div>
         </form>        
-    </div>
-    
-    <div class="resposta"></div>
+    </div>  
+    <div class="ajax-msg"></div>
+   
     
     
 </div>
@@ -34,14 +38,14 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function(){
-        ajax.uploadRequest('alunoController', 'upload', 'aluno-incluir', '.ajax-msg');
+        ajax.uploadRequest('AlunoController', 'upload', 'aluno-incluir', '.resposta');
                
-        jQuery('#nome-aluno').blur(function(){
-            jQuery('#preview-aluno-nome').html(jQuery(this).val());          
+        jQuery('#nome-aluno').keyup(function(){
+            jQuery('.nome-aluno a').html(jQuery(this).val());          
         }); 
           
         jQuery('#aluno-ajax-submit').click(function(){
-            var imageParts = jQuery('.ajax-msg img').attr('src').split("/");
+            var imageParts = jQuery('.resposta img').attr('src').split("/");
             
             var image = imageParts[2];
             
@@ -52,7 +56,7 @@
                 aluno_imagem: image
             };
             
-            ajax.normalRequest('alunoController', 'incluir', params, '.resposta');            
+            ajax.normalRequest('AlunoController', 'incluir', params, '.ajax-msg');            
         });
         
         

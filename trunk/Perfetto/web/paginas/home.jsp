@@ -11,6 +11,7 @@
     BannerController banner = new BannerController();
     PersonalController personal = new PersonalController();
     HomeVideoController video = new HomeVideoController();
+    AlunoController aluno = new AlunoController();
 %>
 
 <div id="banner">
@@ -149,7 +150,7 @@
     <%@include file="../views/alunos-destaque/alunos-toolbar.jsp"%>
     <%}%>
     <div id="scroll-pane">
-        <div id="scroll-content">
+        <div id="scroll-content">            
             <div class="scroll-content-item">
                 <img src="images/trainers/trainers1.jpg" alt="" />
                 <div class="nome-aluno">
@@ -226,5 +227,10 @@
     </div>
 </div>            
 <div class="clear"></div>
+
+<%if(session.getAttribute("logado") != null){%>
+<%@include file="../views/alunos-destaque/incluir.jsp" %>
+<%@include file="../views/alunos-destaque/editar.jsp" %>
+<%}%>
     
     

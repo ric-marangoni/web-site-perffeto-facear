@@ -47,6 +47,8 @@ CREATE  TABLE IF NOT EXISTS `perfetto`.`admin` (
   UNIQUE INDEX `login_UNIQUE` (`login` ASC) )
 ENGINE = InnoDB;
 
+INSERT INTO admin SET nome = "Ricardo", sobrenome = "Marangoni", login = "admin", senha = "admin";
+
 
 -- -----------------------------------------------------
 -- Table `perfetto`.`home_modalidades`
@@ -133,7 +135,7 @@ CREATE  TABLE IF NOT EXISTS `perfetto`.`video` (
   `url_video` VARCHAR(255) NOT NULL ,
   `url_thumb_image` VARCHAR(255) NOT NULL ,
   PRIMARY KEY (`id_video`) ,
-  INDEX `id_categoria` (`id_categoria` ASC) 
+  INDEX `id_categoria` (`id_categoria` ASC)) 
 ENGINE = InnoDB;
 
 

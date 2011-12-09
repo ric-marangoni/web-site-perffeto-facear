@@ -50,7 +50,7 @@
     float: left;    
 }
 
-#descricao-modalidade{
+#descricao-modalidade, #descricao-modalidade-editar{
     padding: 2px;
     height: 222px;
     color: #777;
@@ -61,4 +61,14 @@
     background: #FFF;
     width: 960px;
     height: 470px;
+}
+
+#modalidade-editar{
+    background: #FFF;
+    width: 960px;
+    height: 540px;
+}
+
+#form-modalidade-editar{
+    display: none;
 }

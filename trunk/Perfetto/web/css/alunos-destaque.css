@@ -46,7 +46,7 @@
     background: url("../images/sistema/delete.png") no-repeat;    
 }
 
-#alunos-preview{
+.preview-aluno{
     margin: 20px 40px;
     position: relative;
     border: 1px solid gray;
@@ -54,23 +54,23 @@
     width: 106px;
 }
 
-#alunos-incluir{
+#aluno-incluir{
     background: #FFF;
     height: 445px;
 }
 
-#alunos-incluir #alunos-ajax-submit{
+#aluno-incluir .alunos-ajax-submit{
     background: #333;
     border-radius: 5px;
     color: #FFF;    
-    margin-left: 239px;
+    margin-left: 203px;
     margin-top: 10px;
     padding: 4px;
     width: 105px;
     text-decoration: none;
 }
 
-#alunos-incluir #alunos-ajax-submit:hover{
+#aluno-incluir .alunos-ajax-submit:hover{
     background: #CCC;    
     color: #333;
     border: 1px solid #333;
@@ -78,33 +78,35 @@
     
 }
 
-#alunos-editar, #alunos-excluir{
+#aluno-editar, #aluno-excluir{
     background: #FFF;
-    height: 362px;
+    height: 450px;
     width: 375px;
 }
 
-#alunos-editar ul.editar li, #alunos-excluir ul.editar li{
+#aluno-editar ul.editar li, #aluno-excluir ul.editar li{
     height: 109px;
     margin: 15px 0;
     padding-bottom: 15px;
     background: #F5F5F5;
 }
 
-#alunos-excluir ul li img, #personal-editar ul li img{
+#aluno-excluir ul li img, #aluno-editar ul li img{
     float: left;
     margin: 7px;
     border: 1px solid gray;
     padding: 2px;
 }
 
-#alunos-excluir ul li p, #personal-editar ul li p{
+#aluno-excluir ul li p, #aluno-editar ul li p{
     margin-top: 35px;
 }
 
+.pre-edit-aluno{
+    display: none;
+}
 
-
-.show-image-alunos{	
+.show-image-aluno{	
     position: absolute;
     display: none;    
     border: 1px solid gray;
