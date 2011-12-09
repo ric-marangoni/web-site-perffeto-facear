@@ -448,7 +448,7 @@ ul#menu li:hover ul{
     position: relative;
 }
 
-.scroll-content-item .nome-aluno{
+.nome-aluno{
     position: absolute;
     bottom: 2px;	
     background: #FFF;
@@ -460,7 +460,7 @@ ul#menu li:hover ul{
     text-align: left;
 }
 
-.scroll-content-item .nome-aluno a{
+.nome-aluno a{
     color: #000;
     font-weight: bold;
     font-size: 10px;
@@ -895,7 +895,7 @@ ul#menu li:hover ul{
     float: left;
     padding: 4px;
     height: 16px;
-    width: 157px;
+    width: 180px;
 }
 
 .window input{

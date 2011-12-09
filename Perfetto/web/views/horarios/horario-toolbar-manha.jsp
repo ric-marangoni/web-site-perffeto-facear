@@ -38,7 +38,7 @@
                         </div>\
 						<br />\
 						Cor atual: <span class="cor-hex">333333</span>\
-                    </td>\\n\
+                    </td>\
                     <td class="atach-color" id="td-manha-'+trID+2+'">\
                         <input type="text" class="quarta-temp" name="quarta-temp" value="-" />\
                         <input type="hidden" class="cor-quarta-temp" value="333333" />\

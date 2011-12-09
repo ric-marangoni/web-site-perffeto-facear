@@ -12,7 +12,7 @@ public class DAO {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/perfetto";
             String user = "root";
-            String password = "admin";
+            String password = "";
 
             con = DriverManager.getConnection(url, user, password);
         }catch(Exception e){            

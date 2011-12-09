@@ -1,10 +1,10 @@
 jQuery(document).ready(
     function(){			    		
         var Banner = jQuery('#banner ul.banner');
-        var primeiroVideo = jQuery('.descricao a').eq(0).attr('href');        
-        
-        jQuery('.video').html(geraFrameTag(primeiroVideo));
-        
+        if(jQuery('.descricao a').length > 0){
+            var primeiroVideo = jQuery('.descricao a').eq(0).attr('href');       
+            jQuery('.video').html(geraFrameTag(primeiroVideo));
+        }
         jQuery('.descricao a, .thumb a').click(function(){
             var link = jQuery(this).attr('href');
             var tagVideo = geraFrameTag(link);
@@ -157,16 +157,17 @@ jQuery(document).ready(
                 pager: '.pager'
             });
         }
-
-        jQuery('.carrossel').jCarouselLite({
-            vertical: true,
-            visible: 3,            
-            speed: 700,
-            circular: true,
-            btnPrev: '.prev',
-            btnNext: '.next'
-        });   
-   
+       
+        if(jQuery('.carrossel ul li').length > 0){
+            jQuery('.carrossel').jCarouselLite({
+                vertical: true,
+                visible: 3,            
+                speed: 700,
+                circular: true,
+                btnPrev: '.prev',
+                btnNext: '.next'
+            });   
+        }
         jQuery("*[rel=tooltip]").hover(
             function(e){                
                 jQuery("body").append('<div class="tooltip">'+jQuery(this).attr('title')+'</div>');                

@@ -33,7 +33,8 @@ public class AlunoDao extends DAO {
             closeDataBase();
         }
     }
-    public void deleteDestaque(Aluno aluno){
+    
+    public void delete(Aluno aluno){
         
         PrintWriter out = null; 
         
@@ -51,13 +52,13 @@ public class AlunoDao extends DAO {
         
     }
     
-    public ArrayList<Aluno> getAllDestaque(){
+    public ArrayList<Aluno> getAlunos(){
         PrintWriter out = null; 
         ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
         
         try{
             openDataBase();
-            String SQL = "SELECT * FROM personal_trainers";
+            String SQL = "SELECT * FROM alunos_destaque";
             pstmt = con.prepareStatement(SQL);            
             rs = pstmt.executeQuery(SQL);
             
@@ -76,5 +77,29 @@ public class AlunoDao extends DAO {
         }
         
         return listaAluno;
+    }
+    
+    public Aluno getAlunoById(int id){
+        Aluno aluno = new Aluno();
+        
+        try{
+            openDataBase();
+            String SQL = "SELECT * FROM alunos_destaque WHERE id_alunos_destaque = ?";
+            pstmt = con.prepareStatement(SQL);
+            pstmt.setInt(1, id);
+            rs = pstmt.executeQuery();
+            
+            if(rs.first()){                                
+                aluno.setNome(rs.getString("nome"));
+                aluno.setId(rs.getInt("id_alunos_destaque"));
+                aluno.setImage_path(rs.getString("image_path"));                
+            }
+        }catch(Exception ex){
+        
+        }finally{
+            closeDataBase();
+        }
+        
+        return aluno;           
     }
 }
